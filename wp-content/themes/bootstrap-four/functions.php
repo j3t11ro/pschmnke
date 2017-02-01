@@ -58,21 +58,38 @@ add_action( 'after_setup_theme', 'bootstrap_four_setup' );
 if ( ! function_exists( 'bootstrap_four_theme_styles' ) ) :
   function bootstrap_four_theme_styles() {
     global $bootstrap_four_version;
-    wp_enqueue_style( 'bootstrap-four-font-awesome', get_template_directory_uri() . '/css/font-awesome.min.css', array(), '4.4.0' );
     wp_register_style( 'bootstrap-four-bootstrap', get_template_directory_uri() . '/css/bootstrap.min.css', array(), $bootstrap_four_version );
-    wp_enqueue_style( 'bootstrap-four-styles', get_stylesheet_uri(), array( 'bootstrap-four-bootstrap' ), '1' );
+    wp_enqueue_style( 'psychomunkee-styles', get_stylesheet_uri(), array( 'bootstrap-four-bootstrap' ), null );
   }
 endif;
 add_action('wp_enqueue_scripts', 'bootstrap_four_theme_styles');
 
 
-if ( ! function_exists( 'bootstrap_four_theme_scripts' ) ) :
-  function bootstrap_four_theme_scripts() {
-    global $bootstrap_four_version;
-    wp_enqueue_script( 'bootstrap-four-bootstrap', get_template_directory_uri() . '/js/bootstrap.js', array( 'jquery' ), $bootstrap_four_version, true );
+// if ( ! function_exists( 'bootstrap_four_theme_scripts' ) ) :
+//   function bootstrap_four_theme_scripts() {
+//     global $bootstrap_four_version;
+//     wp_enqueue_script( 'bootstrap-four-bootstrap', get_template_directory_uri() . '/assets/js/vendor/bootstrap.js', array( 'jquery' ), $bootstrap_four_version, true );
+//   }
+// endif;
+// add_action('wp_enqueue_scripts', 'bootstrap_four_theme_scripts');
+
+//Custom Starts here
+//
+//
+
+// ** Add Default Scripts
+if ( ! function_exists( 'psychomunkee_scripts' ) ) :
+  function psychomunkee_scripts() {
+    wp_enqueue_script( 'psychomunkee-default', get_template_directory_uri() . '/assets/js/scripts.js', array( 'jquery' ), null, true );
   }
 endif;
-add_action('wp_enqueue_scripts', 'bootstrap_four_theme_scripts');
+add_action('wp_enqueue_scripts', 'psychomunkee_scripts');
+
+// ** Add live reload
+if (in_array($_SERVER['REMOTE_ADDR'], array('127.0.0.1', '::1'))) {
+  wp_register_script('livereload', 'http://localhost:35729/livereload.js?snipver=1', null, false, true);
+  wp_enqueue_script('livereload');
+}
 
 
 function bootstrap_four_nav_li_class( $classes, $item ) {
