@@ -1,0 +1,178 @@
+
+
+// Gotham Font Face Mixins
+/////////////////////
+
+
+@mixin josefinThin(){
+    font-family: $font-family-josefin;
+    font-style: normal;
+    font-weight: 100 !important;
+}
+
+@mixin josefinThinItalic(){
+    font-family: $font-family-josefin;
+    font-style: italic;
+    font-weight: 100 !important;
+}
+
+@mixin josefinLight(){
+    font-family: $font-family-josefin;
+    font-style: normal;
+    font-weight: 300 !important;
+}
+
+@mixin josefinLightItalic(){
+    font-family: $font-family-josefin;
+    font-style: italic;
+    font-weight: 300 !important;
+}
+
+@mixin josefinRegular(){
+    font-family: $font-family-josefin;
+    font-style: normal;
+    font-weight: 400 !important;
+}
+
+@mixin josefinRegularItalic(){
+    font-family: $font-family-josefin;
+    font-style: italic;
+    font-weight: 400 !important;
+}
+
+@mixin josefinSemiBold(){
+    font-family: $font-family-josefin;
+    font-style: normal;
+    font-weight: 600 !important;
+}
+
+@mixin josefinSemiBoldItalic(){
+    font-family: $font-family-josefin;
+    font-style: italic;
+    font-weight: 600 !important;
+}
+
+@mixin josefinBold(){
+    font-family: $font-family-josefin;
+    font-style: normal;
+    font-weight: 700 !important;
+}
+
+@mixin josefinBoldItalic(){
+    font-family: $font-family-josefin;
+    font-style: italic;
+    font-weight: 700 !important;
+}
+
+
+
+
+//Raleway
+@mixin raleThin(){
+    font-family: $font-family-raleway;
+    font-style: normal;
+    font-weight: 100 !important;
+}
+
+@mixin raleThinItalic(){
+    font-family: $font-family-raleway;
+    font-style: italic;
+    font-weight: 100 !important;
+}
+
+@mixin raleExtraThin(){
+    font-family: $font-family-raleway;
+    font-style: normal;
+    font-weight: 200 !important;
+}
+
+@mixin raleExtraThinLight(){
+    font-family: $font-family-raleway;
+    font-style: italic;
+    font-weight: 200 !important;
+}
+
+@mixin raleLight(){
+    font-family: $font-family-raleway;
+    font-style: normal;
+    font-weight: 300 !important;
+}
+
+@mixin raleLightItalic(){
+    font-family: $font-family-raleway;
+    font-style: italic;
+    font-weight: 300 !important;
+}
+
+
+@mixin raleRegular(){
+    font-family: $font-family-raleway;
+    font-style: normal;
+    font-weight: 400 !important;
+}
+
+@mixin raleRegularItalic(){
+    font-family: $font-family-raleway;
+    font-style: italic;
+    font-weight: 400 !important;
+}
+
+@mixin raleMedium(){
+    font-family: $font-family-raleway;
+    font-style: normal;
+    font-weight: 500 !important;
+}
+
+@mixin raleMediumitalic(){
+    font-family: $font-family-raleway;
+    font-style: italic;
+    font-weight: 500 !important;
+}
+
+@mixin raleSemiBold(){
+    font-family: $font-family-raleway;
+    font-style: normal;
+    font-weight: 600 !important;
+}
+
+@mixin raleSemiBoldItalic(){
+    font-family: $font-family-raleway;
+    font-style: italic;
+    font-weight: 600 !important;
+}
+
+@mixin raleBold(){
+    font-family: $font-family-raleway;
+    font-style: normal;
+    font-weight: 700 !important;
+}
+
+@mixin raleBoldItalic(){
+    font-family: $font-family-raleway;
+    font-style: italic;
+    font-weight: 700 !important;
+}
+
+@mixin raleExtraBold(){
+    font-family: $font-family-raleway;
+    font-style: normal;
+    font-weight: 800 !important;
+}
+
+@mixin raleExtraBoldItalic(){
+    font-family: $font-family-raleway;
+    font-style: italic;
+    font-weight: 800 !important;
+}
+
+@mixin raleBlack(){
+    font-family: $font-family-raleway;
+    font-style: normal;
+    font-weight: 900 !important;
+}
+
+@mixin raleBlack(){
+    font-family: $font-family-raleway;
+    font-style: italic;
+    font-weight: 900 !important;
+}

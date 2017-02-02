@@ -58,8 +58,8 @@ add_action( 'after_setup_theme', 'bootstrap_four_setup' );
 if ( ! function_exists( 'bootstrap_four_theme_styles' ) ) :
   function bootstrap_four_theme_styles() {
     global $bootstrap_four_version;
-    wp_register_style( 'bootstrap-four-bootstrap', get_template_directory_uri() . '/css/bootstrap.min.css', array(), $bootstrap_four_version );
-    wp_enqueue_style( 'psychomunkee-styles', get_stylesheet_uri(), array( 'bootstrap-four-bootstrap' ), null );
+    wp_enqueue_style( 'psychomunkee-styles', get_template_directory_uri() . '/style.css', null );
+
   }
 endif;
 add_action('wp_enqueue_scripts', 'bootstrap_four_theme_styles');

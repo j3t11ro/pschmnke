@@ -1,21 +1,19 @@
-/*
-Theme Name: Bootstrap Four
-Theme URI: http://bootstrapfour.hyprtxt.com/
-Author: Taylor Young
-Author URI: http://hyprtxt.com/
-Description: A versatile and responsive Bootstrap WordPress starter theme FOR DEVELOPERS based on Alpha Twitter Bootstrap 4.
-Version: 0.2.3
-License: MIT
-License URI: http://www.gnu.org/licenses/gpl.html
-Tags: one-column, right-sidebar, responsive-layout, fluid-layout, custom-menu
-Text Domain: bootstrap-four
 
-bootstrapfour WordPress Theme, Copyright 2015 Taylor Young.
-*/
 
-/* The bootstrap.css file is auto-enqueued in functions.php, also font-awesome */
 
-/* YOU SHOULD BE MAKING A CHILD THEME. Don't make me be the bad guy and erase all your hard work with a theme update. I don't want to destroy your world. A child theme template is in the works, watch the GitHub repo (https://github.com/Hyprtxt/bootstrapfour) to keep up with developments */
+/* * * * * * * * * * * * * * *
+ * Base Structure
+ * * * * * * * * * * * * * * */
+
+html,
+body {
+  height: 100%;
+}
+body {
+  color: $white;
+  text-align: center;
+  text-shadow: 0 1px 3px rgba(0,0,0,.5);
+}
 
 
 /* * * * * * * * * * * * * * *
@@ -107,6 +105,3 @@ nav.navbar {
   margin-bottom: 2rem;
 }
 
-body{
-    background-color: blue;
-}

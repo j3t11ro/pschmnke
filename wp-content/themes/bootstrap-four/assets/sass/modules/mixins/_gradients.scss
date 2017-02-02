@@ -1,0 +1,22 @@
+//Border Gradient
+/////////////////////
+// @mixin pm-border-gradient(){
+//         border: 1px solid transparent;
+//         -moz-border-image: -moz-linear-gradient(left, $vo-green 0%, $vo-blue 100%);
+//         -webkit-border-image: -webkit-linear-gradient(left, $vo-green 0%, $vo-blue 100%);
+//         border-image: linear-gradient(to right, $vo-green 0%, $vo-blue 100%);
+//         border-image-slice: 1;
+// }
+
+//Background Gradient
+/////////////////////
+@mixin pm-background-gradient($type, $start-color, $end-color){
+    background-image: -moz-linear-gradient($type,$start-color 0,$end-color 100%);
+    background-image: -webkit-linear-gradient($type,$start-color 0,$end-color 100%);
+    background-image: linear-gradient($type,$start-color 0,$end-color 100%);
+        /*border: 1px solid transparent;
+        -moz-border-image: -moz-linear-gradient(left, $vo-green 0%, $vo-blue 100%);
+        -webkit-border-image: -webkit-linear-gradient(left, $vo-green 0%, $vo-blue 100%);
+        border-image: linear-gradient(to right, $vo-green 0%, $vo-blue 100%);
+        border-image-slice: 1;*/
+}

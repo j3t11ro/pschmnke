@@ -10,18 +10,20 @@ $main_nav_options = array(
 );
 ?>
 
+
 <?php if ( has_nav_menu( 'main_menu' ) ) : ?>
-  <nav class="navbar navbar-light bg-faded">
-    <div class="container">
-      <a class="navbar-brand" href="<?php echo esc_url( home_url( '/' ) ); ?>"><?php bloginfo( 'name' ); ?></a>
-      <?php wp_nav_menu( $main_nav_options ); ?>
-      <?php
-      $tagline = esc_attr( get_bloginfo( 'description' ) );
-      if ( $tagline ) :
-      ?>
-        <div class="clearfix"></div>
-        <span><?php echo $tagline; ?></span>
-      <?php endif; ?>
-    </div><!-- .container -->
-  </nav>
-<?php endif; ?>
+        <div class="masthead clearfix">
+            <div class="inner">
+              <a class="masthead-brand navbar-brand" href="<?php echo esc_url( home_url( '/' ) ); ?>"><?php bloginfo( 'name' ); ?></a>
+              <nav class="navbar masthead-nav navbar-toggleable-xs">
+                <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#pm-main-menu" aria-controls="pm-main-menu" aria-expanded="false" aria-label="Toggle navigation">
+                  <span class="icon-air"></span>
+                  <span class="icon-cross"></span>
+                </button>
+                  <div class="collapse navbar-collapse" id="pm-main-menu">
+                 <?php wp_nav_menu( $main_nav_options ); ?>
+                 </div>
+              </nav>
+            </div>
+          </div>
+ <?php endif; ?>
