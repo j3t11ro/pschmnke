@@ -15,6 +15,8 @@ var config = {
 	scripts: [
          // Bootstrap
 		'./assets/js/vendor/bootstrap.js',
+		// PagePiling
+		'./assets/js/vendor/jquery.pagepiling.js',
 		// Any Custom Scripts
 		'./assets/js/app/**/*.js',
 	]

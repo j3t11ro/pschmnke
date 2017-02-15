@@ -1,0 +1,108 @@
+/*
+ * Header
+ */
+.masthead-brand {
+    background-image: url('.../../assets/images/pmLogoText.png');
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center center;
+    position: relative;
+    margin-left: 1rem;
+    width: 150px;
+    height: 35px;
+}
+
+#pm-main-menu .nav > li {
+  display: inline-block;
+  margin-left: 15px;
+}
+#pm-main-menu .nav > li + li {
+  margin-left: 20px;
+}
+#pm-main-menu .nav > li > a {
+  padding-right: 0;
+  padding-left: 0;
+  font-size: 16px;
+  font-weight: bold;
+  color: $pmDarkGray;
+  border-bottom: 2px solid transparent;
+}
+#pm-main-menu .nav > li > a:hover,
+#pm-main-menu .nav > li > a:focus {
+  background-color: transparent;
+  border-bottom-color: #a9a9a9;
+  border-bottom-color: rgba(255,255,255,.25);
+}
+#pm-main-menu .nav > .active > a,
+#pm-main-menu .nav > .active > a:hover,
+#pm-main-menu .nav > .active > a:focus {
+  border-bottom-color: $pmPink;
+}
+
+@media (min-width: 768px) {
+  .masthead-brand {
+    float: left;
+  }
+  .masthead-nav {
+    float: right;
+  }
+}
+
+.masthead-nav{
+  padding: 10px 0 0 0;
+  .progress{
+    position: absolute;
+    top: 0;
+    height: 3px;
+    width: 100%;
+    .progress-bar{
+      background-color: $pmPink;
+    }
+  }
+  button{
+    outline: none;
+    cursor: pointer;
+    right: -.5em;
+  &[aria-expanded="false"]{
+    .icon-air{
+        display: block;
+    }
+     .icon-cross{
+        display: none;
+    }
+  }
+  &[aria-expanded="true"]{
+   .icon-air{
+        display: none;
+    }
+     .icon-cross{
+        display: block;
+    }
+  }
+
+ [class^="icon"]{
+        color: $pmDarkGray;
+        & span{
+          display: inline-block;
+          font-size: .3em;
+          position: relative;
+          transform: rotate(-90deg);
+          bottom: 5px;
+          @include  raleLight();
+        }
+    }
+  }
+ #pm-main-menu{
+  &[aria-expanded="false"]{
+    display: none;
+  }
+  &[aria-expanded="true"]{
+     display: block;
+     position: absolute;
+     right: 4em;
+      }
+  & .nav{
+    flex-direction: row-reverse;
+  }
+    }
+}

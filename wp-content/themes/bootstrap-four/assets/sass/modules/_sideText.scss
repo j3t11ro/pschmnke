@@ -1,0 +1,12 @@
+.pmSideText{
+    position: absolute;
+    left: -9.5em;
+    color: $pmDarkGray;
+    transform: rotate(-90deg);
+    top: 20em;
+    text-shadow: none;
+    p{
+        font-size: .8em;
+        letter-spacing: 2px;
+    }
+}

@@ -25,9 +25,9 @@ var vid = [
     currVid = randomVid == prevRand ? randomVid : randomVid;
 
 
-function onYouTubePlayerAPIReady(){
-  tv = new YT.Player('vid', {events: {'onReady': onPlayerReady, 'onStateChange': onPlayerStateChange}, playerVars: playerDefaults});
-}
+// function onYouTubePlayerAPIReady(){
+//   tv = new YT.Player('vid', {events: {'onReady': onPlayerReady, 'onStateChange': onPlayerStateChange}, playerVars: playerDefaults});
+// }
 
 function onPlayerReady(){
   console.log(vid.length)
@@ -58,21 +58,21 @@ function onPlayerStateChange(e){
 
 
 
-function vidRescale(){
+// function vidRescale(){
 
-  var w = $(window).width(),
-    h = $(window).height();
+//   var w = $(window).width(),
+//     h = $(window).height();
 
-  if (w/h > 16/9){
-    tv.setSize(w, w/16*9);
-    $('#vid').css({'left': '0px'});
-  } else {
-    tv.setSize(h/9*16, h);
-    $('#vid').css({'left': -($('#vid').outerWidth()-w)/2});
-  }
-}
+//   if (w/h > 16/9){
+//     tv.setSize(w, w/16*9);
+//     $('#vid').css({'left': '0px'});
+//   } else {
+//     tv.setSize(h/9*16, h);
+//     $('#vid').css({'left': -($('#vid').outerWidth()-w)/2});
+//   }
+// }
 
-jQuery(window).on('load resize', function(){
-  vidRescale();
-});
+// jQuery(window).on('load resize', function(){
+//   vidRescale();
+// });
 

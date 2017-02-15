@@ -1,0 +1,23 @@
+/*
+ * Footer
+ */
+
+.mastfoot {
+  color: #999; /* IE8 proofing */
+  color: rgba(255,255,255,.5);
+
+  .pmContinue{
+    font-size: .4em;
+  }
+}
+
+
+.navbar{
+  &.pmFooter{
+    margin-bottom: 0;
+    color: $pmDarkGray;
+    font-size: .5em;
+    padding: .5rem 3rem;
+    @include raleLight();
+  }
+}
