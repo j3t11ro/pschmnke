@@ -17,6 +17,8 @@ var config = {
 		'./assets/js/vendor/bootstrap.js',
 		// PagePiling
 		'./assets/js/vendor/jquery.pagepiling.js',
+		// Tilt - from node
+		 './node_modules/tilt.js/dest/tilt.jquery.js',
 		// Any Custom Scripts
 		'./assets/js/app/**/*.js',
 	]

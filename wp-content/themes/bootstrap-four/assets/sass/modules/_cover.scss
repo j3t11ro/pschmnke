@@ -15,7 +15,7 @@
   }
   
 }
-.site-wrapper-inner {
+.site-wrapper-cover {
  .pmVidBg{
     display: block;
     position: absolute;
@@ -29,6 +29,29 @@
 .cover-container {
   margin-right: auto;
   margin-left: auto;
+}
+
+.site-wrapper-inner{
+    height: inherit;
+    background-color: #dddddd;
+  .container-fluid{
+    height: inherit;
+    .row{ 
+      height: inherit;
+        & .col{
+        height: inherit;
+        &:nth-child(1){
+          background-color: $pmDarkGray;
+        }
+        &:nth-child(2){
+          background-color: $pmBlue;
+        }
+        @import '_services.scss';
+      }
+    }
+  }
+   @import '_samples.scss';
+   @import '_contact.scss';
 }
 
 /* Padding for spacing */
