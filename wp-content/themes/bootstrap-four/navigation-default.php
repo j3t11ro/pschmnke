@@ -23,9 +23,18 @@ $main_nav_options = array(
                   <span class="icon-cross"><span>close</span></span>
                 </button>
               
-                  <div class="collapse navbar-collapse" id="pm-main-menu">
-                 <?php wp_nav_menu( $main_nav_options ); ?>
+                <div class="collapse navbar-collapse" id="pm-main-menu">
+                   <?php wp_nav_menu( $main_nav_options ); ?>
                  </div>
+             
+                   <ul id="pm-social" class="list-unstyled">
+                     <li><span class="icon-facebook-with-circle"></span></li>
+                     <li><span class="icon-github-with-circle"></span></li>
+                     <li><span class="icon-instagram-with-circle"></span><li>
+                     <li><span class="icon-twitter-with-circle"></span><li>
+                     <li><span class="icon-pinterest-with-circle"></span><li>
+                   </ul>
+        
               </nav>
  
  <?php endif; ?>

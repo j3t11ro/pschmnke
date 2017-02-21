@@ -14,18 +14,20 @@
 
 #pm-main-menu .nav > li {
   display: inline-block;
-  margin-left: 15px;
+  margin-left: 25px;
 }
 #pm-main-menu .nav > li + li {
-  margin-left: 20px;
+  margin-left: 30px;
 }
 #pm-main-menu .nav > li > a {
   padding-right: 0;
   padding-left: 0;
-  font-size: 16px;
+  font-size: 14px;
   font-weight: bold;
   color: $pmDarkGray;
   border-bottom: 2px solid transparent;
+  @include raleLight();
+  text-transform: uppercase;
 }
 #pm-main-menu .nav > li > a:hover,
 #pm-main-menu .nav > li > a:focus {
@@ -100,14 +102,31 @@
      display: block;
      position: absolute;
      right: 4em;
+     bottom: -2px;
+     & + #pm-social{
+       top: 5em;
+       }
       }
   & .nav{
     flex-direction: row-reverse;
   }
     }
+    #pm-social{
+        position: absolute;
+        right: 15px;
+        top: -55em;
+        @include transition(all .3s linear);
+          li{
+            margin: 5em 0;
+            span{
+          color: $pmDarkGray;
+          font-size: 1.5em;              
+            }
+        }
+    }
 
 .collapsing {
-  @include transition(all .1s linear);
+  @include transition(all .3s linear);
 }
 
 }

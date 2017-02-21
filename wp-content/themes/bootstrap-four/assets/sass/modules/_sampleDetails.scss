@@ -103,7 +103,7 @@
             @include josefinBold();
             text-transform: uppercase;
             text-align: left;
-            padding: 25px 0 0 45px;
+            padding: 1em 0 0 45px;
         }
 
         ul{
@@ -116,6 +116,7 @@
                 font-size: 1.6em;
                 text-transform: lowercase;
                 color: $pmDarkGray;
+                @include raleLight();
                 &:before {
                     content: "-";
                     padding-right: 8px;
