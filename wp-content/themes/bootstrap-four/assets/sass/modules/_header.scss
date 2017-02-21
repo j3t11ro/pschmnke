@@ -105,4 +105,9 @@
     flex-direction: row-reverse;
   }
     }
+
+.collapsing {
+  @include transition(all .1s linear);
+}
+
 }

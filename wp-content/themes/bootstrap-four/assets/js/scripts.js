@@ -4756,16 +4756,37 @@ var Popover = (function ($) {
 
 
 
+(function($) {
+	
+    var cover = $('.sampleCover');
+    var details = $('#sampleDetail');
+    var closeDetails = $('#sampleClose');
 
 
-var cover = $('.sampleCover');
+    var tilt = $('.pmSample').each(function (){
+            var self = $(this);
+            self.tilt();
+    })
 
-$('body').on('click', cover, function(){
+    cover.on('click', function(e){
+        details.toggleClass('open');
+        tilt.tilt.destroy.call(tilt);
+    });
 
-    alert('test');
+   closeDetails.on('click', function(e){
+       details.toggleClass('open');
+       resetTilt();
+    });
 
-});
+    function resetTilt(){
+       tilt.tilt.call(tilt);
+    }
 
+    
+
+
+
+})( jQuery );
 
 jQuery(document).ready(function($) {
 
@@ -4783,13 +4804,29 @@ jQuery(document).ready(function($) {
         loopTop: false,
         css3: true,
         navigation: false,
+        normalScrollElements: '#sampleDetail',
         afterRender: function(){
 					//playing the video
 					$('video').get(0).play();
         }
 
     });
+});
 
+jQuery(document).ready(function($) {
+
+    // ===== Scroll to Top ==== 
+    $('#sampleDetail').scroll(function() {
+        if ($(this).scrollTop() >= 50) {   
+            $('.toTop').addClass('show')   
+        } else {
+            $('.toTop').removeClass('show')
+        }
+    });
+    $('.toTop').click(function() {     
+        $('#sampleDetail').animate({
+            scrollTop : 0                     
+        }, 500);
+    });
 
 });
-var $ = jQuery;

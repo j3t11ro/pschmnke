@@ -104,13 +104,13 @@ Dallas, TX 75215<br />
 
 </address>
 <br />
-<a href="tel:9723653758">(972) 379-8538</a>
+<a href="tel:9723798538">(972) 379-8538</a>
 <br /><br />
 <a href="mailto:info@psychomunkee.com">info@psychomunkee.com</a>
 <ul class="list-inline">
-  <li class="list-inline-item">github</li>
-  <li class="list-inline-item">instagram</li>
-  <li class="list-inline-item">facebook</li>
+  <li class="list-inline-item"><a href="">github</a></li>
+  <li class="list-inline-item"><a href="">instagram</a></li>
+  <li class="list-inline-item"><a href="">facebook</a></li>
 </ul>
 </div>
         </div>

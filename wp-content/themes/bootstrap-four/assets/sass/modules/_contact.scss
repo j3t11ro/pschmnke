@@ -64,36 +64,44 @@
             a[href^="tel"]{
 
             }
+            ul{
+                li{
+                    a{
+                        @include raleThin();
+                        font-size: .75em;
+                        text-transform: uppercase;
+                    }
+                }
+            }
         }
     
 
-        form{
-            padding: 0 0em;
-            .form-group{
-                small{
-                    text-align: left;
+            form{
+                padding: 0 0em;
+                .form-group{
+                    small{
+                        text-align: left;
+                    }
+                    .form-control{
+                        border-radius: 0;
+                        background-color: #555555;
+                    }
+
                 }
-                .form-control{
+
+                button{
+                    background-color: $pmPink;
                     border-radius: 0;
-                    background-color: #555555;
+                    color: white;
+                    font-size: 35px;
+                    border: none;
+                    padding-top: 15px;
+                    width: 100%;
+                    text-transform: uppercase;
+                    @include josefinBold();
+
                 }
-
             }
-
-            button{
-                background-color: $pmPink;
-                border-radius: 0;
-                color: white;
-                font-size: 35px;
-                border: none;
-                padding-top: 15px;
-                width: 100%;
-                text-transform: uppercase;
-                @include josefinBold();
-
-            }
-        }
-
         }
     }
  }

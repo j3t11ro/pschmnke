@@ -1,0 +1,242 @@
+#sampleDetail{
+    left: -100vw; 
+    background-color: $white;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    color: $pmDarkGray;
+    overflow-y: auto;
+    overflow-x: hidden;
+    @include transition(left .2s ease-out);
+
+    .close{
+        position: relative;
+        top: 1em;
+        right: 2em;
+        font-size: .4em;
+        background: none;
+
+        i{
+            font-size: 2rem;
+            position: relative;
+            top: 11px;
+        }
+    }
+
+
+    .sampleCanvas{
+        position: relative;
+        .sampleBg1{
+            background-color: #4ed8c4;
+            width: 557px;
+            height: 329px;
+            position: absolute;
+            top: 10em;
+            left: 3em;
+            .sampleImage{
+                 background-image: url('.../../assets/images/sampleVsgio-feat.png');
+                 width: 633px;
+                 height: 236px;
+                 background-repeat: no-repeat;
+                 background-size: contain;
+                 position: absolute;
+                 top: 3em;
+                 left: 9em;
+            }
+
+            .bgDec{
+                width: 150px;
+                height: 100px;
+                border: 1px solid $pmPink;
+                position: absolute;
+
+                &:nth-child(1n){
+                    bottom: -47px;
+                    left: 32px;
+                }
+                &:nth-child(2n){
+                    top: 0;
+                    left: -26px;
+                }
+            }
+
+            a{
+                position: absolute;
+                background-color: $pmPink;
+                @include josefinBold();
+                font-size: 1.4em;
+                bottom: -1.3em;
+                right: 6em;
+                border-radius: 0;
+                border: none;
+                width: 12em;
+                color: white;
+                text-transform: uppercase;
+                padding: 15px;
+            }
+        }
+
+
+    }
+
+    .sampleIntro{
+        padding-top: 10em;
+        h1{
+             @include josefinBold();
+             letter-spacing: 5px;
+             color: $black;
+        }
+        p{
+            @include raleRegular();
+            text-align: left;
+            font-size: 20px;
+            color: lighten($pmDarkGray, 52%);
+        }
+    }
+
+    .sampleServices{
+        background-color: $pmOffWhite;
+
+        h1{
+            @include josefinBold();
+            text-transform: uppercase;
+            text-align: left;
+            padding: 25px 0 0 45px;
+        }
+
+        ul{
+          &.services{
+              text-align: left;
+              margin-top: 5em;
+              margin-left: 5em;
+            li{
+                list-style: none;
+                font-size: 1.6em;
+                text-transform: lowercase;
+                color: $pmDarkGray;
+                &:before {
+                    content: "-";
+                    padding-right: 8px;
+                        }
+                }
+            }
+        }
+
+        .samplePalette{
+               position: absolute; 
+               bottom: 0;
+            li{
+                width: 150px;
+                height: 100px;
+                float: left;
+                margin-right: 30px;
+           $bgColors: $pmBlue , $pmPink, $pmGreen;
+            @for $i from 1 through length($bgColors) {
+                 $d: nth($bgColors, $i);
+                &:nth-of-type(#{$i}){
+                      @if $i == 1 {
+                         margin-left: 45px;
+                        }
+                    .palette{
+                    width: inherit;
+                    height: inherit;
+                    background-color: $d;
+                    display: block;
+                    }
+                 }
+            }
+            }
+        }
+    }
+
+    .sampleExamples{
+        background-color: #4397e0;
+        padding: 0;
+        .exampleCanvas{
+            width: inherit;
+            height: 500px;
+            background-color: blue;
+    
+        }
+
+        .exampleThumbnails{
+            margin: 2em auto 0;
+            height: auto;
+            width: 400px;
+            li{
+                width: 100px;
+                height: 100px;
+                background-color: red;
+                float: left;
+                margin: 0 15px 0;
+            }
+        }
+    }
+
+    .sampleContact{
+        background-color: #333644;
+        .contactMe{
+            @include vertical-center();
+        }
+        h1{
+            @include josefinBold();
+            font-size: 4em;
+            color: white;
+            text-transform: capitalize;
+        }
+        h3{
+            @include raleLight();
+            color: $pmOffWhite;
+            font-size: 2em;
+            margin: 1em 0;
+        }
+
+            a{
+                background-color: $pmPink;
+                @include josefinBold();
+                font-size: 1.4em;
+                border-radius: 0;
+                border: none;
+                width: 12em;
+                color: white;
+                text-transform: uppercase;
+                padding: 15px;
+            }
+    }
+
+
+
+
+
+
+    
+   &.open{
+    left: 0;
+   }  
+
+   
+}
+
+    .toTop{
+        visibility: hidden;
+        width: 0;
+        height: 0;
+        background-color: $pmPink;
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        cursor: pointer;
+        @include transition(all .5s ease-out);
+        &.show{
+            visibility: visible;
+            width: 45px;
+            height: 45px;
+        }
+        i{
+         display: block;
+         font-size: 1.5em;
+         @include vertical-center();
+        }
+    }

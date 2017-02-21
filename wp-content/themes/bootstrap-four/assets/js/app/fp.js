@@ -15,12 +15,11 @@ jQuery(document).ready(function($) {
         loopTop: false,
         css3: true,
         navigation: false,
+        normalScrollElements: '#sampleDetail',
         afterRender: function(){
 					//playing the video
 					$('video').get(0).play();
         }
 
     });
-
-
 });

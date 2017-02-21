@@ -1,4 +1,4 @@
-.pmSample{
+.row{
 
     .pmSample{
         &.home{
@@ -25,7 +25,6 @@
                         font-size: 2.5em;
                         text-decoration: $b;
                         position: relative;
-                        z-index: 3;
                         @if $i == 3 {
                             @include josefinBoldItalic();
                         }
@@ -68,4 +67,6 @@
     }
 
 }
+
+@import "_sampleDetails.scss";
 
