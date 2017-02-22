@@ -67,7 +67,7 @@
 
         &.work{
             cursor: pointer;
-
+            max-height: 200px;
             $textStyles:  line-through, overline, underline, none, overline, underline;
             $borderColors: $pmPink, $pmGreen, $pmDarkGray, $pmBlue, $black, $yellow;
             $bgColors: $pmBlue , $pmPink, $pmGreen, $pmDarkGray, $black, $yellow;
@@ -101,7 +101,6 @@
                        
                         @if $i != 1 {
                             text-transform: uppercase;
-
                         }
                     }
               .sampleCover{

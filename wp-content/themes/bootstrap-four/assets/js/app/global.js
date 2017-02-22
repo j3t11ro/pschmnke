@@ -15,4 +15,14 @@ jQuery(document).ready(function($) {
         }, 500);
     });
 
+
+    $('#beliefNav li').on('click', function(){
+        var self = $(this);
+        var navItem =  $('#beliefNav li');
+
+        navItem.removeClass('active');
+        self.addClass('active');
+
+    });
+
 });

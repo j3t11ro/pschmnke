@@ -21,10 +21,27 @@
         margin: 2em 0 0 25px;
         text-align: left;
         li{
+            border-bottom:0px solid $pmPink;
+            cursor: pointer;
             margin: 0 0 3em 0;
-            text-transform: uppercase;
+            
+            @include raleThin();
+            @include transition(all .2s ease-in);
+            width: 50%;
             &:nth-last-child(){
-                
+                margin-top: 6em;
+            }
+            &.active{
+                @include raleSemiBold();
+                border-bottom:2px solid $pmPink;
+                text-transform: capitalize;
+                width: 100%;
+                 &:hover{
+                color: $white;
+              }
+            }
+            &:hover{
+                color: lighten($pmPink, 12%);
             }
         }
     }

@@ -138,7 +138,7 @@
                 height: 100px;
                 float: left;
                 margin-right: 30px;
-           $bgColors: $pmBlue , $pmPink, $pmGreen;
+           $bgColors: #333644 , #4397e0, #4ed8c4;
             @for $i from 1 through length($bgColors) {
                  $d: nth($bgColors, $i);
                 &:nth-of-type(#{$i}){
@@ -196,7 +196,7 @@
             @include raleLight();
             color: $pmOffWhite;
             font-size: 2em;
-            margin: 1em 0;
+            margin: .2em 0 1em;
         }
 
             a{

@@ -7,20 +7,25 @@
     }
     .row{
     &.intro{
-    @include pm-background-gradient(left, #4ed2c0, $pmPink);
+    @include pm-background-gradient(left, $pmGreen, $pmPink);
     height: 100%;
     & > [class^="col"]{
         padding: 30px 0 0 30px;
         text-align: left;
+        &:nth-of-type(1){
+            position: relative;
+            top: 33px;
+        }
     }
     h1{
         @include josefinBold();
-        color: $pmDarkGray;
-
+        color: $black;
+        font-size: 3.5em;
     }
     p{
         @include raleMedium();
-        font-size: 23px;
+        font-size: 1.3em;
+        color: $pmDarkGray;
     }
 
         svg{

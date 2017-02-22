@@ -7,10 +7,9 @@
 
     <h1>beliefs</h1>
     <nav>
-        <ul class="list-unstyled">
-        
+        <ul id="beliefNav" class="list-unstyled">
             <li>design</li>
-            <li>develop</li>
+            <li class="active">develop</li>
             <li>destroy</li>
             <li>about</li>
         </ul>
