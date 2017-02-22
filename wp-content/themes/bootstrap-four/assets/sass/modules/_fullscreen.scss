@@ -17,7 +17,6 @@
 
 
 .fullscreen-bg{
-  @include pm-background-gradient(left, rgba($pmDarkGray, .5), rgba(black, .5));
     position: absolute;
     z-index: -1;
     right: 0;
@@ -26,6 +25,15 @@
     right: 0;
     left: 0;
     width: 100%;
-    background-size: 100% 100%;
 
+    &.overlay{
+     @include pm-background-gradient(left, rgba($pmDarkGray, .5), rgba(black, .5));
+     background-size: 100% 100%;
+    }
+    &.green{
+        background-color: $pmGreen;
+    }
+    &.gray{
+        background-color: $pmDarkGray;
+    }
 }

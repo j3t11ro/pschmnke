@@ -24,6 +24,9 @@
     top: 0;
     bottom: 0;
     overflow: hidden;
+      video{
+        height: 100%;
+      }
   }
 }
 .cover-container {
@@ -51,6 +54,7 @@
     }
   }
    @import '_samples.scss';
+   @import '_beliefs.scss';
    @import '_contact.scss';
 }
 
@@ -89,8 +93,33 @@
     @include josefinSemiBold();
     font-size: 5.5vw;
      & + .lead{
-     @include josefinRegular();
-     font-size: 2.5vw;
+        @include josefinRegular();
+        font-size: 2.5vw;
+    }
+    &.pmWho{
+      color: $black;
+      text-transform: uppercase;
+      & + .lead{
+         @include raleMedium();
+         color: lighten($pmDarkGray, 10%);
+         text-align: left;
+         font-size: 1.6vw;
+         line-height: 3vw;
+         &:first-letter{
+           font-size: 4vw;
+           text-transform: uppercase;
+         }
+     }
+    }
+    &.pmOutro{
+        text-transform: uppercase;
+        color: $pmGreen;
+      & + .lead{
+        @include raleMedium();
+         text-align: center;
+         font-size: 1.6vw;
+         line-height: 3vw;
+      }
     }
   }
 

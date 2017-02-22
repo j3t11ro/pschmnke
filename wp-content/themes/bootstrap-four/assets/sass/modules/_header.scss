@@ -119,8 +119,13 @@
           li{
             margin: 5em 0;
             span{
-          color: $pmDarkGray;
-          font-size: 1.5em;              
+          color: lighten($pmDarkGray, 50%);
+          cursor: pointer;
+          font-size: 1.5em;
+           @include transition(color .3s linear);
+          &:hover{
+            color: $pmDarkGray;
+          }              
             }
         }
     }

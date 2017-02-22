@@ -1,0 +1,53 @@
+
+.pmBeliefCanvas,
+.pmBeliefNav{
+ 
+}
+
+
+
+.pmBeliefNav{
+    background-color: $pmDarkGray;
+    padding-top: 2em;
+    h1{
+        text-transform: uppercase;
+        color: $pmGreen;
+        @include josefinBold();
+    }
+
+    ul{
+        width: 70%;
+        position: relative;
+        margin: 2em 0 0 25px;
+        text-align: left;
+        li{
+            margin: 0 0 3em 0;
+            text-transform: uppercase;
+            &:nth-last-child(){
+                
+            }
+        }
+    }
+
+}
+
+
+.pmBeliefCanvas{
+    background-color: darkmagenta;
+    padding: 4em 5em 0;
+
+    h1,p{
+        text-align: left;
+    }
+    h1{
+        
+        @include josefinBoldItalic();
+    }
+
+    p{
+        margin-top: 2em;
+        line-height: 2em;
+        @include raleRegular();
+    }
+
+}

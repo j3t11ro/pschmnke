@@ -5,7 +5,7 @@
 <div class="row intro">
      <div class="col-sm-6">
          <h1>HOLLER <sup>holla</sup> holla</h1>
-         <p>Have a project idea, general inquiry, or just want to say waddup?  Drop us a line into the form below and our people will be more than happy to talk about how <b><u>we can help.</u></b></p>
+         <p>Have a project idea, general inquiry, or just want to say waddup?  Drop us a line below and our people will be more than happy to talk about how <b><u>we can help.</u></b></p>
 
      </div>
      <div class="col-sm-6">

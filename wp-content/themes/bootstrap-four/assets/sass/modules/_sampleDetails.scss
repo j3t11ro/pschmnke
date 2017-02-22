@@ -1,16 +1,19 @@
 #sampleDetail{
-    left: -100vw; 
+    left: 0;
     background-color: $white;
     height: 100%;
     width: 100%;
     position: absolute;
-    top: 0;
-    bottom: 0;
+    top: auto;
+    bottom: -100vh;
     color: $pmDarkGray;
     overflow-y: auto;
     overflow-x: hidden;
-    @include transition(left .2s ease-out);
+    @include transition(bottom .4s cubic-bezier(0.175, 0.885, 0.32, 1.275));
 
+    &.open{
+       bottom: 0; 
+    } 
     .close{
         position: relative;
         top: 1em;
@@ -24,7 +27,8 @@
             top: 11px;
         }
     }
-
+ 
+  
 
     .sampleCanvas{
         position: relative;
@@ -93,6 +97,7 @@
             text-align: left;
             font-size: 20px;
             color: lighten($pmDarkGray, 52%);
+            line-height: 40px;
         }
     }
 
@@ -213,9 +218,7 @@
 
 
     
-   &.open{
-    left: 0;
-   }  
+
 
    
 }
@@ -229,7 +232,7 @@
         bottom: 0;
         right: 0;
         cursor: pointer;
-        @include transition(all .5s ease-out);
+        @include transition(all .3s ease-out);
         &.show{
             visibility: visible;
             width: 45px;
