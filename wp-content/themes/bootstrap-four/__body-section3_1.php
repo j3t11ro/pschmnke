@@ -5,7 +5,7 @@
         close
         </span>
 <div class="detailWrapper row">
-	<div class="col-sm-7 sampleCanvas">
+	<div class="col-md-7 sampleCanvas hidden-sm-down">
         <div class="sampleBg1" >
             <div class="sampleImage"></div>
             
@@ -15,7 +15,7 @@
              <div class="bgDec"></div>
         </div>
     </div>
-	<div class="col-sm-5 sampleIntro">
+	<div class="col-md-5 sampleIntro">
         
             <h1>VSG.IO</h1>
             <p>
@@ -29,7 +29,7 @@
         </div>
 </div>
 <div class="detailWrapper row">
-	<div class="col-sm-6 sampleServices">
+	<div class="col-sm-12 col-md-6 sampleServices">
 
         <h1>work done</h1>
 
@@ -47,7 +47,7 @@
 
 
     </div>
-	<div class="col-sm-6 sampleExamples">
+	<div class="col-sm-12 col-md-6 sampleExamples">
         <div class="exampleCanvas">
 
             </div>
@@ -60,9 +60,8 @@
 
 
     </div>
-</div>
-<div class="detailWrapper row">
-	<div class="col-sm-12 sampleContact">
+
+    	<div class="col-sm-12 sampleContact">
             <div class="contactMe">
             <h1>have a project idea?</h1>
             <h3>we’ll be happy to help!</h3>
@@ -72,8 +71,8 @@
             </a>
         </div>
       </div>
-
 </div>
+
 </section>
 
 <div class="toTop">

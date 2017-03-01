@@ -3,7 +3,10 @@
     .pmSample{
         &.home{
             cursor: pointer;
-
+            @include media-breakpoint-down(xs){
+                border-width: 15px !important;
+                height: 20%;
+            }
             $textStyles:  line-through, overline, underline, none;
             $borderColors: $pmPink, $pmGreen, $pmDarkGray, $pmBlue;
             $bgColors: $pmBlue , $pmPink, $pmGreen, $pmDarkGray;
@@ -22,9 +25,7 @@
                     background-position: center center;
                     background-size: cover;
                     h4{
-                        font-size: 2.5em;
                         text-decoration: $b;
-                        position: relative;
                         @if $i == 3 {
                             @include josefinBoldItalic();
                         }
@@ -50,7 +51,14 @@
                 }
             }
             h4{
-                @include vertical-center();
+            @include vertical-center();
+            font-size: 2.5em;
+            position: relative;
+            @include media-breakpoint-down(xs){
+                border-width: 15px !important;
+                height: 20%;
+                font-size: 1.8rem;
+                }
             }
 
             & + [class^="col"] > a{
@@ -62,6 +70,10 @@
                 text-decoration: underline;
                 text-transform: uppercase;
                 @include josefinBold();
+                @include media-breakpoint-down(xs){
+                    font-size: 1.2rem;
+                    top: 30px;
+                }
             }
         }
 

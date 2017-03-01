@@ -28,26 +28,56 @@
         }
     }
  
-  
+    .detailWrapper{
+        width: 100%;
+        margin: 0;
+
+    @include media-breakpoint-down(md){
+        height: auto;
+        }
+    }
 
     .sampleCanvas{
         position: relative;
+        @include media-breakpoint-only(md){
+            display: none;
+        }
         .sampleBg1{
             background-color: #4ed8c4;
-            width: 557px;
-            height: 329px;
             position: absolute;
-            top: 10em;
-            left: 3em;
+            @include media-breakpoint-up(lg){
+                width: 444px;
+                height: 329px;
+                top: 10em;
+                left: 3em;
+            }
+            @include media-breakpoint-up(xl){
+                width: 557px;
+                height: 329px;
+                top: 10em;
+                left: 3em;
+            }
             .sampleImage{
                  background-image: url('.../../assets/images/sampleVsgio-feat.png');
-                 width: 633px;
-                 height: 236px;
+                 width: 100%;
                  background-repeat: no-repeat;
                  background-size: contain;
                  position: absolute;
-                 top: 3em;
-                 left: 9em;
+               
+
+            @include media-breakpoint-up(md){
+
+                }
+            @include media-breakpoint-up(lg){
+                height: 185px;
+                top: 5em;
+                left: 5em;
+                }
+            @include media-breakpoint-up(xl){
+                height: 236px;
+                top: 3em;
+                left: 9em;
+                 }
             }
 
             .bgDec{
@@ -86,7 +116,19 @@
     }
 
     .sampleIntro{
-        padding-top: 10em;
+        padding-top: 4em;
+        @include media-breakpoint-only(md){
+            max-width: 100%;
+            flex: 0 0 100%;
+            padding-top: 4em;
+        }
+
+        @include media-breakpoint-up(lg){
+             padding-top: 10em;
+            }
+        @include media-breakpoint-up(xl){
+             padding-top: 10em;
+                }
         h1{
              @include josefinBold();
              letter-spacing: 5px;
@@ -95,27 +137,50 @@
         p{
             @include raleRegular();
             text-align: left;
-            font-size: 20px;
+            font-size: 1em;
             color: lighten($pmDarkGray, 52%);
-            line-height: 40px;
+            line-height: 2em;
+            @include media-breakpoint-up(md){
+
+                }
+            @include media-breakpoint-up(lg){
+             font-size: 1.1em;
+                }
+            @include media-breakpoint-up(xl){
+             font-size: 1.3em;
+                 }
         }
     }
 
     .sampleServices{
         background-color: $pmOffWhite;
-
+        @include media-breakpoint-only(md){
+            max-width: 100%;
+            flex: 0 0 100%;
+            height: 65vh;
+        }
+        @include media-breakpoint-down(sm){
+             height: 65vh;
+        }
         h1{
             @include josefinBold();
             text-transform: uppercase;
             text-align: left;
-            padding: 1em 0 0 45px;
+            padding: 1em 0 0 0;
+            @include media-breakpoint-up(sm){
+                padding: 1em 0 0 45px;
+            }
         }
 
         ul{
           &.services{
               text-align: left;
-              margin-top: 5em;
-              margin-left: 5em;
+              margin-top: 2em;
+              margin-left: 0;
+                @include media-breakpoint-up(sm){
+                    margin-top: 5em;
+                    margin-left: 5em;
+                }
             li{
                 list-style: none;
                 font-size: 1.6em;
@@ -134,25 +199,39 @@
                position: absolute; 
                bottom: 0;
             li{
-                width: 150px;
-                height: 100px;
+                width: 55px;
+                height: 55px;
                 float: left;
                 margin-right: 30px;
+                 @include media-breakpoint-up(md){
+
+                }
+                 @include media-breakpoint-up(lg){
+                    width: 99px;
+                    height: 100px;
+                }
+                 @include media-breakpoint-up(xl){
+                    width: 150px;
+                    height: 100px;
+                }
            $bgColors: #333644 , #4397e0, #4ed8c4;
             @for $i from 1 through length($bgColors) {
                  $d: nth($bgColors, $i);
                 &:nth-of-type(#{$i}){
                       @if $i == 1 {
-                         margin-left: 45px;
+                         
+                        @include media-breakpoint-up(md){
+                            margin-left: 45px;
+                            }
                         }
                     .palette{
                     width: inherit;
                     height: inherit;
                     background-color: $d;
                     display: block;
+                         }
                     }
-                 }
-            }
+                }
             }
         }
     }
@@ -160,6 +239,14 @@
     .sampleExamples{
         background-color: #4397e0;
         padding: 0;
+        @include media-breakpoint-only(md){
+            max-width: 100%;
+            flex: 0 0 100%;
+            order: -1;
+        }
+        @include media-breakpoint-down(sm){
+            order: -1;
+        }
         .exampleCanvas{
             width: inherit;
             height: 500px;
@@ -168,59 +255,122 @@
         }
 
         .exampleThumbnails{
-            margin: 2.2em auto 0;
+            margin: 2.2em auto 1em;
             height: auto;
-            width: 400px;
+            width: 260px;
+            @include media-breakpoint-up(sm){
+                width: 400px;
+            }
+        
+            @include media-breakpoint-up(md){
+                 width: 400px;
+            }
+        
+            @include media-breakpoint-up(xl){
+                 width: 400px;
+            }
             li{
-                width: 100px;
-                height: 100px;
+                width: 55px;
+                height: 55px;
                 background-color: red;
                 float: left;
                 margin: 0 15px 0;
+                cursor: pointer;
+                @include transition(all, .5s ease-in);
+                @include media-breakpoint-up(sm){
+                    width: 100px;
+                    height: 100px;
+                }
+                
+                @include media-breakpoint-up(md){
+                    width: 100px;
+                    height: 100px;
+                 }
+                
+                @include media-breakpoint-up(xl){
+                    width: 100px;
+                    height: 100px;
+                }
             }
         }
     }
 
     .sampleContact{
         background-color: #333644;
+        padding: 100px 0;
+        @include media-breakpoint-only(md){
+            max-width: 100%;
+            flex: 0 0 100%;
+            order: 1;
+        }
+
+        @include media-breakpoint-down(sm){
+            order: 1;
+        }
         .contactMe{
+           
+         @include media-breakpoint-up(sm){
             @include vertical-center();
+             }
         }
         h1{
             @include josefinBold();
-            font-size: 4em;
+            font-size: 2em;
             color: white;
             text-transform: capitalize;
+            @include media-breakpoint-up(sm){
+                font-size: 4em;
+            }
+        
+            @include media-breakpoint-up(md){
+                font-size: 4em;
+            }
+        
+            @include media-breakpoint-up(xl){
+                font-size: 4em;
+            }
         }
         h3{
             @include raleLight();
             color: $pmOffWhite;
-            font-size: 2em;
+            font-size: 1em;
             margin: .2em 0 1em;
+            @include media-breakpoint-up(sm){
+              font-size: 2em;
+            }
+
+            @include media-breakpoint-up(md){
+              font-size: 2em;
+            }
+
+            @include media-breakpoint-up(xl){
+             font-size: 2em;
+            }
         }
 
             a{
                 background-color: $pmPink;
                 @include josefinBold();
-                font-size: 1.4em;
+                font-size: 1em;
                 border-radius: 0;
                 border: none;
                 width: 12em;
                 color: white;
                 text-transform: uppercase;
                 padding: 15px;
+                @include media-breakpoint-up(sm){
+                   font-size: 1.4em;
+                }
+
+                @include media-breakpoint-up(md){
+                  font-size: 1.4em;
+                }
+
+                @include media-breakpoint-up(xl){
+                  font-size: 1.4em;
+                }
             }
     }
-
-
-
-
-
-
-    
-
-
-   
 }
 
     .toTop{
@@ -244,3 +394,4 @@
          @include vertical-center();
         }
     }
+
