@@ -4494,6 +4494,7 @@ var Popover = (function ($) {
 
     };
 })(jQuery, document, window);
+!function(e){var t={animation:"dissolve",separator:",",speed:2e3};e.fx.step.textShadowBlur=function(t){e(t.elem).prop("textShadowBlur",t.now).css({textShadow:"0 0 "+Math.floor(t.now)+"px black"})};e.fn.textrotator=function(n){var r=e.extend({},t,n);return this.each(function(){var t=e(this);var n=[];e.each(t.text().split(r.separator),function(e,t){n.push(t)});t.text(n[0]);var i=function(){switch(r.animation){case"dissolve":t.animate({textShadowBlur:20,opacity:0},500,function(){s=e.inArray(t.text(),n);if(s+1==n.length)s=-1;t.text(n[s+1]).animate({textShadowBlur:0,opacity:1},500)});break;case"flip":if(t.find(".back").length>0){t.html(t.find(".back").html())}var i=t.text();var s=e.inArray(i,n);if(s+1==n.length)s=-1;t.html("");e("<span class='front'>"+i+"</span>").appendTo(t);e("<span class='back'>"+n[s+1]+"</span>").appendTo(t);t.wrapInner("<span class='rotating' />").find(".rotating").hide().addClass("flip").show().css({"-webkit-transform":" rotateY(-180deg)","-moz-transform":" rotateY(-180deg)","-o-transform":" rotateY(-180deg)",transform:" rotateY(-180deg)"});break;case"flipUp":if(t.find(".back").length>0){t.html(t.find(".back").html())}var i=t.text();var s=e.inArray(i,n);if(s+1==n.length)s=-1;t.html("");e("<span class='front'>"+i+"</span>").appendTo(t);e("<span class='back'>"+n[s+1]+"</span>").appendTo(t);t.wrapInner("<span class='rotating' />").find(".rotating").hide().addClass("flip up").show().css({"-webkit-transform":" rotateX(-180deg)","-moz-transform":" rotateX(-180deg)","-o-transform":" rotateX(-180deg)",transform:" rotateX(-180deg)"});break;case"flipCube":if(t.find(".back").length>0){t.html(t.find(".back").html())}var i=t.text();var s=e.inArray(i,n);if(s+1==n.length)s=-1;t.html("");e("<span class='front'>"+i+"</span>").appendTo(t);e("<span class='back'>"+n[s+1]+"</span>").appendTo(t);t.wrapInner("<span class='rotating' />").find(".rotating").hide().addClass("flip cube").show().css({"-webkit-transform":" rotateY(180deg)","-moz-transform":" rotateY(180deg)","-o-transform":" rotateY(180deg)",transform:" rotateY(180deg)"});break;case"flipCubeUp":if(t.find(".back").length>0){t.html(t.find(".back").html())}var i=t.text();var s=e.inArray(i,n);if(s+1==n.length)s=-1;t.html("");e("<span class='front'>"+i+"</span>").appendTo(t);e("<span class='back'>"+n[s+1]+"</span>").appendTo(t);t.wrapInner("<span class='rotating' />").find(".rotating").hide().addClass("flip cube up").show().css({"-webkit-transform":" rotateX(180deg)","-moz-transform":" rotateX(180deg)","-o-transform":" rotateX(180deg)",transform:" rotateX(180deg)"});break;case"spin":if(t.find(".rotating").length>0){t.html(t.find(".rotating").html())}s=e.inArray(t.text(),n);if(s+1==n.length)s=-1;t.wrapInner("<span class='rotating spin' />").find(".rotating").hide().text(n[s+1]).show().css({"-webkit-transform":" rotate(0) scale(1)","-moz-transform":"rotate(0) scale(1)","-o-transform":"rotate(0) scale(1)",transform:"rotate(0) scale(1)"});break;case"fade":t.fadeOut(r.speed,function(){s=e.inArray(t.text(),n);if(s+1==n.length)s=-1;t.text(n[s+1]).fadeIn(r.speed)});break}};setInterval(i,r.speed)})}}(window.jQuery)
 'use strict';
 
 (function ($) {
@@ -4790,52 +4791,136 @@ var Popover = (function ($) {
 
 jQuery(document).ready(function($) {
 
-    $('#pm_pile1').pagepiling({
 
-        sectionSelector: '.site-wrapper',
-        menu: null,
-        direction: 'horizontal',
-        verticalCentered: true,
-        sectionsColor: [],
-        anchors: [],
-        scrollingSpeed: 700,
-        easing: 'swing',
-        loopBottom: false,
-        loopTop: false,
-        css3: true,
-        navigation: false,
-        normalScrollElements: '#sampleDetail',
-        afterRender: function(){
-					//playing the video
-					$('video').get(0).play();
-        }
+             $('#pm_pile1').pagepiling({
+                sectionSelector: '.site-wrapper',
+                menu: null,
+                direction: 'horizontal',
+                verticalCentered: true,
+                sectionsColor: [],
+                anchors: [],
+                scrollingSpeed: 700,
+                easing: 'swing',
+                loopBottom: false,
+                loopTop: false,
+                css3: true,
+                navigation: false,
+                normalScrollElements: '#sampleDetail, body.mobile .pmServiceContainer',
+                afterRender: function(){
+                            //playing the video
+                            $('video').get(0).play();
+                }
+            });
 
-    });
+
 });
 
 jQuery(document).ready(function($) {
 
+    var details = $('#sampleDetail');
+    var about =  $('#beliefNav li');
+    var service = $('.pmServiceWrapper');
+    var scrollTop = $('.toTop');
+
     // ===== Scroll to Top ==== 
-    $('#sampleDetail').scroll(function() {
+    details.scroll(function() {
         if ($(this).scrollTop() >= 50) {   
             $('.toTop').addClass('show')   
         } else {
             $('.toTop').removeClass('show')
         }
     });
-    $('.toTop').click(function() {     
+    
+    scrollTop.click(function() {     
         $('#sampleDetail').animate({
             scrollTop : 0                     
         }, 500);
     });
 
-
-    $('#beliefNav li').on('click', function(){
+    about.on('click', function(){
         var self = $(this);
         var navItem =  $('#beliefNav li');
 
         navItem.removeClass('active');
         self.addClass('active');
+
+    });
+
+    service.on('click', function(){
+        var self = $(this);
+        var type = self.attr("data-type");
+        var bgColor = self.attr("data-rgba");
+        var canvasItem = $('.canvasItem');
+        var canvasBg = $('.pmServiceCanvas');
+
+        service.removeClass('active');
+        self.addClass('active');
+        canvasItem.hide();
+        $("#"+type+".canvasItem").css({'display': 'flex'});
+
+        canvasBg.css({'background-image': "linear-gradient(rgba("+bgColor+"), rgba(0,0,0,0.9)),url(./wp-content/themes/bootstrap-four/assets/images/patternBg1.png)"})
+
+    });
+
+});
+(function($) {
+  
+    var sm = 576,
+        md = 768 - 1,
+        lg = 992,
+        xl = 1200;
+
+    var mql = [window.matchMedia("(max-width: "+md+"px)")];
+    for (var i=0; i<mql.length; i++){
+        widthChange(mql[i]) // call action function explicitly at run time
+        mql[i].addListener(widthChange); // call action function whenever each media query is triggered
+    }
+    
+    function widthChange(mq){
+        if (mql[0].matches){
+            $('body').addClass('mobile');
+        }
+        else {
+            $('body').removeClass('mobile');
+        }		
+    }
+
+    })( jQuery );
+(function($){
+
+$('.mobileNav button').on('click', function(){
+    var self = $(this);
+    
+    if (self.attr('id') == 'navNext'){
+       $.fn.pagepiling.moveSectionDown();
+    }else{
+       $.fn.pagepiling.moveSectionUp();
+    }
+
+
+});
+
+
+
+})(jQuery);
+
+jQuery(document).ready(function($) {
+
+    $(".rotate").textrotator({
+        animation: "spin", // You can pick the way it animates when rotating through words. Options are dissolve (default), fade, flip, flipUp, flipCube, flipCubeUp and spin.
+        separator: ",", // If you don't want commas to be the separator, you can define a new separator (|, &, * etc.) by yourself using this field.
+        speed: 1000 // How many milliseconds until the next word show.  
+    });
+
+    $('.canvasItem .emphasis.design').each(function(){
+        var self = $(this);
+        var style = ['dissolve', 'fade', 'flip', 'flipUp', 'flipCube', 'flipCubeUp', 'spin'];
+        var randStyle = style[Math.floor(Math.random() * style.length)];
+        self.textrotator({
+            animation: 'flipCube', // You can pick the way it animates when rotating through words. Options are dissolve (default), fade, flip, flipUp, flipCube, flipCubeUp and spin.
+            separator: ",", // If you don't want commas to be the separator, you can define a new separator (|, &, * etc.) by yourself using this field.
+            speed: 3000 // How many milliseconds until the next word show.  
+        });
 
     });
 

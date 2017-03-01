@@ -1,10 +1,25 @@
 .pmSideText{
+    //Base Mobile Styles
     position: absolute;
     color: $pmDarkGray;
     transform: rotate(-90deg);
-    transform-origin: 4.5vw 7vw;
     bottom: 12%;
     width: 100vh;
+    display: none;
+    @include media-breakpoint-up(md){
+      transform-origin: 7.3vw 11.7vw;
+      display: block;
+      
+    }
+
+    @include media-breakpoint-up(lg){
+      transform-origin: 4.9vw 8vw;
+    }
+
+    @include media-breakpoint-up(xl){
+      transform-origin: 3.3vw 5.7vw;
+    }
+
     p{
         font-size: .8em;
         letter-spacing: 2px;

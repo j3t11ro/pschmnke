@@ -1,67 +1,173 @@
  &.pmServiceContainer{
+
+
   .pmServiceWrapper{
+      
        @include transition(.5s, all, linear);
-       height: 33.3333333%;
+       @include media-breakpoint-down(xs){
+         min-height: 250px;
+         border: 1px solid #444444;
+          }
        &:hover{
           background-color: lighten($pmDarkGray, 2%);
        }
       &.active{
           background-color: lighten($pmDarkGray, 5%);
-      }
-      &:nth-child(even){
-          p{
-   
-            text-align: right;
- 
-          }
-         }
+          box-shadow: 3px 10px 25px #000000;
+
+        .pmServiceType{
+            cursor: pointer;
+            padding: 0 1.5em;
+                    [class^="icon"]{
+                        color: $pmPink;
+                    }
+                    h3{
+                        color: $pmGreen;
+                    }
+                    p{
+                        color: #b5b5b5;
+                    }
+                }
+            }
      }
 
-      .pmServiceType{
+     .pmServiceType{
       @include vertical-center();
       cursor: pointer;
       padding: 0 1.5em;
+      @include media-breakpoint-down(xs){
+         transform: translateY(15%);
+          }
           [class^="icon"]{
-            color: $pmPink;
+            color: lighten($pmPink, 5%);
             font-size: 3.5em;
           }
           h3{
-            color: $pmGreen;
+            color: lighten($pmGreen, 5%);
             text-transform: uppercase;
             font-size: 1.2em;
             margin: 10px 0;
           }
           p{
-            color: #828282;
+            color: lighten(#828282, 5%);
             font-size: .8em;
             text-align: left;
-            line-height: 1.4em;
+            line-height: 1.8em;
+            @include media-breakpoint-up(md){
+                font-size: .8em;
+            }
+
+            @include media-breakpoint-up(lg){
+               font-size: .7em;
+            }
+
+            @include media-breakpoint-up(xl){
+                 font-size: .8em;
+            }
           }
          
           &:hover{
           
           }
-       
-        }
- }
+       }
 
+       .mobileNav{
+        position: fixed;
+        top: 50%;
+        width: 100%;
+        height: 100px;
+        left: 0;
+        z-index: 1;
+            button{
+                position: absolute;
+                border-radius: 0;
+                height: 40px;
+                width: auto;
+                background-color: $pmPink;
+                border: 0;
+                text-transform: capitalize;
+                @include josefinBold();
+            
+                &#navPrev{
+                    left: 0;
+                }
+                &#navNext{
+                    right: 0;
+                }
+
+                & [class^="icon"]{
+                    position: relative;
+                    top: 2px;
+                }
+            }
+       }
+    }
+
+
+ 
  &.pmServiceCanvas{
      position: relative;
-     h1{
-        text-transform: capitalize;
-        font-size: 4em;
-        width: 70%;
-        text-align: left;
-        margin: 0px auto;
-         @include josefinThin();
-         @include vertical-center();
-            .emphasis{
-                @include raleBlack();
-                text-decoration: underline;
-                text-transform: uppercase;
-                font-size: .85em;
+   .canvas{
+     @include vertical-center();
+     top: 40%;
+  
+     & .canvasItem{
+         display: none;
+          margin: 0;
+          flex-direction: row;
+         &:nth-child(1){
+          display: flex;
+         
+         }
+        ul,h1{
+                text-transform: capitalize;
+                font-size: 4em;
+                width: 70%;
+                text-align: center;
+                margin: 0px auto;
+                @include josefinRegular();
+                @include media-breakpoint-up(lg){
+                  font-size: 3em;
+                }
+
+                @include media-breakpoint-up(xl){
+                  font-size: 4em;
+                }
+                .emphasis{
+                    @include raleBlack();
+                    text-decoration: underline;
+                    text-transform: uppercase;
+                    font-size: 3rem;
+                   
+                    border-bottom: 3px solid $pmOffWhite;
+
+                    .rotating{
+                         text-align: center;
+                         }
+                    }
+                }
+                ul{
+                    position: relative;
+                    top: 1em;
+                    text-align: left;
+                    &:nth-child(1n){
+                        padding-left: 1em;
+                    }
+                    li{
+                        @include josefinThin();
+                        
+                        @include media-breakpoint-up(lg){
+                           font-size: 1.1rem;
+                        }
+
+                        @include media-breakpoint-up(xl){
+                           font-size: 1.5rem;
+                        }
+                        
+                    }
+                }
             }
-     }
+      }
 
      .pmMiniContact{
          position: absolute;
@@ -96,3 +202,4 @@
          }
      }
  }
+

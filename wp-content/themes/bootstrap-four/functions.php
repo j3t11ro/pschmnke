@@ -60,6 +60,7 @@ if ( ! function_exists( 'bootstrap_four_theme_styles' ) ) :
     global $bootstrap_four_version;
     wp_enqueue_style( 'psychomunkee-styles', get_template_directory_uri() . '/style.css', null );
     wp_enqueue_style( 'pagePile-styles', get_template_directory_uri() . '/css/jquery.pagepiling.css', null );
+    wp_enqueue_style( 'rotate-styles', get_template_directory_uri() . '/css/simpletextrotator.css', null );
 
   }
 endif;

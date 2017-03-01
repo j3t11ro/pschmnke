@@ -9,7 +9,7 @@
             <p>creative digital and print services</p>
         </div>
         <div class="pmVidBg">
-          <video autoplay="" loop="" muted="" id="fpIntroBg">
+          <video class="hidden-sm-down"  autoplay="" loop="" muted="" id="fpIntroBg">
             <source src="wp-content/themes/bootstrap-four/assets/video/pmVidBg.mp4" type="video/mp4">
           </video>
         </div>
@@ -32,11 +32,11 @@
         </div>
         <div class="cover-container">
             <div class="inner cover">
-            <h1 class="cover-heading pmWho">we are ...</h1>
-            <p class="lead">a small digital development and design shop comprised of the most highly creative and intelligent people. 
+            <h1 class="cover-heading pmWho">we are <span>...</span></h1>
+            <p class="lead">a &nbsp;small digital development and design shop comprised of the most highly creative and intelligent people. 
               We are brave, curious, and compassionate thinkers and doers. We are diverse in faith, ethnicity, history and spirituality, 
-              but aligned in our desire to create and deliver extraordinary experiences.</p>
-        <div class="fullscreen-bg green">
+              but aligned in our desire to create and deliver extraordinary, kick-ass intertactive experiences.</p>
+        <div class="fullscreen-bg blue">
               </div>
           </div>
         </div>

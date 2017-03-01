@@ -27,11 +27,12 @@
     width: 100%;
 
     &.overlay{
-     @include pm-background-gradient(left, rgba($pmDarkGray, .5), rgba(black, .5));
+     @include pm-background-gradient(left, rgba($black, .55), rgba($black, .55));
      background-size: 100% 100%;
     }
-    &.green{
-        background-color: $pmGreen;
+    &.blue{
+        background-color: darken(deepskyblue, 10%);
+
     }
     &.gray{
         background-color: $pmDarkGray;
@@ -48,6 +49,11 @@
     left: 0;
     right: 0;
     overflow: hidden;
+    background-image: url('.../../assets/images/bgMobile.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    z-index: -5;
       video{
         height: 100%;
       }

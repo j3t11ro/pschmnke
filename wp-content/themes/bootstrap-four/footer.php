@@ -11,7 +11,7 @@
         <a class="nav-link" href="#">Pricing</a>
       </li>
     </ul>-->
-    <span class="navbar-text text-right">
+    <span class="navbar-text text-sm-right">
      &copy; Psycho Munkee, LLC 2004 &mdash; 2017.  All Rights Reserved.
     </span>
 

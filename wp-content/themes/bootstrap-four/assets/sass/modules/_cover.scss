@@ -1,6 +1,8 @@
 
 
-
+ #pm_pile1{
+     height: 100%;
+ }
 /* Extra markup and styles for table-esque vertical and horizontal centering */
 .site-wrapper {
   display: table;
@@ -9,11 +11,17 @@
   min-height: 100%;
   -webkit-box-shadow: inset 0 0 100px rgba(0,0,0,.5);
           box-shadow: inset 0 0 100px rgba(0,0,0,.5);
-  border: 50px solid $pmOffWhite;
+  border-top: 50px solid $pmOffWhite;
+  border-bottom: 50px solid $pmOffWhite;
+  @include media-breakpoint-up(md){
+    border: 50px solid $pmOffWhite;
+    }
   &.pp-section{
     transform: translate3d(0px, 0px, 0px);
     .pp-tableCell{
       position: relative;
+      overflow: hidden;
+      height: calc(100vh - 98.59px) !important;
     }
   }
   
@@ -29,17 +37,40 @@
 .site-wrapper-inner{
     height: inherit;
     background-color: #dddddd;
+
   .container-fluid{
     height: inherit;
     .row{ 
       height: inherit;
+      @include media-breakpoint-down(xs){
+        flex-wrap: nowrap;
+        flex-direction: column;
+      }
         & .col{
         height: inherit;
         &:nth-child(1){
           background-color: $pmDarkGray;
+           @include media-breakpoint-down(xs){
+              overflow-y: scroll;
+              height: 100%;
+              position: relative;
+              z-index: 2;
+          }
         }
         &:nth-child(2){
           background-color: $pmBlue;
+          background-image: linear-gradient(rgba($pmBlue, .8),rgba(0,0,0,.9)),url('.../../assets/images/patternBg1.png');
+          background-repeat: no-repeat;
+          background-size: cover;
+          background-position: center center;
+          @include transition(.5s, all, linear);
+          // @include transition(10s, background-image, linear);
+          // @include keyframes(bgColor) {
+          //   0%   {  background-image: linear-gradient(rgba($pmBlue, .8),rgba(0,0,0,.9)),url('.../../assets/images/patternBg1.png'); }
+          //   50%  {  background-image: linear-gradient(rgba($pmPink, .8),rgba(0,0,0,.9)),url('.../../assets/images/patternBg1.png'); }
+          //   100% {  background-image: linear-gradient(rgba($green, .8),rgba(0,0,0,.9)),url('.../../assets/images/patternBg1.png'); }
+          // }
+          // @include animation('bgColor 10s infinite');
         }
         @import '_services.scss';
       }
@@ -53,6 +84,12 @@
 /* Padding for spacing */
 .inner {
   padding: 30px;
+  /* Landscape */
+@media only screen 
+  and (max-width: 768px) 
+  and (orientation: landscape) {
+    padding: 0;
+  }
 }
 
 
@@ -73,35 +110,95 @@
 .cover{
   .pmLogoCover{
     width: auto;
-    height: 215px;
+    height: 150px;
     background-image: url('.../../assets/images/pmLogoCover.png');
     background-repeat: no-repeat;
     background-size: contain;
     background-position: center center;
     position: relative;
+    margin-bottom: 1%;
+    @include media-breakpoint-up(sm){
+      height: 200px;
+    }
+
+    @media only screen 
+    and (max-width: 768px) 
+    and (orientation: landscape) {
+      height: 111px;
+    }
   }
 
   .cover-heading{
     @include josefinSemiBold();
-    font-size: 5.5vw;
+    font-size: 5vw;
+     @include media-breakpoint-down(xs){
+      font-size: 7vw;
+      }
      & + .lead{
         @include josefinRegular();
         font-size: 2.5vw;
+        @include media-breakpoint-down(xs){
+          font-size: 3.5vw;
+        }
+        
     }
     &.pmWho{
-      color: $black;
+      color: $white;
       text-transform: uppercase;
       & + .lead{
          @include raleMedium();
-         color: lighten($pmDarkGray, 10%);
+         color: $pmOffWhite;
          text-align: left;
          font-size: 1.6vw;
          line-height: 3vw;
+         max-width: 80%;
+         margin: 0px auto;
          &:first-letter{
            font-size: 4vw;
            text-transform: uppercase;
+           color: $pmGreen;
+            }
+      @include media-breakpoint-down(xs){
+        font-size: 4.6vw;
+        line-height: 7vw;
+        max-width: 90%;
+           &:first-letter{
+           font-size: 6vw;
+           text-transform: uppercase;
+           color: $pmGreen;
+            }
          }
-     }
+
+     @include media-breakpoint-up(md){
+      font-size: 3.6vw;
+      line-height: 7vw;
+           &:first-letter{
+           font-size: 4vw;
+            }
+         }
+       @include media-breakpoint-up(lg){
+      font-size: 2vw;
+      line-height: 4vw;
+           &:first-letter{
+           font-size: 4vw;
+            }
+         }
+      @include media-breakpoint-up(xl){
+          font-size: 1.6vw;
+         line-height: 3vw;
+           &:first-letter{
+           font-size: 4vw;
+            }
+         }
+
+   @media only screen 
+    and (max-width: 768px) 
+    and (orientation: landscape) {
+      font-size: 2.6vw;
+      line-height: 5.6vw;
+    }
+
+       }
     }
     &.pmOutro{
         text-transform: uppercase;
@@ -138,13 +235,5 @@
   .mastfoot,
   .cover-container {
     width: 100%; /* Must be percentage or pixels for horizontal alignment */
-  }
-}
-
-@media (min-width: 992px) {
-  .masthead,
-  .mastfoot,
-  .cover-container {
-    width: 1024px;
   }
 }
