@@ -13,6 +13,8 @@ var gulp   	= require('gulp'),
 
 var config = {
 	scripts: [
+		// Modernizr
+		'./assets/js/vendor/modernizr-custom.js',
          // Bootstrap
 		'./assets/js/vendor/bootstrap.js',
 		// PagePiling
