@@ -1,11 +1,3 @@
-<?php get_header(); ?>
-
- <?php get_template_part('navigation', 'default' ); ?>
-
-
-
-
-<div id="pm_pile1">
 <div class="site-wrapper">
 
       <div class="site-wrapper-cover">
@@ -14,16 +6,13 @@
         </div>
         <div class="pmVidBg">
           <video class="hidden-sm-down"  autoplay="" loop="" muted="" id="fpIntroBg">
-            <source src="wp-content/themes/bootstrap-four/assets/video/pmVidBg.mp4" type="video/mp4">
+            <source src="wp-content/themes/psychoMunkee/assets/video/pmVidBg.mp4" type="video/mp4">
           </video>
         </div>
         <div class="cover-container">
+          <?php get_template_part('__home', 'intro' ); ?>
 
-          <?php get_template_part('__header', 'section1' ); ?>
-
-          <?php get_template_part('__body', 'section1' ); ?>
-
-          <?php get_template_part('__footer', 'section1' ); ?>
+          <?php get_template_part('__home', 'intro-footer' ); ?>
         </div>
       </div>
     </div>
@@ -55,7 +44,7 @@
             <p>over 10+ years experience</p>
           </div>
         <div class="container-fluid">
-          <?php get_template_part('__body', 'section2' ); ?>
+          <?php get_template_part('__home', 'services' ); ?>
         </div>
 
       </div>
@@ -69,26 +58,10 @@
       <p>recent works</p>
     </div>
     <div class="container-fluid">
-      <?php get_template_part('__body', 'section3' ); ?>
+      <?php get_template_part('__home', 'samples' ); ?>
     </div>
   </div>
  </div>
-
-
-<!--<div class="site-wrapper">
-
-      <div class="site-wrapper-inner">
-   <div class="pmSideText">
-            <p>Holler atcha boi!</p>
-          </div>
-          <div class="container-fluid">
-     
-          <?php get_template_part('__body', 'section4' ); ?>
-        </div>
-
-      </div>
-
-    </div>-->
 
 
   <div id="pmOutro" class="site-wrapper">
@@ -140,7 +113,7 @@
                         <address>
                         211 N. Ervay<br />
                         Suite 700<br />
-                        Dallas, TX 75201<br />
+                        Dallas, TX 75201
                         </address>
                         </div>
                     </div>
@@ -157,47 +130,3 @@
       </div>
 
     </div>
-
-<!--<div class="site-wrapper">
-
-      <div class="site-wrapper-inner">
-   <div class="pmSideText">
-            <p>selected projects</p>
-          </div>
-          <div class="container-fluid">
-     
-          <?php get_template_part('__body', 'section5' ); ?>
-        </div>
-
-      </div>
-
-    </div>
-
-<div class="site-wrapper">
-
-      <div class="site-wrapper-inner">
-   <div class="pmSideText">
-            <p>fueled by integrity</p>
-          </div>
-          <div class="container-fluid">
-     
-          <?php get_template_part('__body', 'section6' ); ?>
-        </div>
-
-      </div>
-
-    </div>-->
-
-</div>
-
-
-
-
-
-
-
-
-
-<?php get_footer(); ?>
-
-

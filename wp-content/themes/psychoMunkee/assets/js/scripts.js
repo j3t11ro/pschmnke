@@ -4858,7 +4858,7 @@ jQuery(document).ready(function($) {
         canvasItem.hide();
         $("#"+type+".canvasItem").css({'display': 'flex'});
 
-        canvasBg.css({'background-image': "linear-gradient(rgba("+bgColor+"), rgba(0,0,0,0.9)),url(./wp-content/themes/bootstrap-four/assets/images/patternBg1.png)"})
+        canvasBg.css({'background-image': "linear-gradient(rgba("+bgColor+"), rgba(0,0,0,0.9)),url(./wp-content/themes/psychoMunkee/assets/images/patternBg1.png)"})
 
     });
 
