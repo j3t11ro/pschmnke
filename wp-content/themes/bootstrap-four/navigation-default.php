@@ -31,8 +31,6 @@ $main_nav_options = array(
                      <li><span class="icon-facebook-with-circle"></span></li>
                      <li><span class="icon-github-with-circle"></span></li>
                      <li><span class="icon-instagram-with-circle"></span><li>
-                     <li><span class="icon-twitter-with-circle"></span><li>
-                     <li><span class="icon-pinterest-with-circle"></span><li>
                    </ul>
         
               </nav>

@@ -38,7 +38,7 @@
             <li>design</li>
             <li>branding</li>
         </ul>
-
+        <h1>color palette</h1>
         <ul class="list-unstyled samplePalette clearfix">
             <li><span class="palette"></span></li>
             <li><span class="palette"></span></li>

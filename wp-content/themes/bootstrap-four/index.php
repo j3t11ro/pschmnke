@@ -71,7 +71,7 @@
  </div>
 
 
-<div class="site-wrapper">
+<!--<div class="site-wrapper">
 
       <div class="site-wrapper-inner">
    <div class="pmSideText">
@@ -84,26 +84,77 @@
 
       </div>
 
-    </div>
+    </div>-->
 
 
-  <div class="site-wrapper">
+  <div id="pmOutro" class="site-wrapper">
       <div class="site-wrapper-cover">
+       
         <div class="pmSideText">
             <p>we're located in dallas texas</p>
         </div>
-        <div class="cover-container">
+
+        <div class="cover-container sayHello">
             <div class="inner cover">
             <h1 class="cover-heading pmOutro">get in touch today!</h1>
             <p class="lead">we'd love to hear your ideas on current projects and how we can assist.</p>
-        <div class="fullscreen-bg gray">
+            <button class="btn btn-default" >let's talk <span class="icon-chat"></span></button>
+          </div>
+
+          
+        </div>
+
+        <div class="cover-container contact">
+            <div class="inner cover">
+
+            <div class="row">
+              
+              <div class="col social"> 
+
+               <ul class="list-unstyled clearfix">
+                     <li><span class="icon-facebook-with-circle"></span></li>
+                     <li><span class="icon-github-with-circle"></span></li>
+                     <li><span class="icon-instagram-with-circle"></span><li>
+                   </ul>
+        
+
+              </div>
+                <div class="col info">
+                <diw class="row flex-nowrap flex-column flex-md-wrap flex-md-row flex-lg-wrap flex-lg-row">
+                  <div class="col-sm-12 col-md-4 align-self-center">
+                      <div class="phone">
+                          972.222.2222
+                        </div>
+                    </div>
+                      <div class="col-sm-12 col-md-4 align-self-center">
+                      <div class="email">
+                          hello@psychomunkee.com
+                        </div>
+                    </div>
+                      <div class="col-sm-12 col-md-4 align-self-center ">
+                      <div class="address">
+                        <address>
+                        211 N. Ervay<br />
+                        Suite 700<br />
+                        Dallas, TX 75201
+                        </address>
+                        </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+                 <div class="fullscreen-bg gray">
               </div>
           </div>
+
+          
         </div>
+        
       </div>
+
     </div>
 
-<div class="site-wrapper">
+<!--<div class="site-wrapper">
 
       <div class="site-wrapper-inner">
    <div class="pmSideText">
@@ -131,7 +182,7 @@
 
       </div>
 
-    </div>
+    </div>-->
 
 </div>
 

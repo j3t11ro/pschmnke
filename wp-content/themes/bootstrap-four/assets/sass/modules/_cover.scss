@@ -26,7 +26,7 @@
       }
     }
   }
-  
+  @import "_outro.scss"
 }
 .site-wrapper-cover {
   @import "_fullscreen.scss";
@@ -48,34 +48,7 @@
         flex-wrap: nowrap;
         flex-direction: column;
       }
-        & .col{
-        height: inherit;
-        &:nth-child(1){
-          background-color: $pmDarkGray;
-           @include media-breakpoint-down(xs){
-              overflow-y: scroll;
-              height: 100%;
-              position: relative;
-              z-index: 2;
-          }
-        }
-        &:nth-child(2){
-          background-color: $pmBlue;
-          background-image: linear-gradient(rgba($pmBlue, .8),rgba(0,0,0,.9)),url('.../../assets/images/patternBg1.png');
-          background-repeat: no-repeat;
-          background-size: cover;
-          background-position: center center;
-          @include transition(.5s, all, linear);
-          // @include transition(10s, background-image, linear);
-          // @include keyframes(bgColor) {
-          //   0%   {  background-image: linear-gradient(rgba($pmBlue, .8),rgba(0,0,0,.9)),url('.../../assets/images/patternBg1.png'); }
-          //   50%  {  background-image: linear-gradient(rgba($pmPink, .8),rgba(0,0,0,.9)),url('.../../assets/images/patternBg1.png'); }
-          //   100% {  background-image: linear-gradient(rgba($green, .8),rgba(0,0,0,.9)),url('.../../assets/images/patternBg1.png'); }
-          // }
-          // @include animation('bgColor 10s infinite');
-        }
-        @import '_services.scss';
-      }
+        @import "_services.scss";
     }
   }
    @import '_samples.scss';
@@ -144,74 +117,7 @@
         }
         
     }
-    &.pmWho{
-      color: $white;
-      text-transform: uppercase;
-      & + .lead{
-         @include raleMedium();
-         color: $pmOffWhite;
-         text-align: left;
-         font-size: 1.6vw;
-         line-height: 3vw;
-         max-width: 80%;
-         margin: 0px auto;
-         &:first-letter{
-           font-size: 4vw;
-           text-transform: uppercase;
-           color: $pmGreen;
-            }
-      @include media-breakpoint-down(xs){
-        font-size: 4.6vw;
-        line-height: 7vw;
-        max-width: 90%;
-           &:first-letter{
-           font-size: 6vw;
-           text-transform: uppercase;
-           color: $pmGreen;
-            }
-         }
-
-     @include media-breakpoint-up(md){
-      font-size: 3.6vw;
-      line-height: 7vw;
-           &:first-letter{
-           font-size: 4vw;
-            }
-         }
-       @include media-breakpoint-up(lg){
-      font-size: 2vw;
-      line-height: 4vw;
-           &:first-letter{
-           font-size: 4vw;
-            }
-         }
-      @include media-breakpoint-up(xl){
-          font-size: 1.6vw;
-         line-height: 3vw;
-           &:first-letter{
-           font-size: 4vw;
-            }
-         }
-
-   @media only screen 
-    and (max-width: 768px) 
-    and (orientation: landscape) {
-      font-size: 2.6vw;
-      line-height: 5.6vw;
-    }
-
-       }
-    }
-    &.pmOutro{
-        text-transform: uppercase;
-        color: $pmGreen;
-      & + .lead{
-        @include raleMedium();
-         text-align: center;
-         font-size: 1.6vw;
-         line-height: 3vw;
-      }
-    }
+@import "_cover-heading.scss";
   }
 
 }

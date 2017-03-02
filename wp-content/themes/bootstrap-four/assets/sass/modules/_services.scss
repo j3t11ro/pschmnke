@@ -1,4 +1,31 @@
- &.pmServiceContainer{
+& .col{
+        height: inherit;
+        &:nth-child(1){
+          background-color: $pmDarkGray;
+           @include media-breakpoint-down(xs){
+              overflow-y: scroll;
+              height: 100%;
+              position: relative;
+              z-index: 2;
+          }
+        }
+        &:nth-child(2){
+          background-color: $pmBlue;
+          background-image: linear-gradient(rgba($pmBlue, .8),rgba(0,0,0,.9)),url('.../../assets/images/patternBg1.png');
+          background-repeat: no-repeat;
+          background-size: cover;
+          background-position: center center;
+          @include transition(.5s, all, linear);
+          // @include transition(10s, background-image, linear);
+          // @include keyframes(bgColor) {
+          //   0%   {  background-image: linear-gradient(rgba($pmBlue, .8),rgba(0,0,0,.9)),url('.../../assets/images/patternBg1.png'); }
+          //   50%  {  background-image: linear-gradient(rgba($pmPink, .8),rgba(0,0,0,.9)),url('.../../assets/images/patternBg1.png'); }
+          //   100% {  background-image: linear-gradient(rgba($green, .8),rgba(0,0,0,.9)),url('.../../assets/images/patternBg1.png'); }
+          // }
+          // @include animation('bgColor 10s infinite');
+        }
+
+   &.pmServiceContainer{
 
 
   .pmServiceWrapper{
@@ -200,7 +227,7 @@
          &:hover{
              transform: scale(1.2, 1.2);
              box-shadow: 10px 10px 0 #2f2f2f;
-         }
-     }
+            }
+        }
+    }
  }
-
