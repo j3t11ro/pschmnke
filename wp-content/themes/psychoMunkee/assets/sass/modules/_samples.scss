@@ -80,6 +80,11 @@
         &.work{
             cursor: pointer;
             max-height: 200px;
+            height: 200px;
+                    @include media-breakpoint-up(md){
+                        margin-left: 5.5%;
+                    }
+            
             $textStyles:  line-through, overline, underline, none, overline, underline;
             $borderColors: $pmPink, $pmGreen, $pmDarkGray, $pmBlue, $black, $yellow;
             $bgColors: $pmBlue , $pmPink, $pmGreen, $pmDarkGray, $black, $yellow;
@@ -97,8 +102,9 @@
                     background-repeat: no-repeat;
                     background-position: center center;
                     background-size: cover;
-                    margin-left: 4.5em;
+                    
                     margin-top: 15px;
+               
                     h4{
                         font-size: 2.5em;
                         text-decoration: $b;

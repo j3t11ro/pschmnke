@@ -7,7 +7,7 @@ Template Name: psychomunkee-about/beliefs
 <?php get_header(); ?>
 
  <?php get_template_part('navigation', 'default' ); ?>
-    <div id="pm_pile1">
+    <div>
 
 <div class="site-wrapper">
 
