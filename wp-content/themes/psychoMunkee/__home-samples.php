@@ -27,4 +27,4 @@
 
 </div>
 
- <?php get_template_part('__body', 'section3_1' ); ?>
+ <?php get_template_part('__work', 'details' ); ?>

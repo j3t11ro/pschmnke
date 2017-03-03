@@ -15,6 +15,6 @@ $samples = array('vsg.io', 'visage ent', 'lukes locker', 'honda', 'acura');
 </div>
 
 
-
+ <?php get_template_part('__work', 'details' ); ?>
 
 

@@ -15,7 +15,7 @@ Template Name: psychomunkee-about/beliefs
    <div class="pmSideText">
             <p>fueled by integrity</p>
           </div>
-          <div class="container-fluid">
+          <div class="container-fluid" id="beliefs">
      
           <?php get_template_part('__belief', 'section' ); ?>
         </div>

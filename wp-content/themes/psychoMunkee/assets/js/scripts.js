@@ -4790,7 +4790,9 @@ var Popover = (function ($) {
 })( jQuery );
 
 jQuery(document).ready(function($) {
+var elementExists = document.getElementById("pm_pile1");
 
+if (elementExists){
 
              $('#pm_pile1').pagepiling({
                 sectionSelector: '.site-wrapper',
@@ -4811,6 +4813,7 @@ jQuery(document).ready(function($) {
                             $('video').get(0).play();
                 }
             });
+}
 
 
 });

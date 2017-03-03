@@ -20,7 +20,7 @@
           <div class="pmServiceType">
                <i class="icon-megaphone"></i>
                <h3>branding</h3>
-               <p>we elevate brands to new levels through strategic naming and idetifiable elements to cut through the sea of competition and establish yourself in the market.</p>
+               <p>we elevate brands to new levels through strategic naming and identifiable elements cutting through seas of competition, establishing yourself in market.</p>
            </div>
         </div>
 

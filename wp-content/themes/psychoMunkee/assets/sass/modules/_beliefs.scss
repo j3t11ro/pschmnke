@@ -1,4 +1,20 @@
 
+& #beliefs{
+    height: calc(100vh - 100px);
+    overflow: hidden;
+
+    @include media-breakpoint-up(sm){
+
+    }
+    @include media-breakpoint-up(md){
+
+    }
+    @include media-breakpoint-up(lg){
+
+    }
+    @include media-breakpoint-up(xl){
+
+    }
 .pmBeliefCanvas,
 .pmBeliefNav{
  
@@ -9,25 +25,77 @@
 .pmBeliefNav{
     background-color: $pmDarkGray;
     padding-top: 2em;
+    max-height: 250px;
+    @include clearfix();
+    @include media-breakpoint-up(sm){
+        max-height: none;
+    }
+    @include media-breakpoint-up(md){
+
+    }
+    @include media-breakpoint-up(lg){
+
+    }
+    @include media-breakpoint-up(xl){
+   
+    }
     h1{
         text-transform: uppercase;
         color: $pmGreen;
         @include josefinBold();
+        text-align: center;
+        @include media-breakpoint-up(sm){
+            font-size: 1.45em;
+            text-align: left;
+        }
+     
+        @include media-breakpoint-up(md){
+            font-size: 2em;
+        }
+        @include media-breakpoint-up(lg){
+            font-size: 2em;
+        }
+        @include media-breakpoint-up(xl){
+            font-size: 2.5em;
+        }
+
+        @include media-breakpoint-only(md){
+            font-size: 1.45em;
+        }
     }
 
     ul{
-        width: 70%;
+        width: 100%;
         position: relative;
-        margin: 2em 0 0 25px;
+        margin: 1em auto 3em;
         text-align: left;
+        display: flex;
+        flex-wrap: nowrap;
+        flex-direction: row;
+        justify-content: space-around;
+            @include media-breakpoint-up(sm){
+                width: 75%;
+                margin: 2em 0 0 25px;
+                flex-wrap: wrap;
+                flex-direction: column;
+                justify-content: flex-start;
+            }
+            @include media-breakpoint-up(md){
+                margin: 2em 0 0 0em;
+            }
+            @include media-breakpoint-up(lg){
+
+            }
+            @include media-breakpoint-up(xl){
+                margin: 2em 0 0 25px;
+            }
         li{
             border-bottom:0px solid $pmPink;
             cursor: pointer;
-            margin: 0 0 3em 0;
-            
+       
             @include raleThin();
             @include transition(all .2s ease-in);
-            width: 50%;
+            width: auto;
             &:nth-last-child(){
                 margin-top: 6em;
             }
@@ -35,13 +103,31 @@
                 @include raleSemiBold();
                 border-bottom:2px solid $pmPink;
                 text-transform: capitalize;
-                width: 100%;
+                width: auto;
                  &:hover{
                 color: $white;
               }
             }
             &:hover{
                 color: lighten($pmPink, 12%);
+            }
+
+            @include media-breakpoint-up(sm){
+                float: none;
+                margin: 0 0 3em 0;
+                 width: 100%;
+                &.active{
+                 width: 100%;   
+                }
+            }
+            @include media-breakpoint-up(md){
+
+            }
+            @include media-breakpoint-up(lg){
+
+            }
+            @include media-breakpoint-up(xl){
+              
             }
         }
     }
@@ -50,9 +136,26 @@
 
 
 .pmBeliefCanvas{
-    background-color: darkmagenta;
-    padding: 4em 5em 0;
+  overflow-y: scroll;
+    height: 100%;
+    & .principle{
+     background-color: darkmagenta;
+     padding: 3em 1.5em 0;
+     
+  
+    @include media-breakpoint-up(sm){
+        padding: 4em 5em 0;
+        height: inherit;
+    }
+    @include media-breakpoint-up(md){
 
+    }
+    @include media-breakpoint-up(lg){
+
+    }
+    @include media-breakpoint-up(xl){
+
+    }
     h1,p{
         text-align: left;
     }
@@ -65,6 +168,7 @@
         margin-top: 2em;
         line-height: 2em;
         @include raleRegular();
+             }
+         }
     }
-
 }
