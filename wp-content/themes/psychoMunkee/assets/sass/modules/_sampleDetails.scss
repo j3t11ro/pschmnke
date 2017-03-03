@@ -10,7 +10,10 @@
     overflow-y: auto;
     overflow-x: hidden;
     @include transition(bottom .4s cubic-bezier(0.175, 0.885, 0.32, 1.275));
-
+    @include media-breakpoint-up(sm){
+        bottom: -100vh;
+        height: 100%;
+    }
     &.open{
        bottom: 0; 
     } 
@@ -170,12 +173,19 @@
             @include media-breakpoint-up(sm){
                 padding: 1em 0 0 45px;
             }
+            &:nth-child(n+2){
+            position: absolute;
+            bottom: 3em;
+            @include media-breakpoint-down(md){
+                bottom: 2em;
+                }
+            }
         }
 
         ul{
           &.services{
               text-align: left;
-              margin-top: 2em;
+              margin-top: 0em;
               margin-left: 0;
                 @include media-breakpoint-up(sm){
                     margin-top: 5em;

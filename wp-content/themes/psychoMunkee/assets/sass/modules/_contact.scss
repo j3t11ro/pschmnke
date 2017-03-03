@@ -2,10 +2,25 @@
 
 .pmContact{
    
+
+    .head{
+            height: 100%;
+            @include media-breakpoint-up(sm){
+            height:  calc(50vh - 100px);
+            }
+    }
+    .form{
+            height: 100%;
+            @include media-breakpoint-up(sm){
+            height: 50vh;
+            }
+    }
     .close{
 
     }
+ 
     .row{
+ 
     &.intro{
     @include pm-background-gradient(left, $pmGreen, $pmPink);
     height: 100%;
@@ -21,21 +36,78 @@
         @include josefinBold();
         color: $black;
         font-size: 3.5em;
+        @include media-breakpoint-up(md){
+         font-size: 2.5em;
+        }
+       @include media-breakpoint-up(lg){
+         font-size: 2.5em;
+        }
+       @include media-breakpoint-up(xl){
+         font-size: 3.5em;
+        }
+
     }
     p{
         @include raleMedium();
         font-size: 1.3em;
         color: $pmDarkGray;
+        @include media-breakpoint-up(sm){
+           font-size: 1.2em;
+        }
+       @include media-breakpoint-up(md){
+             font-size: 1.3em;
+        } 
+        @include media-breakpoint-up(lg){
+            font-size: 1.2em;
+        }
+        @include media-breakpoint-up(xl){
+            font-size: 1.3em;
+        }
     }
 
         svg{
             height: auto;
-            width: 45%;
             position: absolute;
             top: -11px;
             right: 70px;
+            width: 188%;
+            top: -29em;
+            right: -16em;
+            opacity: .1;
             .st0{
             fill: $pmDarkGray;
+            }
+
+            @include media-breakpoint-up(sm){
+               width: 45%;
+               top: -11px;
+               right: 70px;
+               opacity: 1;
+            }
+            @include media-breakpoint-up(md){
+                width: 63%;
+                top: -11px;
+                right: 70px;
+                opacity: 1;
+            }
+
+            @include media-breakpoint-up(lg){
+                width: 63%;
+                top: -11px;
+                right: 70px;
+                opacity: 1;
+            }
+            @include media-breakpoint-up(xl){
+               width: 45%;
+               top: -11px;
+               right: 70px;
+               opacity: 1;
+            }
+            @include media-breakpoint-only(md){
+                width: 123%;
+                top: -11px;
+                right: 3px;
+                opacity: 0.05;
             }
         }
     }
@@ -44,23 +116,33 @@
         background-color: $pmDarkGray;
         height: 100%;
         padding-top: 0;
+        padding-bottom: 3em;
         text-align: right;
-        
+        @include media-breakpoint-up(sm){
+           padding-bottom: 0;
+         }
         & .contactInfo,
         & form{
             position: relative;
             top: 3em;
+            @include media-breakpoint-only(md){
+            top: 7em;
+            }
         }
 
         & .contactInfo{
-            
+            text-align: center;
+            padding-top: 3em;
              address,
             a[href^="mail"],
             a[href^="tel"]{
                     font-size: 1.3rem;
-                    text-align: right;
                     line-height: 2em;
                 @include raleLight();
+                @include media-breakpoint-up(sm){
+             
+                text-align: right;
+                }
             }
         
             a[href^="mail"]{
@@ -78,6 +160,10 @@
                     }
                 }
             }
+            @include media-breakpoint-up(sm){
+                padding-top: 0;
+                text-align: right;
+            }
         }
     
 
@@ -89,7 +175,8 @@
                     }
                     .form-control{
                         border-radius: 0;
-                        background-color: #555555;
+                        background-color: #3e3e3e;
+                        color: $pmGreen;
                     }
 
                 }

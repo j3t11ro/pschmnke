@@ -1,6 +1,6 @@
 <div class="row pmContact">
 
-<div class="col-sm-12">
+<div class="head col-sm-12">
 <div class="close"><span></span></div>
 <div class="row intro">
      <div class="col-sm-6">
@@ -71,7 +71,7 @@
     </div>
     </div>
 
-    <div class="col-sm-12">
+    <div class="form col-sm-12">
         <div class="row contact">
         <div class="col-sm-6">
 <form>
@@ -100,13 +100,13 @@
 <address>
 211 N. Ervay<br />
 Suite 700<br />
-Dallas, TX 75215<br />
+Dallas, TX 75201<br />
 
 </address>
 <br />
 <a href="tel:9723798538">(972) 379-8538</a>
 <br /><br />
-<a href="mailto:info@psychomunkee.com">info@psychomunkee.com</a>
+<a href="mailto:hello@psychomunkee.com">hello@psychomunkee.com</a>
 <ul class="list-inline">
   <li class="list-inline-item"><a href="">github</a></li>
   <li class="list-inline-item"><a href="">instagram</a></li>

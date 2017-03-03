@@ -4,7 +4,7 @@
 
     <h1>beliefs</h1>
     <nav>
-        <ul id="beliefNav" class="row flex-row align-items-center list-unstyled">
+        <ul id="beliefNav" class="list-unstyled">
             <li class="active" data-anchor="design">design</li>
             <li data-anchor="develop">develop</li>
             <li data-anchor="destroy">destroy</li>
