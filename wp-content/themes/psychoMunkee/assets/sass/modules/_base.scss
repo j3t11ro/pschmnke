@@ -16,10 +16,10 @@ body {
   color: $white;
   text-align: center;
   &.mobile{
-    &.contactMe{
+    &.overflow-content{
      overflow: scroll;
     }
-    .container-fluid{
+    .container-fluid,{
       overflow-y: scroll;
     }
   }

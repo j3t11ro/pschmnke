@@ -15,9 +15,9 @@
         self.parent().addClass('active');
 		
          if(self.text().toLowerCase() == "contact"){
-             $('body').addClass('contactMe');
+             $('body').addClass('overflow-content');
          } else {
-             $('body').removeClass('contactMe');
+             $('body').removeClass('overflow-content');
          }
 
          if( !isAnimating ) changePage(newPage, page, true);
