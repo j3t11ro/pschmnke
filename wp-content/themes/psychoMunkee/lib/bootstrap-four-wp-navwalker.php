@@ -67,11 +67,11 @@ class bootstrap_four_wp_navwalker extends Walker_Nav_Menu {
 
             // if ( $depth >= 1 )
             //   $class_names = str_replace( 'nav-item', 'dropdown-item', $class_names );
-
+            $pageid = get_post_meta( $item->ID, '_menu_item_object_id', true );
             $class_names = $class_names ? ' class="' . esc_attr( $class_names ) . '"' : '';
 
             $id = apply_filters( 'nav_menu_item_id', 'menu-item-'. $item->ID, $item, $args );
-            $id = $id ? ' id="' . esc_attr( $id ) . '"' : '';
+            $id = $id ? ' data-page-id="'. $pageid .'" id="' . esc_attr( $id ) . '"' : '';
 
             if ( $depth >= 1 ) :
               // No <li> wrapper for dropdown children

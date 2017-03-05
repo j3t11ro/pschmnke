@@ -3538,6 +3538,15 @@ var Popover = (function ($) {
         var touchStartY = 0, touchStartX = 0, touchEndY = 0, touchEndX = 0;
         var scrollings = [];
 
+        var DESTROYED =             'pp-destroyed';
+        var VIEWING_PREFIX =        'pp-viewing';
+        var $window = $(window);
+        var $document = $(document);
+        var $htmlBody = $('html, body');
+        var $body = $('body');
+        var TABLE_CELL_SEL = '.pp-tableCell';
+        var SLIDES_WRAPPER_SEL = '.pp-tableCell';
+
         //Defines the delay to take place before being able to scroll to the next section
         //BE CAREFUL! Not recommened to change it under 400 for a good behavior in laptops and
         //Apple devices (laptops, mouses...)
@@ -3681,6 +3690,69 @@ var Popover = (function ($) {
             '-ms-touch-action': 'none',  /* Touch detection for Windows 8 */
             'touch-action': 'none'       /* IE 11 on Windows Phone 8.1*/
         });
+
+        //destroy plugin
+
+    PP.destroy = function(all){
+
+        PP.setAllowScrolling(false);
+        PP.setKeyboardScrolling(false);
+        setURLHash('');
+        removeTouchHandler();
+
+        $window
+            .off('hashchange', hashChangeHandler)
+
+        $document
+            .off('click touchstart', '#pp-nav a')
+            .off('mouseenter', '#pp-nav li')
+            .off('mouseleave', '#pp-nav li')
+            .off('mouseover', options.normalScrollElements)
+            .off('mouseout', options.normalScrollElements);
+
+
+        if(all){
+            destroyStructure();
+        }
+    };
+
+    function destroyStructure(){
+
+        container.css({
+            'height': '',
+            'position': '',
+            '-ms-touch-action': '',
+            'touch-action': '',
+            'overflow': ''
+        });
+
+        $htmlBody.css({
+            'overflow': '',
+            'height': ''
+        });
+
+        // remove all of the .fp-viewing- classes
+        $.each($body.get(0).className.split(/\s+/), function (index, className) {
+            if (className.indexOf(VIEWING_PREFIX) === 0) {
+                $body.removeClass(className);
+            }
+        });
+
+        // Unwrapping content
+
+        container.find(TABLE_CELL_SEL  + ', ' + SLIDES_WRAPPER_SEL).each(function(){
+            //unwrap not being use in case there's no child element inside and its just text
+            $(this).replaceWith(this.childNodes);
+        });
+
+        //scrolling the page to the top with no animation
+        $htmlBody.scrollTop(0);
+
+        //removing selectors
+        $('.pp-section').each(function(){
+            $(this).removeAttr('style').removeAttr('data-anchor').removeClass('pp-section active pp-table');
+        })
+    }
 
         //init
         PP.setAllowScrolling(true);
@@ -4793,7 +4865,18 @@ jQuery(document).ready(function($) {
 var elementExists = document.getElementById("pm_pile1");
 
 if (elementExists){
+    $.fn.initialise();
+}
 
+
+});
+
+
+(function( $ ) {
+ 
+
+$.fn.initialise = function() {
+     // create event here that needs re-initialising
              $('#pm_pile1').pagepiling({
                 sectionSelector: '.site-wrapper',
                 menu: null,
@@ -4813,10 +4896,12 @@ if (elementExists){
                             $('video').get(0).play();
                 }
             });
-}
+};
+
+ 
+}( jQuery ));
 
 
-});
 
 jQuery(document).ready(function($) {
 
@@ -4867,6 +4952,125 @@ jQuery(document).ready(function($) {
 
 });
 (function($) {
+
+  var isAnimating = false,
+      newLocation = '',
+      firstLoad = false,
+      frontPage = $("#front-page");
+
+	$(document).on( 'click', '.menu-item a.nav-link', function( event ) {
+		event.preventDefault();
+        var self = $(this);
+        var newPage = self.attr('href');
+		var page = parseInt(self.parent().attr('data-page-id'));
+
+        $('.nav-link').parent().removeClass('active');
+        self.parent().addClass('active');
+		
+
+         if( !isAnimating ) changePage(newPage, page, true);
+         firstLoad = true;  
+
+
+	});
+
+
+
+	function changePage(url, page, bool) {
+        isAnimating = true;
+        // trigger page animation
+        $('body').addClass('page-is-changing');
+        $('.cd-loading-bar').one('webkitTransitionEnd otransitionend oTransitionEnd msTransitionEnd transitionend', function(){
+            loadNewContent(url, page, bool);
+             newLocation = url;
+            $('.cd-loading-bar').off('webkitTransitionEnd otransitionend oTransitionEnd msTransitionEnd transitionend');
+        });
+        //if browser doesn't support CSS transitions
+        if( !transitionsSupported() ) {
+        loadNewContent(url, page, bool);
+        newLocation = url;
+        }
+	}
+
+	function loadNewContent(url, page, bool) {
+        $.ajax({
+            // xhr: function() {
+            // var xhr = new window.XMLHttpRequest();
+
+            // // Upload progress
+            // xhr.upload.addEventListener("progress", function(evt){
+            //     if (evt.lengthComputable) {
+            //         var percentComplete = evt.loaded / evt.total;
+            //         //Do something with upload progress
+            //         console.log(percentComplete);
+            //         }
+            //     }, false);
+
+            // // Download progress
+            // xhr.addEventListener("progress", function(evt){
+            //     if (evt.lengthComputable) {
+            //     var percentComplete = evt.loaded / evt.total;
+            //     // Do something with download progress
+            //     console.log(percentComplete);
+            //     }
+            // }, false);
+
+            // return xhr;
+            // },
+			url: ajaxloadpage.ajaxurl,
+			type: 'post',
+			data: {
+				action: 'load_page',
+                page: page
+			},
+            beforeSend: function() {
+
+            },
+			success: function( result ) {
+                //Populate replace html
+              	frontPage.html(result);
+                //destroy any instances of PP lib
+                $.fn.pagepiling.destroy('all');
+
+
+                var delay = ( transitionsSupported() ) ? 1200 : 0;
+                var elementExists = document.getElementById("pm_pile1");
+
+          
+
+                //if browser doesn't support CSS transitions - dont wait for the end of transitions
+                  setTimeout(function(){
+                    //wait for the end of the transition on the loading bar before revealing the new content
+                    $('body').removeClass('page-is-changing');
+                    $('.cd-loading-bar').one('webkitTransitionEnd otransitionend oTransitionEnd msTransitionEnd transitionend', function(){
+                        isAnimating = false;
+                        $('.cd-loading-bar').off('webkitTransitionEnd otransitionend oTransitionEnd msTransitionEnd transitionend');
+                    });
+
+                    if( !transitionsSupported() ) isAnimating = false;
+                 }, delay);
+			
+               
+                if (elementExists){
+                    $.fn.initialise();
+                }
+
+
+			},
+           complete: function() {
+
+            },
+		});
+  }
+
+  function transitionsSupported() {
+    return $('html').hasClass('csstransitions');
+  }
+
+
+
+})(jQuery);
+(function($) {
   
     var sm = 576,
         md = 768 - 1,
@@ -4906,6 +5110,7 @@ $('.mobileNav button').on('click', function(){
 
 
 })(jQuery);
+
 
 jQuery(document).ready(function($) {
 

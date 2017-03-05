@@ -3,10 +3,6 @@
 Template Name: psychomunkee-about/beliefs
 */
 ?>
-
-<?php get_header(); ?>
-
- <?php get_template_part('navigation', 'default' ); ?>
     <div>
 
 <div class="site-wrapper">
@@ -25,5 +21,3 @@ Template Name: psychomunkee-about/beliefs
     </div>
 
             </div>
-
-<?php get_footer(); ?>

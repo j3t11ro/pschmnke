@@ -3,7 +3,18 @@ jQuery(document).ready(function($) {
 var elementExists = document.getElementById("pm_pile1");
 
 if (elementExists){
+    $.fn.initialise();
+}
 
+
+});
+
+
+(function( $ ) {
+ 
+
+$.fn.initialise = function() {
+     // create event here that needs re-initialising
              $('#pm_pile1').pagepiling({
                 sectionSelector: '.site-wrapper',
                 menu: null,
@@ -23,7 +34,8 @@ if (elementExists){
                             $('video').get(0).play();
                 }
             });
-}
+};
 
+ 
+}( jQuery ));
 
-});

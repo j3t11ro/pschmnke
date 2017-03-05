@@ -55,6 +55,7 @@ endif; // bootstrap_four_setup
 add_action( 'after_setup_theme', 'bootstrap_four_setup' );
 
 
+
 if ( ! function_exists( 'bootstrap_four_theme_styles' ) ) :
   function bootstrap_four_theme_styles() {
     global $bootstrap_four_version;
@@ -93,6 +94,33 @@ if (in_array($_SERVER['REMOTE_ADDR'], array('127.0.0.1', '::1'))) {
   wp_enqueue_script('livereload');
 }
 
+//Ajax Stuff
+//global $wp_query;
+wp_localize_script( 'ajax-load-page', 'ajaxloadpage', array(
+	'ajaxurl' => admin_url( 'admin-ajax.php' )
+  //,'query_vars' => json_encode( $wp_query->query )
+));
+
+add_action( 'wp_ajax_nopriv_load_page', 'pm_load_page' );
+add_action( 'wp_ajax_ajax_load_page', 'pm_load_page' );
+
+function pm_load_page() {
+    
+    $page = $_POST['page'];
+    $id = $page;//This is page id or post id
+    $content_post = get_post($id);
+    $content = $content_post->post_content;
+    $file = get_post_meta( $id, '_wp_page_template', true );
+    $template = preg_replace('/\\.[^.\\s]{3,4}$/', '', $file);
+    
+    //echo $template;
+    get_template_part( $template );
+
+    die();
+}
+
+
+
 
 function bootstrap_four_nav_li_class( $classes, $item ) {
   $classes[] .= ' nav-item';
@@ -112,6 +140,8 @@ function bootstrap_four_comment_form_before() {
   echo '<div class="card"><div class="card-block">';
 }
 add_action( 'comment_form_before', 'bootstrap_four_comment_form_before', 10, 5 );
+
+
 
 
 function bootstrap_four_comment_form( $fields ) {

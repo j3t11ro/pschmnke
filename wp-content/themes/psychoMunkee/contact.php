@@ -3,11 +3,6 @@
 Template Name: psychomunkee-contact
 */
 ?>
-<?php get_header(); ?>
-
- <?php get_template_part('navigation', 'default' ); ?>
-    <div>
-
 <div class="site-wrapper">
 
       <div class="site-wrapper-inner">
@@ -24,6 +19,3 @@ Template Name: psychomunkee-contact
     </div>
 
         </div>
-
-
-<?php get_footer(); ?>

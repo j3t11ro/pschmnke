@@ -3,9 +3,7 @@
 Template Name: psychomunkee-work
 */
 ?>
-<?php get_header(); ?>
 
- <?php get_template_part('navigation', 'default' ); ?>
     <div>
 
 <div class="site-wrapper">
@@ -22,6 +20,4 @@ Template Name: psychomunkee-work
       </div>
 
     </div>
-        </div>
-
-<?php get_footer(); ?>
+ </div>

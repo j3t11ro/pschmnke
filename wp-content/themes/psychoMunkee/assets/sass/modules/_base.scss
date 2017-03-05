@@ -18,6 +18,7 @@ body {
   &.mobile{
     overflow-y: scroll;
   }
+  @include font-smoothing;
 }
 
 
