@@ -136,6 +136,11 @@
                             margin: 0;
                         }
                     }
+                    & .email{
+                        @include media-breakpoint-down(xs){
+                            top: 35%;
+                        }
+                    }
                
                     }
                 }
