@@ -81,7 +81,8 @@
 
 
                 var delay = ( transitionsSupported() ) ? 1200 : 0;
-                var elementExists = document.getElementById("pm_pile1");
+                var PP = document.getElementById("pm_pile1");
+                var tilt = document.querySelector(".pmSample");
 
           
 
@@ -98,8 +99,11 @@
                  }, delay);
 			
                
-                if (elementExists){
+                if (PP){
                     $.fn.initialise();
+                }
+                if (tilt){
+                     $.fn.addTilt();
                 }
 
 

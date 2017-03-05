@@ -3,6 +3,9 @@
  <?php get_template_part('navigation', 'default' ); ?>
 <section id="front-page">
  <?php get_template_part('home', 'content' ); ?>
+ 
+ 
+ <?php get_template_part('__work', 'details' ); ?>
 </section>
 <?php get_footer(); ?>
 

@@ -4829,37 +4829,43 @@ var Popover = (function ($) {
 
 
 
-(function($) {
+jQuery(document).ready(function($) {
 	
-    var cover = $('.sampleCover');
-    var details = $('#sampleDetail');
-    var closeDetails = $('#sampleClose');
+    // var cover = $('.sampleCover');
+    // var details = $('#sampleDetail');
+    // var closeDetails = $('#sampleClose');
+    var tilt;
 
 
-    var tilt = $('.pmSample').each(function (){
+
+    $.fn.resetTilt = function() {
+        tilt.tilt.call(tilt);
+    };
+
+    $.fn.addTilt = function() {
+            tilt = $('.pmSample').each(function (){
             var self = $(this);
             self.tilt();
-    })
+         })
+    };
 
-    cover.on('click', function(e){
-        details.toggleClass('open');
+
+     $.fn.addTilt();
+
+    $('#front-page').on('click', '.sampleCover',  function(e){
+        e.stopPropagation();
+        $('#sampleDetail').toggleClass('open');
         tilt.tilt.destroy.call(tilt);
     });
 
-   closeDetails.on('click', function(e){
-       details.toggleClass('open');
-       resetTilt();
+    $('#front-page').on('click', '#sampleClose', function(e){
+       e.stopPropagation();
+       $('#sampleDetail').toggleClass('open');
+       $.fn.resetTilt();
     });
 
-    function resetTilt(){
-       tilt.tilt.call(tilt);
-    }
 
-    
-
-
-
-})( jQuery );
+});
 
 jQuery(document).ready(function($) {
 var elementExists = document.getElementById("pm_pile1");
@@ -5034,7 +5040,8 @@ jQuery(document).ready(function($) {
 
 
                 var delay = ( transitionsSupported() ) ? 1200 : 0;
-                var elementExists = document.getElementById("pm_pile1");
+                var PP = document.getElementById("pm_pile1");
+                var tilt = document.querySelector(".pmSample");
 
           
 
@@ -5051,8 +5058,11 @@ jQuery(document).ready(function($) {
                  }, delay);
 			
                
-                if (elementExists){
+                if (PP){
                     $.fn.initialise();
+                }
+                if (tilt){
+                     $.fn.addTilt();
                 }
 
 
@@ -5110,7 +5120,6 @@ $('.mobileNav button').on('click', function(){
 
 
 })(jQuery);
-
 
 jQuery(document).ready(function($) {
 

@@ -37,8 +37,11 @@
 }
 
 .site-wrapper-inner{
-    height: inherit;
+    height: calc(100vh - 99px);
     background-color: #dddddd;
+    &.overflow{
+      overflow-y: scroll;
+    }
 
   .container-fluid{
     height: inherit;
