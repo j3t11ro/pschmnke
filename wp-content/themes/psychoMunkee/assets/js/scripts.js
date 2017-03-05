@@ -4911,27 +4911,21 @@ $.fn.initialise = function() {
 
 jQuery(document).ready(function($) {
 
-    var details = $('#sampleDetail');
-    var about =  $('#beliefNav li');
-    var service = $('.pmServiceWrapper');
+    var about =  $('#beliefNav li'); 
     var scrollTop = $('.toTop');
 
     // ===== Scroll to Top ==== 
-    details.scroll(function() {
-        if ($(this).scrollTop() >= 50) {   
-            $('.toTop').addClass('show')   
-        } else {
-            $('.toTop').removeClass('show')
-        }
-    });
+    $.fn.scrollToTop();
     
-    scrollTop.click(function() {     
+   $('#front-page').on('click', '.toTop', function(e) {   
+       e.stopPropagation();
         $('#sampleDetail').animate({
             scrollTop : 0                     
         }, 500);
     });
 
-    about.on('click', function(){
+   $('#front-page').on('click', '#beliefNav li', function(e) {
+       e.stopPropagation();
         var self = $(this);
         var navItem =  $('#beliefNav li');
 
@@ -4940,12 +4934,14 @@ jQuery(document).ready(function($) {
 
     });
 
-    service.on('click', function(){
+  $('#front-page').on('click', '.pmServiceWrapper', function(e) {
+      e.stopPropagation();
         var self = $(this);
         var type = self.attr("data-type");
         var bgColor = self.attr("data-rgba");
         var canvasItem = $('.canvasItem');
         var canvasBg = $('.pmServiceCanvas');
+        var service = $('.pmServiceWrapper');
 
         service.removeClass('active');
         self.addClass('active');
@@ -4957,6 +4953,22 @@ jQuery(document).ready(function($) {
     });
 
 });
+
+(function( $ ) {
+
+$.fn.scrollToTop = function() {
+
+    $('#sampleDetail').on('scroll', function(e) {
+        if ($(this).scrollTop() >= 50) {   
+            $('.toTop').addClass('show')   
+        } else {
+            $('.toTop').removeClass('show')
+        }
+    });
+
+}
+
+}( jQuery ));
 (function($) {
 
   var isAnimating = false,
@@ -5063,6 +5075,7 @@ jQuery(document).ready(function($) {
                 }
                 if (tilt){
                      $.fn.addTilt();
+                     $.fn.scrollToTop();
                 }
 
 

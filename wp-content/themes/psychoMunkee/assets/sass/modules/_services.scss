@@ -194,7 +194,7 @@
                         padding-left: 1em;
                     }
                     li{
-                        @include josefinThin();
+                        @include josefinLight();
                         
                         @include media-breakpoint-up(lg){
                            font-size: 1.1rem;
@@ -226,9 +226,9 @@
          span{
             top: -11px;
             left: -37px;
-            width: 145%;
+            width: 150%;
             text-transform: capitalize;
-             @include josefinThin();
+             @include josefinBold();
          }
          i{
             bottom: 11px;

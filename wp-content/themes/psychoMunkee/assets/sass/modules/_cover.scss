@@ -37,8 +37,11 @@
 }
 
 .site-wrapper-inner{
-    height: calc(100vh - 99px);
+    height: 100%;
     background-color: #dddddd;
+    @include media-breakpoint-up(sm){
+      height: calc(100vh - 99px);
+    }
     &.overflow{
       overflow-y: scroll;
     }

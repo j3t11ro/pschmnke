@@ -104,6 +104,7 @@
                 }
                 if (tilt){
                      $.fn.addTilt();
+                     $.fn.scrollToTop();
                 }
 
 
