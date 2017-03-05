@@ -16,7 +16,12 @@ body {
   color: $white;
   text-align: center;
   &.mobile{
-    overflow-y: scroll;
+    &.contactMe{
+     overflow: scroll;
+    }
+    .container-fluid{
+      overflow-y: scroll;
+    }
   }
   @include font-smoothing;
 }

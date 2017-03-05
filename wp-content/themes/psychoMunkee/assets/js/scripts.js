@@ -4985,6 +4985,11 @@ $.fn.scrollToTop = function() {
         $('.nav-link').parent().removeClass('active');
         self.parent().addClass('active');
 		
+         if(self.text().toLowerCase() == "contact"){
+             $('body').addClass('contactMe');
+         } else {
+             $('body').removeClass('contactMe');
+         }
 
          if( !isAnimating ) changePage(newPage, page, true);
          firstLoad = true;  
@@ -5118,7 +5123,7 @@ $.fn.scrollToTop = function() {
     })( jQuery );
 (function($){
 
-$('.mobileNav button').on('click', function(){
+$("#front-page").on('click', '.mobileNav button', function(){
     var self = $(this);
     
     if (self.attr('id') == 'navNext'){

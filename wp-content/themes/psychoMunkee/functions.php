@@ -112,8 +112,8 @@ function pm_load_page() {
     $content = $content_post->post_content;
     $file = get_post_meta( $id, '_wp_page_template', true );
     $template = preg_replace('/\\.[^.\\s]{3,4}$/', '', $file);
-    
-    //echo $template;
+
+
     get_template_part( $template );
 
     die();

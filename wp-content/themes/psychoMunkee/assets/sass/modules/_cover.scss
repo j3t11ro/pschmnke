@@ -24,6 +24,9 @@
       @include media-breakpoint-down(xs){
        position: relative;
       }
+      & .container-fluid{
+        overflow: hidden;
+      }
     }
   }
   @import "_outro.scss"
@@ -58,9 +61,12 @@
     }
   }
    @import '_samples.scss';
+
    @import '_beliefs.scss';
    @import '_contact.scss';
 }
+
+   @import "_sampleDetails.scss";
 
 /* Padding for spacing */
 .inner {

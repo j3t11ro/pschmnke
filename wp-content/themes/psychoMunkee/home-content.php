@@ -66,7 +66,7 @@
  </div>
 
 
-  <div id="pmOutro" class="site-wrapper">
+  <div id="pmOutro" class="site-wrapper pp-scrollable">
       <div class="site-wrapper-cover">
        
         <div class="pmSideText">
@@ -95,14 +95,12 @@
                      <li><span class="icon-github-with-circle"></span></li>
                      <li><span class="icon-instagram-with-circle"></span><li>
                    </ul>
-        
-
               </div>
                 <div class="col info">
                 <diw class="row flex-nowrap flex-column flex-md-wrap flex-md-row flex-lg-wrap flex-lg-row">
                   <div class="col-sm-12 col-md-4 align-self-center">
                       <div class="phone">
-                          972.222.2222
+                          972.379.8538
                         </div>
                     </div>
                       <div class="col-sm-12 col-md-4 align-self-center">

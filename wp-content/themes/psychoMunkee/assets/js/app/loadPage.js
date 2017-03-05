@@ -14,6 +14,11 @@
         $('.nav-link').parent().removeClass('active');
         self.parent().addClass('active');
 		
+         if(self.text().toLowerCase() == "contact"){
+             $('body').addClass('contactMe');
+         } else {
+             $('body').removeClass('contactMe');
+         }
 
          if( !isAnimating ) changePage(newPage, page, true);
          firstLoad = true;  

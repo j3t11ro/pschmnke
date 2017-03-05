@@ -1,6 +1,6 @@
 (function($){
 
-$('.mobileNav button').on('click', function(){
+$("#front-page").on('click', '.mobileNav button', function(){
     var self = $(this);
     
     if (self.attr('id') == 'navNext'){
