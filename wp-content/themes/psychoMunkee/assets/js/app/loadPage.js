@@ -88,7 +88,7 @@
                 var delay = ( transitionsSupported() ) ? 1200 : 0;
                 var PP = document.getElementById("pm_pile1");
                 var tilt = document.querySelector(".pmSample");
-
+                var design = document.getElementById('design');
           
 
                 //if browser doesn't support CSS transitions - dont wait for the end of transitions
@@ -110,6 +110,9 @@
                 if (tilt){
                      $.fn.addTilt();
                      $.fn.scrollToTop();
+                }
+                if (design){
+                    $.fn.initTextRotate();
                 }
 
 
