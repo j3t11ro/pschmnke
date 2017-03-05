@@ -47,8 +47,10 @@
     font-size: .5em;
     padding: .5rem 0rem;
     @include raleLight();
+     z-index: 1000;
     @include media-breakpoint-up(md){
       padding: .5rem 3rem;
+    
 
     }
   }

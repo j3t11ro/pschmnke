@@ -71,13 +71,13 @@ class bootstrap_four_wp_navwalker extends Walker_Nav_Menu {
             $class_names = $class_names ? ' class="' . esc_attr( $class_names ) . '"' : '';
 
             $id = apply_filters( 'nav_menu_item_id', 'menu-item-'. $item->ID, $item, $args );
-            $id = $id ? ' data-page-id="'. $pageid .'" id="' . esc_attr( $id ) . '"' : '';
+            $id = $id ? 'id="' . esc_attr( $id ) . '"' : '';
 
             if ( $depth >= 1 ) :
               // No <li> wrapper for dropdown children
               // $output .= $indent . '<li' . $id . $value . $class_names .'>';
             else :
-              $output .= $indent . '<li' . $id . $value . $class_names .'>';
+              $output .= $indent . '<li data-page-id="'. $pageid .'"' . $id . $value . $class_names .'>';
             endif;
 
             $atts = array();

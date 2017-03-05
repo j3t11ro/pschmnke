@@ -86,6 +86,7 @@
 
  [class^="icon"]{
         color: $pmDarkGray;
+        @include transition(all .2s ease-in);
         & span{
           display: inline-block;
           font-size: .3em;
@@ -95,7 +96,52 @@
           @include  raleLight();
         }
     }
+  &.mobile{
+    &[aria-expanded="true"]{
+      [class^="icon"]{
+              color: $pmGreen;
+              & span{
+
+                }
+            }
+        }
+    }
   }
+
+ #pm-main-menu-mobile{
+  &[aria-expanded="false"]{
+    display: none;
+  }
+  &[aria-expanded="true"]{
+    display: block;
+    background-color: lighten($pmDarkGray, 25%);
+    // border-right: 33px solid $pmPink;
+    // border-left: 33px solid $pmPink;
+    height: 109vh;
+    top: 0;
+    bottom: 0;
+    z-index: -1;
+    position: fixed;
+    width: 100%;
+     & + #pm-social{
+       top: 5em;
+       }
+      }
+  & .nav{
+    @include vertical-center();
+    flex-direction: column-reverse;
+      li{
+        @include josefinBold();
+        font-size: 2em;
+        &.active{
+          background-color: $pmPink;
+          border: 1px solid $pmPink;
+        }
+      }
+    }
+  }
+
+
  #pm-main-menu{
   &[aria-expanded="false"]{
     display: none;

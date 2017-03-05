@@ -5003,8 +5003,12 @@ $.fn.scrollToTop = function() {
         var newPage = self.attr('href');
 		var page = parseInt(self.parent().attr('data-page-id'));
 
+      
+
         $('.nav-link').parent().removeClass('active');
         self.parent().addClass('active');
+
+        $( "button.mobile" ).trigger( "click" );
 		
          if(self.text().toLowerCase() == "contact"){
              $('body').addClass('overflow-content');
