@@ -108,13 +108,20 @@ function pm_load_page() {
     
     $page = $_POST['page'];
     $id = $page;//This is page id or post id
+
+    $cookie_name = 'page_id';
+    $cookie_value = $id;
+    setcookie($cookie_name, $cookie_value, time() + (86400 * 30), '/'); // 86400 = 1 day
+
+
+
     $content_post = get_post($id);
     $content = $content_post->post_content;
     $file = get_post_meta( $id, '_wp_page_template', true );
-    $template = preg_replace('/\\.[^.\\s]{3,4}$/', '', $file);
+    $template = preg_replace('/\\.[^.\\s]{3,4}$/', '', $file); //remove ext.
 
-
-    get_template_part( $template );
+    //echo $content;
+   get_template_part( $template );
 
     die();
 }
@@ -221,4 +228,18 @@ function bootstrap_four_get_posts_pagination( $args = '' ) {
 
 function bootstrap_four_the_posts_pagination( $args = '' ) {
   echo bootstrap_four_get_posts_pagination( $args );
+}
+
+add_action( 'init', 'create_post_type' );
+function create_post_type() {
+  register_post_type( 'samplePosts',
+    array(
+      'labels' => array(
+        'name' => __( 'Samples' ),
+        'singular_name' => __( 'Sample' )
+      ),
+      'public' => true,
+      'has_archive' => true,
+    )
+  );
 }

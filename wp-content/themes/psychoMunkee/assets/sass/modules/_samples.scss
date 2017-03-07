@@ -1,6 +1,8 @@
 .row{
 
     .pmSample{
+        transform-style: preserve-3d;
+
         &.home{
             cursor: pointer;
             @include media-breakpoint-down(xs){
@@ -24,6 +26,8 @@
                     background-repeat: no-repeat;
                     background-position: center center;
                     background-size: cover;
+                   // @include transition(border-width, .3s, ease-in);
+                  
                     h4{
                         text-decoration: $b;
                         @if $i == 3 {
@@ -45,6 +49,7 @@
                  top: 0;
                  left: 0;
                  @include pm-background-gradient(left, $d, $black);
+                 @include transform(translateZ(20px));
                  opacity: 0.8;
                  z-index: 0;
                     }
@@ -54,6 +59,7 @@
             @include vertical-center();
             font-size: 2.5em;
             position: relative;
+            @include transform(translateZ(40px));
             @include media-breakpoint-down(xs){
                 border-width: 15px !important;
                 height: 20%;
@@ -88,17 +94,17 @@
             $textStyles:  line-through, overline, underline, none, overline, underline;
             $borderColors: $pmPink, $pmGreen, $pmDarkGray, $pmBlue, $black, $yellow;
             $bgColors: $pmBlue , $pmPink, $pmGreen, $pmDarkGray, $black, $yellow;
-            $sampleImages: sampleLukes, sampleVisage, sampleVsgio, sampleLogo, sampleVisage, sampleVsgio;
+           // $sampleImages: sampleLukes, sampleVisage, sampleVsgio, sampleLogo, sampleVisage, sampleVsgio;
 
             @for $i from 1 through length($borderColors) {
                  $c: nth($borderColors, $i);
                  $b: nth($textStyles, $i);
                  $d: nth($bgColors, $i);
-                 $f: nth($sampleImages, $i);
+                // $f: nth($sampleImages, $i);
 
                 &:nth-child(#{$i}){
                     border: 13px solid $c;
-                    background-image: url('.../../assets/images/#{$f}.png');
+                   // background-image: url('.../../assets/images/#{$f}.png');
                     background-repeat: no-repeat;
                     background-position: center center;
                     background-size: cover;

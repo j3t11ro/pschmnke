@@ -31,7 +31,7 @@ jQuery(document).ready(function($) {
     $('#front-page').on('click', '.sampleCover',  function(e){
         e.stopPropagation();
         $('#sampleDetail').toggleClass('open');
-        tilt.tilt.destroy.call(tilt);
+       // tilt.tilt.destroy.call(tilt);
 
         var mql = [window.matchMedia("(max-width: "+md+"px)")];
         if (mql[0].matches){
@@ -47,7 +47,7 @@ jQuery(document).ready(function($) {
        e.stopPropagation();
        $('body').removeClass('overflow-content');
        $('#sampleDetail').toggleClass('open');
-       $.fn.resetTilt();
+      // $.fn.resetTilt();
     });
 
 

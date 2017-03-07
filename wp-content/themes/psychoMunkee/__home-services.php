@@ -73,12 +73,14 @@
                 <ul class="col-sm-6">
                     <li>html/css</li>
                     <li>javascript</li>
+                    <li>mobile</li>
                     <li>responsive</li>
                 </ul>
                <ul class="col-sm-6">
                     <li>c#/.net</li>
                     <li>LAMP</li>
                     <li>react.js</li>
+                    <li>cms</li>
                 </ul>
 
             </div>

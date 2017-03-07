@@ -13,7 +13,6 @@ Template Name: psychomunkee-work
             <p>selected projects</p>
           </div>
           <div class="container-fluid">
-     
           <?php get_template_part('__work', 'samples' ); ?>
         </div>
 
