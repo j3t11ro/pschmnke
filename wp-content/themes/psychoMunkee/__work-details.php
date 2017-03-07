@@ -10,7 +10,7 @@
             <div class="sampleImage"></div>
             
 
-            <a href="#" class="btn btn-default">visit site</a>
+            <a href="#" class="btn btn-default" target="_blank">visit site</a>
             <div class="bgDec"></div>
              <div class="bgDec"></div>
         </div>

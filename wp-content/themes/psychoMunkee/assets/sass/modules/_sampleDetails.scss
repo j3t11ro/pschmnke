@@ -62,7 +62,7 @@
                 left: 3em;
             }
             .sampleImage{
-                 background-image: url('.../../assets/images/sampleVsgio-feat.png');
+                // background-image: url('.../../assets/images/sampleVsgio-feat.png');
                  width: 100%;
                  background-repeat: no-repeat;
                  background-size: contain;
@@ -197,10 +197,13 @@
                 }
             li{
                 list-style: none;
-                font-size: 1.6em;
+                font-size: 1em;
                 text-transform: lowercase;
                 color: $pmDarkGray;
                 @include raleLight();
+                @include media-breakpoint-up(sm){
+                 font-size: 1.6em;
+                }
                 &:before {
                     content: "-";
                     padding-right: 8px;
@@ -264,8 +267,10 @@
         .exampleCanvas{
             width: inherit;
             height: 500px;
-            background-color: blue;
-    
+            background-color: darken($pmOffWhite, 10%);
+            background-repeat: no-repeat;
+            background-size: contain;
+            background-position: center center;
         }
 
         .exampleThumbnails{
@@ -286,10 +291,13 @@
             li{
                 width: 55px;
                 height: 55px;
-                background-color: red;
+                background-color: $pmOffWhite;
                 float: left;
                 margin: 0 15px 0;
                 cursor: pointer;
+                background-repeat: no-repeat;
+                background-size: cover;
+                background-position: center center;
                 @include transition(all, .5s ease-in);
                 @include media-breakpoint-up(sm){
                     width: 100px;
