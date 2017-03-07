@@ -9,8 +9,6 @@ jQuery(document).ready(function($) {
         lg = 992,
         xl = 1200;
 
-
-
     $.fn.resetTilt = function() {
         tilt.tilt.call(tilt);
     };
@@ -79,6 +77,7 @@ jQuery(document).ready(function($) {
 
         $('#sampleDetail').toggleClass('open');
        // tilt.tilt.destroy.call(tilt);
+
 
         var mql = [window.matchMedia("(max-width: "+md+"px)")];
         if (mql[0].matches){

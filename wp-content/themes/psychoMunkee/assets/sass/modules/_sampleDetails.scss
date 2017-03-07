@@ -1,22 +1,23 @@
 #sampleDetail{
-    left: 0;
+    left: -100vw;
     background-color: $white;
     height: 100%;
     width: 100%;
     position: absolute;
     top: auto;
-    bottom: -100vh;
+    bottom: 0;
     color: $pmDarkGray;
     overflow-y: auto;
     overflow-x: hidden;
-    visibility: hidden;
-    @include transition(bottom .4s cubic-bezier(0.175, 0.885, 0.32, 1.275));
+   // visibility: hidden;
+    @include transition(left .4s cubic-bezier(0.175, 0.885, 0.32, 1.275));
     @include media-breakpoint-up(sm){
         height: calc(100vh - 99px);
     }
     &.open{
-       visibility: visible;
-       bottom: 0; 
+    //   visibility: visible;
+       top: 0;
+       left: 0; 
     } 
     .close{
         position: relative;

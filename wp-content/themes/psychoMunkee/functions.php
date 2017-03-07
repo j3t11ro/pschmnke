@@ -105,18 +105,37 @@ add_action( 'wp_ajax_nopriv_load_page', 'pm_load_page' );
 add_action( 'wp_ajax_ajax_load_page', 'pm_load_page' );
 
 function pm_load_page() {
-    
     $page = $_POST['page'];
     $id = $page;//This is page id or post id
-
     $cookie_name = 'page_id';
     $cookie_value = $id;
+
+
+    $ch = curl_init('http://localhost:8888/psychomunkee/');
+    curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+    // get headers too with this line
+    curl_setopt($ch, CURLOPT_HEADER, 1);
+    $result = curl_exec($ch);
+    // get cookie
+    // multi-cookie variant contributed by @Combuster in comments
+    preg_match_all('/^Set-Cookie:\s*([^;]*)/mi', $result, $matches);
+    $cookies = array();
+    foreach($matches[1] as $item) {
+        parse_str($item, $cookie);
+        $cookies = array_merge($cookies, $cookie);
+    }
+     echo '<span style="display: none">'.$cookies.'</span>';
+
+ 
+
     setcookie($cookie_name, $cookie_value, time() + (86400 * 30), '/'); // 86400 = 1 day
 
 
 
-    $content_post = get_post($id);
-    $content = $content_post->post_content;
+
+
+  //   $content_post = get_post($id);
+  //   $content = $content_post->post_content;
     $file = get_post_meta( $id, '_wp_page_template', true );
     $template = preg_replace('/\\.[^.\\s]{3,4}$/', '', $file); //remove ext.
 

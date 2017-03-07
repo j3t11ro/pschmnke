@@ -4840,8 +4840,6 @@ jQuery(document).ready(function($) {
         lg = 992,
         xl = 1200;
 
-
-
     $.fn.resetTilt = function() {
         tilt.tilt.call(tilt);
     };
@@ -4910,6 +4908,7 @@ jQuery(document).ready(function($) {
 
         $('#sampleDetail').toggleClass('open');
        // tilt.tilt.destroy.call(tilt);
+
 
         var mql = [window.matchMedia("(max-width: "+md+"px)")];
         if (mql[0].matches){
@@ -5005,11 +5004,36 @@ jQuery(document).ready(function($) {
        e.stopPropagation();
         var self = $(this);
         var navItem =  $('#beliefNav li');
+        var anchor = self.attr('data-anchor');
+        var destination = $("#"+anchor+"").offset().top
 
         navItem.removeClass('active');
         self.addClass('active');
 
+        var sm = 576,
+            md = 768 - 1,
+            lg = 992,
+            xl = 1200;
+
+       var mql = [window.matchMedia("(max-width: "+md+"px)")];
+        if (mql[0].matches){
+               $('.pmBeliefCanvas').animate({
+            scrollTop: parseInt($(".pmBeliefCanvas").scrollTop()+destination-155)
+        }, 500);
+
+        }
+        else {
+                $('.pmBeliefCanvas').animate({
+            scrollTop: parseInt($(".pmBeliefCanvas").scrollTop()+destination-50)
+        }, 500);
+
+        }	
+  
+
+
     });
+
+
 
   $('#front-page').on('click', '.pmServiceWrapper', function(e) {
       e.stopPropagation();
@@ -5059,7 +5083,6 @@ $.fn.scrollToTop = function() {
         var newPage = self.attr('href');
 		var page = parseInt(self.parent().attr('data-page-id'));
 
-      
 
         $('.nav-link').parent().removeClass('active');
         self.parent().addClass('active');
@@ -5100,24 +5123,24 @@ $.fn.scrollToTop = function() {
         $.ajax({
             // xhr: function() {
             // var xhr = new window.XMLHttpRequest();
+            //  alert(xhr.getResponseHeader('Set-Cookie'));
+            // // // Upload progress
+            // // xhr.upload.addEventListener("progress", function(evt){
+            // //     if (evt.lengthComputable) {
+            // //         var percentComplete = evt.loaded / evt.total;
+            // //         //Do something with upload progress
+            // //         console.log(percentComplete);
+            // //         }
+            // //     }, false);
 
-            // // Upload progress
-            // xhr.upload.addEventListener("progress", function(evt){
-            //     if (evt.lengthComputable) {
-            //         var percentComplete = evt.loaded / evt.total;
-            //         //Do something with upload progress
-            //         console.log(percentComplete);
-            //         }
-            //     }, false);
-
-            // // Download progress
-            // xhr.addEventListener("progress", function(evt){
-            //     if (evt.lengthComputable) {
-            //     var percentComplete = evt.loaded / evt.total;
-            //     // Do something with download progress
-            //     console.log(percentComplete);
-            //     }
-            // }, false);
+            // // // Download progress
+            // // xhr.addEventListener("progress", function(evt){
+            // //     if (evt.lengthComputable) {
+            // //     var percentComplete = evt.loaded / evt.total;
+            // //     // Do something with download progress
+            // //     console.log(percentComplete);
+            // //     }
+            // // }, false);
 
             // return xhr;
             // },
@@ -5162,6 +5185,7 @@ $.fn.scrollToTop = function() {
                 if (tilt){
                      $.fn.addTilt();
                      $.fn.scrollToTop();
+                     $('body').addClass('overflow-content');
                 }
                 if (design){
                     $.fn.initTextRotate();

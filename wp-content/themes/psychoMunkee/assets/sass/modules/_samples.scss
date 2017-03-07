@@ -91,9 +91,9 @@
                         margin-left: 5.5%;
                     }
             
-            $textStyles:  line-through, overline, underline, none, overline, underline;
-            $borderColors: $pmPink, $pmGreen, $pmDarkGray, $pmBlue, $black, $yellow;
-            $bgColors: $pmBlue , $pmPink, $pmGreen, $pmDarkGray, $black, $yellow;
+            $textStyles:  line-through, overline, underline, none, overline, underline, line-through, overline, underline, none, overline, underline;
+            $borderColors: $pmPink, $pmGreen, $pmDarkGray, $pmBlue, $black, $yellow, $pmPink, $pmGreen, $pmDarkGray, $pmBlue, $black, $yellow;
+            $bgColors: $pmBlue , $pmPink, $pmGreen, $pmDarkGray, $black, $yellow, $pmPink, $pmGreen, $pmDarkGray, $pmBlue, $black, $yellow;
            // $sampleImages: sampleLukes, sampleVisage, sampleVsgio, sampleLogo, sampleVisage, sampleVsgio;
 
             @for $i from 1 through length($borderColors) {
@@ -112,7 +112,7 @@
                     margin-top: 15px;
                
                     h4{
-                        font-size: 2.5em;
+                        font-size: 2em;
                         text-decoration: $b;
                         position: relative;
                         letter-spacing: 3px;
@@ -136,6 +136,10 @@
                  @include pm-background-gradient(left, $d, $black);
                  opacity: 0.8;
                  z-index: 0;
+                 @include transition(opacity, .3s, ease-in);
+                 &:hover{
+                    opacity: 0.3;
+                 }
                     }
                 }
             }

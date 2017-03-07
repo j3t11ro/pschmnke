@@ -18,11 +18,36 @@ jQuery(document).ready(function($) {
        e.stopPropagation();
         var self = $(this);
         var navItem =  $('#beliefNav li');
+        var anchor = self.attr('data-anchor');
+        var destination = $("#"+anchor+"").offset().top
 
         navItem.removeClass('active');
         self.addClass('active');
 
+        var sm = 576,
+            md = 768 - 1,
+            lg = 992,
+            xl = 1200;
+
+       var mql = [window.matchMedia("(max-width: "+md+"px)")];
+        if (mql[0].matches){
+               $('.pmBeliefCanvas').animate({
+            scrollTop: parseInt($(".pmBeliefCanvas").scrollTop()+destination-155)
+        }, 500);
+
+        }
+        else {
+                $('.pmBeliefCanvas').animate({
+            scrollTop: parseInt($(".pmBeliefCanvas").scrollTop()+destination-50)
+        }, 500);
+
+        }	
+  
+
+
     });
+
+
 
   $('#front-page').on('click', '.pmServiceWrapper', function(e) {
       e.stopPropagation();

@@ -11,7 +11,6 @@
         var newPage = self.attr('href');
 		var page = parseInt(self.parent().attr('data-page-id'));
 
-      
 
         $('.nav-link').parent().removeClass('active');
         self.parent().addClass('active');
@@ -52,24 +51,24 @@
         $.ajax({
             // xhr: function() {
             // var xhr = new window.XMLHttpRequest();
+            //  alert(xhr.getResponseHeader('Set-Cookie'));
+            // // // Upload progress
+            // // xhr.upload.addEventListener("progress", function(evt){
+            // //     if (evt.lengthComputable) {
+            // //         var percentComplete = evt.loaded / evt.total;
+            // //         //Do something with upload progress
+            // //         console.log(percentComplete);
+            // //         }
+            // //     }, false);
 
-            // // Upload progress
-            // xhr.upload.addEventListener("progress", function(evt){
-            //     if (evt.lengthComputable) {
-            //         var percentComplete = evt.loaded / evt.total;
-            //         //Do something with upload progress
-            //         console.log(percentComplete);
-            //         }
-            //     }, false);
-
-            // // Download progress
-            // xhr.addEventListener("progress", function(evt){
-            //     if (evt.lengthComputable) {
-            //     var percentComplete = evt.loaded / evt.total;
-            //     // Do something with download progress
-            //     console.log(percentComplete);
-            //     }
-            // }, false);
+            // // // Download progress
+            // // xhr.addEventListener("progress", function(evt){
+            // //     if (evt.lengthComputable) {
+            // //     var percentComplete = evt.loaded / evt.total;
+            // //     // Do something with download progress
+            // //     console.log(percentComplete);
+            // //     }
+            // // }, false);
 
             // return xhr;
             // },
@@ -114,6 +113,7 @@
                 if (tilt){
                      $.fn.addTilt();
                      $.fn.scrollToTop();
+                     $('body').addClass('overflow-content');
                 }
                 if (design){
                     $.fn.initTextRotate();
