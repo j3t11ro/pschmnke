@@ -19,7 +19,16 @@ $parent = new WP_Query( $args );
 if ( $parent->have_posts() ) : ?>
 
     <?php while ( $parent->have_posts() ) : $parent->the_post(); ?>
-        <div class="col-sm-5 pmSample work" style="background-image: url(.../../assets/images/sampleVisage.png)">
+    
+
+        <?php
+        $covers = get_post_meta($post->ID, "cover", false);
+        $covers = $covers[0]=="" ?  : $covers;
+        ?>
+
+
+
+        <div class="col-sm-5 pmSample work" style="background-image: url(./wp-content/themes/psychoMunkee/assets/images/<?php foreach($covers as $cover) echo $cover ; ?>.png)">
                 <div class="sampleCover">
                     <h4><?php the_title(); ?></h4>
                 </div>
@@ -28,15 +37,16 @@ if ( $parent->have_posts() ) : ?>
                     data-description="<?php the_content(); ?>"
                     <?php
                     $services = get_post_meta($post->ID, "sampleServices", false);
-                    if ($services[0]=="") : ?>data-services=""<?php  else : ?>data-services=<?php foreach($services as $service) { echo '"'.$service.'"'; } ?><?php endif; ?>
+                    if ($services[0]=="") : ?>data-services=""<?php  else : ?>data-services="<?php foreach($services as $service) { echo ''.$service.', '; } ?>"<?php endif; ?>
 
                     <?php
                     $images = get_post_meta($post->ID, "sampleImages", false);
-                     if ($images[0]=="") : ?>data-images=""<?php  else : ?>data-images=<?php foreach($images as $image) { echo '"'.$image.'"'; } ?><?php endif; ?>
+                    if ($images[0]=="") : ?>data-images=""<?php  else : ?>data-images="<?php foreach($images as $image) { echo ''.$image.', '; } ?>"<?php endif; ?>
 
                     <?php
                     $palettes = get_post_meta($post->ID, "samplePalette", false);
-                     if ($palettes[0]=="") : ?>data-palettes=""<?php  else : ?>data-palettes=<?php foreach($palettes as $palette) { echo '"'.$palette.'"'; } ?><?php endif; ?>>
+                    if ($palettes[0]=="") : ?>data-palettes=""<?php  else : ?>data-palettes="<?php foreach($palettes as $palette) { echo ''.$palette.', '; } ?>"<?php endif; ?>>
+
                 </div>
              </div>
 
