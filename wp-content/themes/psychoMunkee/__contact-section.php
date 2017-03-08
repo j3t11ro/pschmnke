@@ -74,21 +74,21 @@
     <div class="form col-sm-12">
         <div class="row contact">
         <div class="col-sm-6">
-<form>
+<form id="newContact">
    <div class="form-group">
 
-    <input type="text" class="form-control" id="exampleInputPassword1" placeholder="name/company">
+    <input type="text" class="form-control" id="pmName" name="name" placeholder="name/company">
   </div>
   <div class="form-group">
 
-    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="email">
+    <input type="email" class="form-control" id="pmEmail" name="email" aria-describedby="emailHelp" placeholder="email">
     <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
   </div>
 
 
   
   <div class="form-group">
-    <textarea class="form-control" id="exampleTextarea" rows="3" placeholder="message"></textarea>
+    <textarea class="form-control" id="pmMessage" name="message" rows="3" placeholder="message"></textarea>
   </div>
   <button type="submit" class="btn">Submit</button>
 </form>

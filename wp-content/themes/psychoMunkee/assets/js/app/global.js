@@ -67,6 +67,31 @@ jQuery(document).ready(function($) {
 
     });
 
+
+
+
+    $("#front-page").on('submit', '#newContact', function(e) {
+
+        e.preventDefault();
+        $.ajax({
+            url     : ajaxemailcontact.ajaxemail,
+            type    : 'post',
+            data: {
+                action: 'contact_email',
+                name: $("#pmName").val(),
+                email: $("#pmEmail").val(),
+                message: $("#pmMessage").val()
+             },
+            success : function( data ) {
+                        console.log(data);
+            },
+            error   : function( xhr, err ) {
+                         alert('Error');     
+            }
+        });    
+        return false;
+    });
+
   
 });
 

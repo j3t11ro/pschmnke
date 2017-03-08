@@ -98,7 +98,10 @@ if (in_array($_SERVER['REMOTE_ADDR'], array('127.0.0.1', '::1'))) {
 //global $wp_query;
 wp_localize_script( 'ajax-load-page', 'ajaxloadpage', array(
 	'ajaxurl' => admin_url( 'admin-ajax.php' )
-  //,'query_vars' => json_encode( $wp_query->query )
+));
+
+wp_localize_script( 'ajax-email-contact', 'ajaxemailcontact', array(
+  'ajaxemail' => admin_url( 'admin-ajax.php' )
 ));
 
 add_action( 'wp_ajax_nopriv_load_page', 'pm_load_page' );
@@ -146,7 +149,48 @@ function pm_load_page() {
 }
 
 
+wp_localize_script( 'ajax-email-contact', 'ajaxemailcontact', array(
+  'ajaxemail' => admin_url( 'admin-ajax.php' )
+));
 
+add_action( 'wp_ajax_nopriv_contact_email', 'pm_contact_email' );
+add_action( 'wp_ajax_ajax_contact_email', 'pm_contact_email' );
+
+
+function pm_contact_email(){
+
+//Fetching Values from URL
+$name = strtolower($_POST["name"]);
+$email = strtolower($_POST["email"]);
+$message = strtolower($_POST["message"]);
+
+	
+	if (empty($name)|| empty($email) || empty($message)){ //For whatever reason if front end validation fails - checks if fields are empty.
+
+		echo "please fill out all fields";
+		
+	} else{
+		if (!filter_var($email, FILTER_VALIDATE_EMAIL)) { //Check email format and inform if invalid
+           			   echo 'something is wrong with your email address';
+           } else {	
+					
+ 					 echo "2";  
+					 	$to = 'jeff@psychomunkee.com';
+						$subject = '[New Contact] - PsychoMunkee';
+						$message = "a new message from ".$name." just arrived, here is what they had to say:\n \n" .$message. "\n \n and their e-mail is: ".$email;
+					    $from = "no-reply@psychomunkee.com";
+   						$headers = "From:" . $from;
+						
+			    		$send = wp_mail($to, $subject, $message, $headers);
+						  $send;
+							if(!$send){
+								echo 'Failed to send!';
+						}
+					}
+				}
+  die();
+
+}
 
 function bootstrap_four_nav_li_class( $classes, $item ) {
   $classes[] .= ' nav-item';

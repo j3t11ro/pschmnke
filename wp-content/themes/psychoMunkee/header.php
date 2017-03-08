@@ -12,7 +12,8 @@
     /* <![CDATA[ */
     var sitedev = location.host + location.pathname;
     var site = location.host;
-    var ajaxloadpage = {"ajaxurl":"http:\/\/"+sitedev+"\/wp-admin\/admin-ajax.php"};
+    var ajaxloadpage = {"ajaxurl":"http:\/\/"+sitedev+"wp-admin\/admin-ajax.php"};
+    var ajaxemailcontact =  {"ajaxemail":"http:\/\/"+sitedev+"wp-admin\/admin-ajax.php"};
     /* ]]> */
 
     </script>
