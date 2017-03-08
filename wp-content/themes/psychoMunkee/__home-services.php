@@ -32,13 +32,14 @@
            </div>
         </div>
 
-       <div class="col-sm-6 pmServiceWrapper hidden-md-up">
+     <div class="col-sm-6 text-center pmServiceWrapper hidden-md-up">
           <div class="pmServiceType">
-               <i class="icon-chat"></i>
-               <h3>have a project idea?</h3>
-               <button class="btn btn-default">let's talk</button>
+                <i class="icon-chat"></i>
+              <h3>have a project idea?</h3>
+                <button class="btn btn-default">let's talk</button>
            </div>
         </div>
+        <br />
         </div>
 
        <div class="mobileNav hidden-md-up">
