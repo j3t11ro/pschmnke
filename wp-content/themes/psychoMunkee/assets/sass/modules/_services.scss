@@ -64,7 +64,7 @@
       cursor: pointer;
       padding: 0 1.5em;
       @include media-breakpoint-down(xs){
-         transform: translateY(15%);
+            min-width: 303px;
           }
           [class^="icon"]{
             color: lighten($pmPink, 5%);
@@ -100,7 +100,7 @@
                 font-size: 1em;
                 border-radius: 0;
                // border: none;
-                width: 12em;
+                width: 100%;
                 color: white;
                 text-transform: uppercase;
                 padding: 15px;
@@ -109,6 +109,8 @@
           &:hover{
           
           }
+
+       
        }
 
        .mobileNav{

@@ -76,12 +76,16 @@ jQuery(document).ready(function($) {
 
         $('#sampleDetail').prev().css({'visibility': 'hidden'});
         $('#sampleDetail').toggleClass('open');
+
        // tilt.tilt.destroy.call(tilt);
 
 
         var mql = [window.matchMedia("(max-width: "+md+"px)")];
         if (mql[0].matches){
             $('body').addClass('overflow-content');
+             $('body').animate({
+                  scrollTop : 0                     
+                }, 500);
         }
         else {
             $('body').removeClass('overflow-content');

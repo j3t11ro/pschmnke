@@ -32,13 +32,14 @@
            </div>
         </div>
 
-       <div class="col-sm-6 pmServiceWrapper hidden-md-up">
+     <div class="col-sm-6 text-center pmServiceWrapper hidden-md-up">
           <div class="pmServiceType">
-               <i class="icon-chat"></i>
-               <h3>have a project idea?</h3>
-               <button class="btn btn-default">let's talk</button>
+                <i class="icon-chat"></i>
+              <h3>have a project idea?</h3>
+                <button class="btn btn-default">let's talk</button>
            </div>
         </div>
+        <br />
         </div>
 
        <div class="mobileNav hidden-md-up">
@@ -52,7 +53,7 @@
         <div class="canvas">
             <div class="canvasItem row" id="design">
                 <h1 class="col-sm-12">
-                create your brand with quality <span class="emphasis design">ui/ux, design, graphics</span>
+                create your brand  <br class="ieOnlyBr" />with quality <span class="emphasis design">ui/ux, design, graphics</span>
                 </h1>
                 <ul class="col-sm-6">
                     <li>web &amp; app design</li>

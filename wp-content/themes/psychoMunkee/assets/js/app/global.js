@@ -67,6 +67,7 @@ jQuery(document).ready(function($) {
 
     });
 
+  
 });
 
 (function( $ ) {
@@ -76,9 +77,11 @@ $.fn.scrollToTop = function() {
     $('#sampleDetail').on('scroll', function(e) {
         if ($(this).scrollTop() >= 50) {   
             $('.toTop').addClass('show')   
+
         } else {
             $('.toTop').removeClass('show')
         }
+       
     });
 
 }

@@ -14,7 +14,12 @@
     margin-right: -50%;
   }
 
-
+  .inner{
+      @include media-breakpoint-down(xs){
+    position: relative;
+    top: -3em;
+      }
+  }
   .pmContinue{
     font-size: .4em;
     & + i{
