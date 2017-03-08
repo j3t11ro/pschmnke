@@ -64,7 +64,7 @@
       cursor: pointer;
       padding: 0 1.5em;
       @include media-breakpoint-down(xs){
-         transform: translateY(15%);
+  
           }
           [class^="icon"]{
             color: lighten($pmPink, 5%);
