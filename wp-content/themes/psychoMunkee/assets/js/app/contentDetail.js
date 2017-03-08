@@ -74,7 +74,7 @@ jQuery(document).ready(function($) {
                 self.css({'background-image': "url('./wp-content/themes/psychoMunkee/assets/images/"+sampleImages[index].trim()+".png')"});
             });
 
-
+        $('#sampleDetail').prev().css({'visibility': 'hidden'});
         $('#sampleDetail').toggleClass('open');
        // tilt.tilt.destroy.call(tilt);
 
@@ -99,6 +99,7 @@ jQuery(document).ready(function($) {
 
     $('#front-page').on('click', '#sampleClose', function(e){
        e.stopPropagation();
+       $('#sampleDetail').prev().css({'visibility': 'visible'});
        $('#sampleDetail').toggleClass('open');
       // $.fn.resetTilt();
     });

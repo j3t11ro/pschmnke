@@ -7,6 +7,7 @@
     top: auto;
     bottom: 0;
     color: $pmDarkGray;
+    z-index: 999;
     overflow-y: auto;
     overflow-x: hidden;
    // visibility: hidden;
@@ -333,7 +334,7 @@
         .contactMe{
            
          @include media-breakpoint-up(sm){
-            @include vertical-center();
+            //@include vertical-center();
              }
         }
         h1{
@@ -410,6 +411,7 @@
             visibility: visible;
             width: 45px;
             height: 45px;
+            z-index: 9999;
         }
         i{
          display: block;

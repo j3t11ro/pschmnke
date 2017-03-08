@@ -19,8 +19,8 @@
   &.pp-section{
     transform: translate3d(0px, 0px, 0px);
     .pp-tableCell{
-      overflow: hidden;
       height: calc(100vh - 98.59px) !important;
+      position: relative;
       @include media-breakpoint-down(xs){
        position: relative;
       }
