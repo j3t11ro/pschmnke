@@ -1,0 +1,422 @@
+#sampleDetail{
+    left: -100vw;
+    background-color: $white;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    top: auto;
+    bottom: 0;
+    color: $pmDarkGray;
+    z-index: 999;
+    overflow-y: auto;
+    overflow-x: hidden;
+   // visibility: hidden;
+    @include transition(left .4s cubic-bezier(0.175, 0.885, 0.32, 1.275));
+    @include media-breakpoint-up(sm){
+        height: calc(100vh - 99px);
+    }
+    &.open{
+    //   visibility: visible;
+       top: 0;
+       left: 0; 
+    } 
+    .close{
+        position: relative;
+        top: 1em;
+        right: 2em;
+        font-size: .4em;
+        background: none;
+        z-index: 7777;
+        i{
+            font-size: 2rem;
+            position: relative;
+            top: 11px;
+        }
+    }
+ 
+    .detailWrapper{
+        width: 100%;
+        margin: 0;
+
+    @include media-breakpoint-down(md){
+        height: auto;
+        }
+    }
+
+    .sampleCanvas{
+        position: relative;
+        @include media-breakpoint-only(md){
+            display: none;
+        }
+        .sampleBg1{
+            background-color: #4ed8c4;
+            position: absolute;
+            @include media-breakpoint-up(lg){
+                width: 444px;
+                height: 329px;
+                top: 10em;
+                left: 3em;
+            }
+            @include media-breakpoint-up(xl){
+                width: 557px;
+                height: 329px;
+                top: 10em;
+                left: 3em;
+            }
+            .sampleImage{
+                // background-image: url('.../../assets/images/sampleVsgio-feat.png');
+                 width: 100%;
+                 background-repeat: no-repeat;
+                 background-size: contain;
+                 position: absolute;
+               
+
+            @include media-breakpoint-up(md){
+
+                }
+            @include media-breakpoint-up(lg){
+                height: 185px;
+                top: 5em;
+                left: 5em;
+                }
+            @include media-breakpoint-up(xl){
+                height: 236px;
+                top: 3em;
+                left: 9em;
+                 }
+            }
+
+            .bgDec{
+                width: 150px;
+                height: 100px;
+                border: 1px solid $pmPink;
+                position: absolute;
+
+                &:nth-child(1n){
+                    bottom: -47px;
+                    left: 32px;
+                }
+                &:nth-child(2n){
+                    top: 0;
+                    left: -26px;
+                }
+            }
+
+            a{
+                position: absolute;
+                background-color: $pmPink;
+                @include josefinBold();
+                font-size: 1.4em;
+                bottom: -1.3em;
+                right: 6em;
+                border-radius: 0;
+                border: none;
+                width: 12em;
+                color: white;
+                text-transform: uppercase;
+                padding: 15px;
+            }
+        }
+
+
+    }
+
+    .sampleIntro{
+        padding-top: 4em;
+        @include media-breakpoint-only(md){
+            max-width: 100%;
+            flex: 0 0 100%;
+            padding-top: 4em;
+        }
+
+        @include media-breakpoint-up(lg){
+             padding-top: 10em;
+            }
+        @include media-breakpoint-up(xl){
+             padding-top: 10em;
+                }
+        h1{
+             @include josefinBold();
+             letter-spacing: 5px;
+             color: $black;
+        }
+        p{
+            @include raleRegular();
+            text-align: left;
+            font-size: 1em;
+            color: lighten($pmDarkGray, 52%);
+            line-height: 2em;
+            @include media-breakpoint-up(md){
+
+                }
+            @include media-breakpoint-up(lg){
+             font-size: 1.1em;
+                }
+            @include media-breakpoint-up(xl){
+             font-size: 1.3em;
+                 }
+        }
+    }
+
+    .sampleServices{
+        background-color: $pmOffWhite;
+        @include media-breakpoint-only(md){
+            max-width: 100%;
+            flex: 0 0 100%;
+            height: 65vh;
+        }
+        @include media-breakpoint-down(sm){
+             height: 65vh;
+        }
+        h1{
+            @include josefinBold();
+            text-transform: uppercase;
+            text-align: left;
+            padding: 1em 0 0 0;
+            font-size: 2em;
+            @include media-breakpoint-up(sm){
+                padding: 1em 0 0 45px;
+                font-size: 2.5em;
+            }
+    
+            &:nth-child(n+2){
+            position: absolute;
+            bottom: 3em;
+            @include media-breakpoint-down(md){
+                bottom: 2em;
+                }
+            }
+        }
+
+        ul{
+          &.services{
+              text-align: left;
+              margin-top: 0em;
+              margin-left: 0;
+                @include media-breakpoint-up(sm){
+                    margin-top: 5em;
+                    margin-left: 5em;
+                }
+            li{
+                list-style: none;
+                font-size: 1em;
+                text-transform: lowercase;
+                color: $pmDarkGray;
+                @include raleLight();
+                @include media-breakpoint-up(sm){
+                 font-size: 1.6em;
+                }
+                &:before {
+                    content: "-";
+                    padding-right: 8px;
+                        }
+                }
+            }
+        }
+
+        .samplePalette{
+               position: absolute; 
+               bottom: 0;
+            li{
+                width: 55px;
+                height: 55px;
+                float: left;
+                margin-right: 30px;
+                 @include media-breakpoint-up(md){
+
+                }
+                 @include media-breakpoint-up(lg){
+                    width: 99px;
+                    height: 100px;
+                }
+                 @include media-breakpoint-up(xl){
+                    width: 150px;
+                    height: 100px;
+                }
+           $bgColors: #333644 , #4397e0, #4ed8c4;
+            @for $i from 1 through length($bgColors) {
+                 $d: nth($bgColors, $i);
+                &:nth-of-type(#{$i}){
+                      @if $i == 1 {
+                         
+                        @include media-breakpoint-up(md){
+                            margin-left: 45px;
+                            }
+                        }
+                    .palette{
+                    width: inherit;
+                    height: inherit;
+                    background-color: $d;
+                    display: block;
+                         }
+                    }
+                }
+            }
+        }
+    }
+
+    .sampleExamples{
+        background-color: #4397e0;
+        padding: 0;
+        @include media-breakpoint-only(md){
+            max-width: 100%;
+            flex: 0 0 100%;
+            order: -1;
+        }
+        @include media-breakpoint-down(sm){
+            order: -1;
+        }
+        .exampleCanvas{
+            width: inherit;
+            height: 500px;
+            background-color: darken($pmOffWhite, 10%);
+            background-repeat: no-repeat;
+            background-size: contain;
+            background-position: center center;
+        }
+
+        .exampleThumbnails{
+            margin: 2.2em auto 1em;
+            height: auto;
+            width: 260px;
+            @include media-breakpoint-up(sm){
+                width: 400px;
+            }
+        
+            @include media-breakpoint-up(md){
+                 width: 400px;
+            }
+        
+            @include media-breakpoint-up(xl){
+                 width: 400px;
+            }
+            li{
+                width: 55px;
+                height: 55px;
+                background-color: $pmOffWhite;
+                float: left;
+                margin: 0 15px 0;
+                cursor: pointer;
+                background-repeat: no-repeat;
+                background-size: cover;
+                background-position: center center;
+                @include transition(all, .5s ease-in);
+                @include media-breakpoint-up(sm){
+                    width: 100px;
+                    height: 100px;
+                }
+                
+                @include media-breakpoint-up(md){
+                    width: 100px;
+                    height: 100px;
+                 }
+                
+                @include media-breakpoint-up(xl){
+                    width: 100px;
+                    height: 100px;
+                }
+            }
+        }
+    }
+
+    .sampleContact{
+        background-color: #333644;
+        padding: 100px 0;
+        @include media-breakpoint-only(md){
+            max-width: 100%;
+            flex: 0 0 100%;
+            order: 1;
+        }
+
+        @include media-breakpoint-down(sm){
+            order: 1;
+        }
+        .contactMe{
+           
+         @include media-breakpoint-up(sm){
+            //@include vertical-center();
+             }
+        }
+        h1{
+            @include josefinBold();
+            font-size: 2em;
+            color: white;
+            text-transform: capitalize;
+            @include media-breakpoint-up(sm){
+                font-size: 4em;
+            }
+        
+            @include media-breakpoint-up(md){
+                font-size: 4em;
+            }
+        
+            @include media-breakpoint-up(xl){
+                font-size: 4em;
+            }
+        }
+        h3{
+            @include raleLight();
+            color: $pmOffWhite;
+            font-size: 1em;
+            margin: .2em 0 1em;
+            @include media-breakpoint-up(sm){
+              font-size: 2em;
+            }
+
+            @include media-breakpoint-up(md){
+              font-size: 2em;
+            }
+
+            @include media-breakpoint-up(xl){
+             font-size: 2em;
+            }
+        }
+
+            a{
+                background-color: $pmPink;
+                @include josefinBold();
+                font-size: 1em;
+                border-radius: 0;
+                border: none;
+                width: 12em;
+                color: white;
+                text-transform: uppercase;
+                padding: 15px;
+                @include media-breakpoint-up(sm){
+                   font-size: 1.4em;
+                }
+
+                @include media-breakpoint-up(md){
+                  font-size: 1.4em;
+                }
+
+                @include media-breakpoint-up(xl){
+                  font-size: 1.4em;
+                }
+            }
+    }
+}
+
+    .toTop{
+        visibility: hidden;
+        width: 0;
+        height: 0;
+        background-color: $pmPink;
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        cursor: pointer;
+        @include transition(all .3s ease-out);
+        &.show{
+            visibility: visible;
+            width: 45px;
+            height: 45px;
+            z-index: 9999;
+        }
+        i{
+         display: block;
+         font-size: 1.5em;
+         @include vertical-center();
+        }
+    }
+

@@ -1,0 +1,169 @@
+
+
+ #pm_pile1{
+     height: 100%;
+ }
+/* Extra markup and styles for table-esque vertical and horizontal centering */
+.site-wrapper {
+  display: table;
+  width: 100%;
+  height: 100%; /* For at least Firefox */
+  min-height: 100%;
+  -webkit-box-shadow: inset 0 0 100px rgba(0,0,0,.5);
+          box-shadow: inset 0 0 100px rgba(0,0,0,.5);
+  border-top: 50px solid $pmOffWhite;
+  border-bottom: 50px solid $pmOffWhite;
+  @include media-breakpoint-up(md){
+    border: 50px solid $pmOffWhite;
+    }
+  &.pp-section{
+    transform: translate3d(0px, 0px, 0px);
+    .pp-tableCell{
+      height: calc(100vh - 98.59px) !important;
+      position: relative;
+      @include media-breakpoint-down(xs){
+       position: relative;
+      }
+      & .container-fluid{
+        overflow: hidden;
+      }
+    }
+    &.pp-scrollable{
+      overflow: hidden;
+      overflow-x: hidden;
+      overflow-y: auto; /* has to be scroll, not auto */
+      -webkit-overflow-scrolling: touch;
+      display: block;
+    }
+  }
+  @import "_outro.scss"
+}
+.site-wrapper-cover {
+  @import "_fullscreen.scss";
+}
+.cover-container {
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.site-wrapper-inner{
+    height: 100%;
+    background-color: #dddddd;
+    @include media-breakpoint-up(sm){
+      height: calc(100vh - 99px);
+    }
+    &.overflow{
+      overflow-y: scroll;
+    }
+
+  .container-fluid{
+    height: inherit;
+    &.overflow{
+      overflow-y: auto;
+    }
+    .row{ 
+      height: inherit;
+      @include media-breakpoint-down(xs){
+        flex-wrap: nowrap;
+        flex-direction: column;
+      }
+        @import "_services.scss";
+    }
+  }
+   @import '_samples.scss';
+
+   @import '_beliefs.scss';
+   @import '_contact.scss';
+}
+
+   @import "_sampleDetails.scss";
+
+/* Padding for spacing */
+.inner {
+  padding: 30px;
+  /* Landscape */
+@media only screen 
+  and (max-width: 768px) 
+  and (orientation: landscape) {
+    padding: 0;
+  }
+}
+
+
+
+
+/*
+ * Cover
+ */
+
+.cover {
+  padding: 0 20px;
+}
+.cover .btn-lg {
+  padding: 10px 20px;
+  font-weight: bold;
+}
+
+.cover{
+  .pmLogoCover{
+    width: auto;
+    height: 150px;
+    background-image: url('.../../assets/images/pmLogoCover.png');
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center center;
+    position: relative;
+    margin-bottom: 1%;
+    @include media-breakpoint-up(sm){
+      height: 200px;
+    }
+
+    @media only screen 
+    and (max-width: 768px) 
+    and (orientation: landscape) {
+      height: 111px;
+    }
+  }
+
+  .cover-heading{
+    @include josefinSemiBold();
+    font-size: 5vw;
+     @include media-breakpoint-down(xs){
+      font-size: 7vw;
+      }
+     & + .lead{
+        @include josefinRegular();
+        font-size: 2.5vw;
+        @include media-breakpoint-down(xs){
+          font-size: 3.5vw;
+        }
+        
+    }
+@import "_cover-heading.scss";
+  }
+
+}
+
+
+
+/*
+ * Affix and center
+ */
+
+@media (min-width: 768px) {
+  /* Pull out the header and footer */
+  .masthead {
+    position: fixed;
+    top: 0;
+  }
+  .mastfoot {
+    position: fixed;
+    bottom: 0;
+  }
+  /* Handle the widths */
+  .masthead,
+  .mastfoot,
+  .cover-container {
+    width: 100%; /* Must be percentage or pixels for horizontal alignment */
+  }
+}

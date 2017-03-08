@@ -1,0 +1,246 @@
+& .col{
+        height: inherit;
+        &:nth-child(1){
+          background-color: $pmDarkGray;
+           @include media-breakpoint-down(xs){
+              overflow-y: scroll;
+              height: 100%;
+              position: relative;
+              z-index: 2;
+          }
+        }
+        &:nth-child(2){
+          background-color: $pmBlue;
+          background-image: linear-gradient(rgba($pmBlue, .8),rgba(0,0,0,.9)),url('.../../assets/images/patternBg1.png');
+          background-repeat: no-repeat;
+          background-size: cover;
+          background-position: center center;
+          @include transition(.5s, all, linear);
+          // @include transition(10s, background-image, linear);
+          // @include keyframes(bgColor) {
+          //   0%   {  background-image: linear-gradient(rgba($pmBlue, .8),rgba(0,0,0,.9)),url('.../../assets/images/patternBg1.png'); }
+          //   50%  {  background-image: linear-gradient(rgba($pmPink, .8),rgba(0,0,0,.9)),url('.../../assets/images/patternBg1.png'); }
+          //   100% {  background-image: linear-gradient(rgba($green, .8),rgba(0,0,0,.9)),url('.../../assets/images/patternBg1.png'); }
+          // }
+          // @include animation('bgColor 10s infinite');
+        }
+
+   &.pmServiceContainer{
+
+
+  .pmServiceWrapper{
+      
+       @include transition(.5s, all, linear);
+       @include media-breakpoint-down(xs){
+         min-height: 250px;
+         border: 1px solid #444444;
+          }
+       &:hover{
+          background-color: lighten($pmDarkGray, 2%);
+       }
+      &.active{
+          background-color: lighten($pmDarkGray, 5%);
+          box-shadow: 3px 10px 25px #000000;
+
+        .pmServiceType{
+            cursor: pointer;
+            padding: 0 1.5em;
+                    [class^="icon"]{
+                        color: $pmPink;
+                    }
+                    h3{
+                        color: $pmGreen;
+                    }
+                    p{
+                        color: #b5b5b5;
+                    }
+                }
+            }
+     }
+
+     .pmServiceType{
+      @include vertical-center();
+      position: absolute;
+      cursor: pointer;
+      padding: 0 1.5em;
+      @include media-breakpoint-down(xs){
+         transform: translateY(15%);
+          }
+          [class^="icon"]{
+            color: lighten($pmPink, 5%);
+            font-size: 3.5em;
+          }
+          h3{
+            color: lighten($pmGreen, 5%);
+            text-transform: uppercase;
+            font-size: 1.2em;
+            margin: 10px 0;
+          }
+          p{
+            color: lighten(#828282, 5%);
+            font-size: .8em;
+            text-align: left;
+            line-height: 1.8em;
+            @include media-breakpoint-up(md){
+                font-size: .8em;
+            }
+
+            @include media-breakpoint-up(lg){
+               font-size: .7em;
+            }
+
+            @include media-breakpoint-up(xl){
+                 font-size: .8em;
+            }
+          }
+          button{
+                border: 1px solid $pmPink;
+                @include josefinBold();
+                background: transparent;
+                font-size: 1em;
+                border-radius: 0;
+               // border: none;
+                width: 12em;
+                color: white;
+                text-transform: uppercase;
+                padding: 15px;
+          }
+         
+          &:hover{
+          
+          }
+       }
+
+       .mobileNav{
+        position: fixed;
+        top: 50%;
+        width: 100%;
+        height: 100px;
+        left: 0;
+        z-index: 1;
+            button{
+                position: absolute;
+                border-radius: 0;
+                height: 40px;
+                width: auto;
+                background-color: lighten($pmDarkGray, 15%);
+                border: 0;
+                text-transform: capitalize;
+                color: $white;
+                @include josefinBold();
+            
+                &#navPrev{
+                    left: 0;
+                }
+                &#navNext{
+                    right: 0;
+                }
+
+                & [class^="icon"]{
+                    position: relative;
+                    top: 2px;
+                }
+            }
+       }
+    }
+
+
+ 
+ &.pmServiceCanvas{
+     position: relative;
+   .canvas{
+     @include vertical-center();
+     top: 40%;
+  
+     & .canvasItem{
+         display: none;
+          margin: 0;
+          flex-direction: row;
+         &:nth-child(1){
+          display: flex;
+         
+         }
+        ul,h1{
+                text-transform: capitalize;
+                font-size: 4em;
+                width: 70%;
+                text-align: center;
+                margin: 0px auto;
+                @include josefinRegular();
+                @include media-breakpoint-up(lg){
+                  font-size: 3em;
+                }
+
+                @include media-breakpoint-up(xl){
+                  font-size: 4em;
+                }
+                .emphasis{
+                    @include raleBlack();
+                    text-decoration: underline;
+                    text-transform: uppercase;
+                    font-size: 3rem;
+                   
+                    border-bottom: 3px solid $pmOffWhite;
+
+                    .rotating{
+                         text-align: center;
+                         }
+                    }
+                }
+                ul{
+                    position: relative;
+                    top: 1em;
+                    text-align: left;
+                    &:nth-child(1n){
+                        padding-left: 1em;
+                    }
+                    li{
+                        @include josefinLight();
+                        
+                        @include media-breakpoint-up(lg){
+                           font-size: 1.1rem;
+                        }
+
+                        @include media-breakpoint-up(xl){
+                           font-size: 1.5rem;
+                        }
+                        
+                    }
+                }
+            }
+      }
+
+     .pmMiniContact{
+         position: absolute;
+         bottom: 0;
+         right: 0;
+         width: 45px;
+         height: 45px;
+         background-color: $pmPink;
+         cursor: pointer;
+         @include transition();
+         span,
+         i{
+            position: absolute;
+         }
+
+         span{
+            top: -11px;
+            left: -37px;
+            width: 150%;
+            text-transform: capitalize;
+             @include josefinBold();
+         }
+         i{
+            bottom: 11px;
+            left: 15px;
+            font-size: 1.2em;
+         }
+
+         &:hover{
+             transform: scale(1.2, 1.2);
+             box-shadow: 10px 10px 0 #2f2f2f;
+            }
+        }
+    }
+ }

@@ -1,0 +1,199 @@
+
+
+.pmContact{
+   
+
+    .head{
+            height: 100%;
+            @include media-breakpoint-up(sm){
+            height:  calc(50vh - 100px);
+            }
+    }
+    .form{
+            height: 100%;
+            @include media-breakpoint-up(sm){
+            height: 50vh;
+            }
+    }
+    .close{
+
+    }
+ 
+    .row{
+ 
+    &.intro{
+    @include pm-background-gradient(left, $pmGreen, $pmPink);
+    height: 100%;
+    & > [class^="col"]{
+        padding: 30px 0 0 30px;
+        text-align: left;
+        &:nth-of-type(1){
+            position: relative;
+            top: 33px;
+        }
+    }
+    h1{
+        @include josefinBold();
+        color: $black;
+        font-size: 3.5em;
+        @include media-breakpoint-up(md){
+         font-size: 2.5em;
+        }
+       @include media-breakpoint-up(lg){
+         font-size: 2.5em;
+        }
+       @include media-breakpoint-up(xl){
+         font-size: 3.5em;
+        }
+
+    }
+    p{
+        @include raleMedium();
+        font-size: 1.3em;
+        color: $pmDarkGray;
+        @include media-breakpoint-up(sm){
+           font-size: 1.2em;
+        }
+       @include media-breakpoint-up(md){
+             font-size: 1.3em;
+        } 
+        @include media-breakpoint-up(lg){
+            font-size: 1.2em;
+        }
+        @include media-breakpoint-up(xl){
+            font-size: 1.3em;
+        }
+    }
+
+        svg{
+            height: auto;
+            position: absolute;
+            top: -11px;
+            right: 70px;
+            width: 188%;
+            top: -29em;
+            right: -16em;
+            opacity: .1;
+            .st0{
+            fill: $pmDarkGray;
+            }
+
+            @include media-breakpoint-up(sm){
+               width: 45%;
+               top: -11px;
+               right: 70px;
+               opacity: 1;
+            }
+            @include media-breakpoint-up(md){
+                width: 63%;
+                top: -11px;
+                right: 70px;
+                opacity: 1;
+            }
+
+            @include media-breakpoint-up(lg){
+                width: 63%;
+                top: -11px;
+                right: 70px;
+                opacity: 1;
+            }
+            @include media-breakpoint-up(xl){
+               width: 45%;
+               top: -11px;
+               right: 70px;
+               opacity: 1;
+            }
+            @include media-breakpoint-only(md){
+                width: 123%;
+                top: -11px;
+                right: 3px;
+                opacity: 0.05;
+            }
+        }
+    }
+
+    &.contact{
+        background-color: $pmDarkGray;
+        height: 100%;
+        padding-top: 0;
+        padding-bottom: 3em;
+        text-align: right;
+        @include media-breakpoint-up(sm){
+           padding-bottom: 0;
+         }
+        & .contactInfo,
+        & form{
+            position: relative;
+            top: 3em;
+            @include media-breakpoint-only(md){
+            top: 7em;
+            }
+        }
+
+        & .contactInfo{
+            text-align: center;
+            padding-top: 3em;
+             address,
+            a[href^="mail"],
+            a[href^="tel"]{
+                    font-size: 1.3rem;
+                    line-height: 2em;
+                @include raleLight();
+                @include media-breakpoint-up(sm){
+             
+                text-align: right;
+                }
+            }
+        
+            a[href^="mail"]{
+                @include raleBold();
+            }
+            a[href^="tel"]{
+
+            }
+            ul{
+                li{
+                    a{
+                        @include raleThin();
+                        font-size: .75em;
+                        text-transform: uppercase;
+                    }
+                }
+            }
+            @include media-breakpoint-up(sm){
+                padding-top: 0;
+                text-align: right;
+            }
+        }
+    
+
+            form{
+                padding: 0 0em;
+                .form-group{
+                    small{
+                        text-align: left;
+                    }
+                    .form-control{
+                        border-radius: 0;
+                        background-color: #3e3e3e;
+                        color: $pmGreen;
+                    }
+
+                }
+
+                button{
+                    background-color: $pmPink;
+                    border-radius: 0;
+                    color: white;
+                    font-size: 35px;
+                    border: none;
+                    padding-top: 15px;
+                    width: 100%;
+                    text-transform: uppercase;
+                    @include josefinBold();
+
+                }
+            }
+        }
+    }
+ }
