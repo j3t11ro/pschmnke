@@ -28,6 +28,13 @@
         overflow: hidden;
       }
     }
+    &.pp-scrollable{
+      overflow: hidden;
+      overflow-x: hidden;
+      overflow-y: auto; /* has to be scroll, not auto */
+      -webkit-overflow-scrolling: touch;
+      display: block;
+    }
   }
   @import "_outro.scss"
 }

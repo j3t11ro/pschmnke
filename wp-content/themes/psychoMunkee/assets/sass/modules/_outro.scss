@@ -2,7 +2,7 @@
 &#pmOutro{
     .site-wrapper-cover{
         overflow-y: scroll;
-        height: 100%;
+        height: auto;
          & .sayHello{
              height: 85vh;
              .cover{
@@ -31,7 +31,7 @@
                 .row{
                     @include vertical-center();
                     height: inherit;            
-                
+                    margin: 0;
                 }
 
                 & .social,

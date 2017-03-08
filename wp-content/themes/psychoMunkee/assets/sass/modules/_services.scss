@@ -60,6 +60,7 @@
 
      .pmServiceType{
       @include vertical-center();
+      position: absolute;
       cursor: pointer;
       padding: 0 1.5em;
       @include media-breakpoint-down(xs){
