@@ -92,6 +92,8 @@
                 var PP = document.getElementById("pm_pile1");
                 var tilt = document.querySelector(".pmSample");
                 var design = document.getElementById('design');
+                var contact = document.querySelector(".pmContact");
+
           
 
                 //if browser doesn't support CSS transitions - dont wait for the end of transitions
@@ -106,7 +108,8 @@
                     if( !transitionsSupported() ) isAnimating = false;
                  }, delay);
 			
-               
+               $('body').removeClass('overflow-content');
+
                 if (PP){
                     $.fn.initialise();
                 }
@@ -117,6 +120,9 @@
                 }
                 if (design){
                     $.fn.initTextRotate();
+                }
+                if (contact){
+                    $('body').addClass('overflow-content');
                 }
 
 

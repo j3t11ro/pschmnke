@@ -93,14 +93,12 @@ jQuery(document).ready(function($) {
         e.stopPropagation();
         var self = $(this);
         var bg = self.css('background-image');
-
         $('.exampleCanvas').css('background-image', bg);
 
      })
 
     $('#front-page').on('click', '#sampleClose', function(e){
        e.stopPropagation();
-       $('body').removeClass('overflow-content');
        $('#sampleDetail').toggleClass('open');
       // $.fn.resetTilt();
     });

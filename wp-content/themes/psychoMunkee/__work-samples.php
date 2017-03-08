@@ -12,7 +12,8 @@
         'post_type'      => 'page',
         'posts_per_page' => -1,
         'order'          => 'ASC',
-        'post_parent'    => $_COOKIE[$cookie_name],
+        'post_parent'    => 26,
+       // 'post_parent'    => $_COOKIE[$cookie_name], need to fix
     );
 
 $parent = new WP_Query( $args );

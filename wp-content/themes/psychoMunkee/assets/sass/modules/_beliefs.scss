@@ -17,7 +17,7 @@
     }
 .pmBeliefCanvas,
 .pmBeliefNav{
-    position: relative;
+    
 }
 
 
@@ -139,6 +139,7 @@
   overflow-y: scroll;
   height: 100%;
   padding: 0;
+  position: relative;
     & .principle{
 
         $bgColors: $pmBlue , darken($pmPink, 15%), darken(#618e4b, 0%), $pmDarkGray;

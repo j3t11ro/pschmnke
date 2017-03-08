@@ -10,8 +10,9 @@
     <script type='text/javascript'>
 
     /* <![CDATA[ */
-    var site = location.host + location.pathname;
-    var ajaxloadpage = {"ajaxurl":"http:\/\/"+site+"\/wp-admin\/admin-ajax.php"};
+    var sitedev = location.host + location.pathname;
+    var site = location.host;
+    var ajaxloadpage = {"ajaxurl":"http:\/\/"+sitedev+"\/wp-admin\/admin-ajax.php"};
     /* ]]> */
 
     </script>

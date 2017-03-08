@@ -87,9 +87,23 @@
             cursor: pointer;
             max-height: 200px;
             height: 200px;
-                    @include media-breakpoint-up(md){
-                        margin-left: 5.5%;
-                    }
+
+             @include media-breakpoint-up(sm){
+               margin-left: 6%;
+               max-height: 180px;
+            }
+            @include media-breakpoint-up(md){
+               max-height: 180px;
+            }
+            @include media-breakpoint-up(xl){
+               max-height: 200px;
+            }
+
+            @include media-breakpoint-only(md){
+                margin-left: 6%;
+                max-height: 200px;
+            }
+         
             
             $textStyles:  line-through, overline, underline, none, overline, underline, line-through, overline, underline, none, overline, underline;
             $borderColors: $pmPink, $pmGreen, $pmDarkGray, $pmBlue, $black, $yellow, $pmPink, $pmGreen, $pmDarkGray, $pmBlue, $black, $yellow;
@@ -109,7 +123,16 @@
                     background-position: center center;
                     background-size: cover;
                     
-                    margin-top: 15px;
+                    margin-top: 12px;
+                    @include media-breakpoint-up(sm){
+                     margin-top: 12px;
+                    }
+                    @include media-breakpoint-up(xl){
+                     margin-top: 15px;
+                    }
+                    @include media-breakpoint-only(md){
+                      margin-top: 3.5em;
+                    }
                
                     h4{
                         font-size: 2em;
@@ -125,6 +148,27 @@
                        
                         @if $i != 1 {
                             text-transform: uppercase;
+                        }
+                       
+                     
+                        @include media-breakpoint-up(sm){
+                           font-size: 1em;
+                        }
+                   
+                        @include media-breakpoint-up(md){
+                           font-size: 1em;
+                        }
+                   
+                        @include media-breakpoint-up(lg){
+                           font-size: 1.3em;
+                        }
+                   
+                        @include media-breakpoint-up(xl){
+                           font-size: 1.8em;
+                        }
+                     
+                        @include media-breakpoint-only(md){
+                           font-size: 1em;
                         }
                     }
               .sampleCover{

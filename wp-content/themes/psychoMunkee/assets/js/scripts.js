@@ -4924,14 +4924,12 @@ jQuery(document).ready(function($) {
         e.stopPropagation();
         var self = $(this);
         var bg = self.css('background-image');
-
         $('.exampleCanvas').css('background-image', bg);
 
      })
 
     $('#front-page').on('click', '#sampleClose', function(e){
        e.stopPropagation();
-       $('body').removeClass('overflow-content');
        $('#sampleDetail').toggleClass('open');
       // $.fn.resetTilt();
     });
@@ -5164,6 +5162,8 @@ $.fn.scrollToTop = function() {
                 var PP = document.getElementById("pm_pile1");
                 var tilt = document.querySelector(".pmSample");
                 var design = document.getElementById('design');
+                var contact = document.querySelector(".pmContact");
+
           
 
                 //if browser doesn't support CSS transitions - dont wait for the end of transitions
@@ -5178,7 +5178,8 @@ $.fn.scrollToTop = function() {
                     if( !transitionsSupported() ) isAnimating = false;
                  }, delay);
 			
-               
+               $('body').removeClass('overflow-content');
+
                 if (PP){
                     $.fn.initialise();
                 }
@@ -5189,6 +5190,9 @@ $.fn.scrollToTop = function() {
                 }
                 if (design){
                     $.fn.initTextRotate();
+                }
+                if (contact){
+                    $('body').addClass('overflow-content');
                 }
 
 
