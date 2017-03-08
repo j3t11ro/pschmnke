@@ -95,7 +95,7 @@
             @include media-breakpoint-up(md){
                max-height: 180px;
             }
-            @include media-breakpoint-up(xl){
+            @include media-breakpoint-up(lg){
                max-height: 200px;
             }
 
@@ -127,12 +127,26 @@
                     @include media-breakpoint-up(sm){
                      margin-top: 12px;
                     }
+           
                     @include media-breakpoint-up(xl){
                      margin-top: 15px;
                     }
+              
                     @include media-breakpoint-only(md){
-                      margin-top: 3.5em;
+                      margin-top: 2vh;
                     }
+                    
+               
+                    @media (max-width: 991px) and (min-width: 768px) and (max-height: 1024px)  { 
+                        margin-top: 5vh;
+
+                        
+                     }
+               @media (max-width: 991px) and (min-width: 768px) and (max-height: 800px)  { 
+                        margin-top: 2vh;
+
+                        
+                     }
                
                     h4{
                         font-size: 2em;
