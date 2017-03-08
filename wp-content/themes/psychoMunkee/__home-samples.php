@@ -56,7 +56,7 @@ if ( $parent->have_posts() ) : ?>
 <?php endif; wp_reset_query(); ?>
 
     <div class="col-sm-12">
-        <a href="#" class="">all projects</a>
+        <a href="#" class="page-load" data-page-id="26">all projects</a>
     </div>
 
 

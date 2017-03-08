@@ -5072,10 +5072,25 @@ jQuery(document).ready(function($) {
                 message: $("#pmMessage").val()
              },
             success : function( data ) {
-                        console.log(data);
+                        
+                if (data == 0){
+                    alert('please fill out all fields');
+                }
+                if (data == 1){
+                    
+                    alert('Your message has been received, thanks!');
+                    $("#pmName").val('');
+                    $("#pmEmail").val('');
+                    $("#pmMessage").val('');
+
+                }
+                if (data == 2){
+                    
+                     alert('There was an error sending your form, please try again later.');
+                }
             },
             error   : function( xhr, err ) {
-                         alert('Error');     
+                         alert('Error Processing Request');     
             }
         });    
         return false;
@@ -5148,11 +5163,11 @@ if($.fn.detectIE()){
       firstLoad = false,
       frontPage = $("#front-page");
 
-	$(document).on( 'click', '.menu-item a.nav-link', function( event ) {
+	$(document).on( 'click', '.menu-item a.nav-link, .page-load', function( event ) {
 		event.preventDefault();
         var self = $(this);
         var newPage = self.attr('href');
-		var page = parseInt(self.parent().attr('data-page-id'));
+		var page = self.parent().attr('data-page-id') ? parseInt(self.parent().attr('data-page-id')) : parseInt(self.attr('data-page-id'));
 
 
         $('.nav-link').parent().removeClass('active');

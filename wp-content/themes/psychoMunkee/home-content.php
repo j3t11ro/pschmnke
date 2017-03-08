@@ -77,7 +77,7 @@
             <div class="inner cover">
             <h1 class="cover-heading pmOutro">get in touch today!</h1>
             <p class="lead">we'd love to hear your ideas on current projects and how we can assist.</p>
-            <button class="btn btn-default" >let's talk <span class="icon-chat"></span></button>
+            <button class="btn btn-default page-load" data-page-id="24" >let's talk <span class="icon-chat"></span></button>
           </div>
 
           

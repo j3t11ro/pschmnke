@@ -5,11 +5,11 @@
       firstLoad = false,
       frontPage = $("#front-page");
 
-	$(document).on( 'click', '.menu-item a.nav-link', function( event ) {
+	$(document).on( 'click', '.menu-item a.nav-link, .page-load', function( event ) {
 		event.preventDefault();
         var self = $(this);
         var newPage = self.attr('href');
-		var page = parseInt(self.parent().attr('data-page-id'));
+		var page = self.parent().attr('data-page-id') ? parseInt(self.parent().attr('data-page-id')) : parseInt(self.attr('data-page-id'));
 
 
         $('.nav-link').parent().removeClass('active');

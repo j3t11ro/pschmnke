@@ -167,14 +167,14 @@ $message = strtolower($_POST["message"]);
 	
 	if (empty($name)|| empty($email) || empty($message)){ //For whatever reason if front end validation fails - checks if fields are empty.
 
-		echo "please fill out all fields";
+		echo "0";
 		
 	} else{
 		if (!filter_var($email, FILTER_VALIDATE_EMAIL)) { //Check email format and inform if invalid
            			   echo 'something is wrong with your email address';
            } else {	
 					
- 					 echo "2";  
+ 					 echo "1";  
 					 	$to = 'jeff@psychomunkee.com';
 						$subject = '[New Contact] - PsychoMunkee';
 						$message = "a new message from ".$name." just arrived, here is what they had to say:\n \n" .$message. "\n \n and their e-mail is: ".$email;
@@ -184,7 +184,7 @@ $message = strtolower($_POST["message"]);
 			    		$send = wp_mail($to, $subject, $message, $headers);
 						  $send;
 							if(!$send){
-								echo 'Failed to send!';
+								echo '2';
 						}
 					}
 				}

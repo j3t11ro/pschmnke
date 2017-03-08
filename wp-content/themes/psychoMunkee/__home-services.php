@@ -36,7 +36,7 @@
           <div class="pmServiceType">
                 <i class="icon-chat"></i>
               <h3>have a project idea?</h3>
-                <button class="btn btn-default">let's talk</button>
+                <button class="btn btn-default page-load" data-page-id="24">let's talk</button>
            </div>
         </div>
         <br />
@@ -119,7 +119,7 @@
             </div>
         </div>
 
-<div class="pmMiniContact">
+<div class="pmMiniContact page-load" data-page-id="24">
     <span>let's talk</span>
     <i class="icon-chat"></i>
 </div>
