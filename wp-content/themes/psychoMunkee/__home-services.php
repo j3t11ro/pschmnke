@@ -52,7 +52,7 @@
         <div class="canvas">
             <div class="canvasItem row" id="design">
                 <h1 class="col-sm-12">
-                create your brand with quality <span class="emphasis design">ui/ux, design, graphics</span>
+                create your brand  <br class="ieOnlyBr" />with quality <span class="emphasis design">ui/ux, design, graphics</span>
                 </h1>
                 <ul class="col-sm-6">
                     <li>web &amp; app design</li>
