@@ -33,9 +33,9 @@ $main_nav_options = array(
                  </div>
              
                    <ul id="pm-social" class="list-unstyled hidden-xs-down">
-                     <li><span class="icon-facebook-with-circle"></span></li>
-                     <li><span class="icon-github-with-circle"></span></li>
-                     <li><span class="icon-instagram-with-circle"></span><li>
+                     <li><a href="http://fb.me/psychomunkee" target="_blank"><span class="icon-facebook-with-circle"></span></a></li>
+                     <li><a href="https://github.com/j3t11ro" target="_blank"><span class="icon-github-with-circle"></span></a></li>
+                     <li><a href="https://www.instagram.com/psycho.munkee/" target="_blank"><span class="icon-instagram-with-circle"></span></a><li>
                    </ul>
 
                  

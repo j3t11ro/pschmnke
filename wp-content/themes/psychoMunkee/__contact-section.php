@@ -108,9 +108,9 @@ Dallas, TX 75201<br />
 <br /><br />
 <a href="mailto:hello@psychomunkee.com">hello@psychomunkee.com</a>
 <ul class="list-inline">
-  <li class="list-inline-item"><a href="">github</a></li>
-  <li class="list-inline-item"><a href="">instagram</a></li>
-  <li class="list-inline-item"><a href="">facebook</a></li>
+  <li class="list-inline-item"><a href="https://github.com/j3t11ro" target="_blank">github</a></li>
+  <li class="list-inline-item"><a href="https://www.instagram.com/psycho.munkee/" target="_blank">instagram</a></li>
+  <li class="list-inline-item"><a href="http://fb.me/psychomunkee" target="_blank">facebook</a></li>
 </ul>
 </div>
         </div>
