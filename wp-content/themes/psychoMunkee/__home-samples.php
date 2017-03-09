@@ -34,15 +34,15 @@ if ( $parent->have_posts() ) : ?>
                     data-cover="<?php foreach($covers as $cover) echo $cover ; ?>"
                     <?php
                     $services = get_post_meta($post->ID, "sampleServices", false);
-                    if ($services[0]=="") : ?>data-services=""<?php  else : ?>data-services="<?php foreach($services as $service){ echo ''.$service.', '; } ?>"<?php endif; ?>
+                    if ($services[0]=="") : ?>data-services=""<?php  else : ?>data-services="<?php foreach($services as $service){ echo $service.','; } ?>"<?php endif; ?>
 
                     <?php
                     $images = get_post_meta($post->ID, "sampleImages", false);
-                    if ($images[0]=="") : ?>data-images=""<?php  else : ?>data-images="<?php foreach($images as $image){ echo ''.$image.', '; } ?>"<?php endif; ?>
+                    if ($images[0]=="") : ?>data-images=""<?php  else : ?>data-images="<?php foreach($images as $image){ echo $image.','; } ?>"<?php endif; ?>
 
                     <?php
                     $palettes = get_post_meta($post->ID, "samplePalette", false);
-                    if ($palettes[0]=="") : ?>data-palettes=""<?php  else : ?>data-palettes="<?php foreach($palettes as $palette){ echo ''.$palette.', '; } ?>"<?php endif; ?>
+                    if ($palettes[0]=="") : ?>data-palettes=""<?php  else : ?>data-palettes="<?php foreach($palettes as $palette){ echo $palette.','; } ?>"<?php endif; ?>
                     <?php
                     $sites = get_post_meta($post->ID, "site", false);
                     if ($sites[0]=="") : ?>data-site="none"<?php  else : ?>data-site="<?php foreach($sites as $site){ echo $site; } ?>"<?php endif; ?>>

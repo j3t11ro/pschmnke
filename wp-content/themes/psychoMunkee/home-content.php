@@ -30,7 +30,7 @@
             <h1 class="cover-heading pmWho">we are <span>...</span></h1>
             <p class="lead">a &nbsp;small digital development and design shop comprised of the most highly creative and intelligent people. 
               We are brave, curious, and compassionate thinkers and doers. We are diverse in faith, ethnicity, history and spirituality, 
-              but aligned in our desire to create and deliver extraordinary, kick-ass intertactive experiences.</p>
+              but aligned in our desire to create and deliver extraordinary, kick-ass intertactive experiences ... jump in as we help drive your brand to its pinnacle destination!</p>
         <div class="fullscreen-bg blue">
               </div>
           </div>

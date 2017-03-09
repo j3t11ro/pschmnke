@@ -50,6 +50,7 @@ jQuery(document).ready(function($) {
             detailThumbnails = $('.exampleThumbnails li'),
             detailSpotLight = $('.exampleCanvas');
             detailSite = $('.sampleImage + a');
+            detailSpotLightBg = $('.sampleExamples');
 
 
             if(sampleWebsite == 'none'){ detailSite.hide() }else{  detailSite.attr('href', sampleWebsite)}
@@ -59,19 +60,28 @@ jQuery(document).ready(function($) {
 
             detailServices.empty();
             $.each(sampleServices, function( index, value ) {
-                detailServices.append("<li>"+value.trim()+"</li>");
+                detailServices.append("<li>"+value+"</li>");
             });
 
-            detailBg.css({'background-color': samplePalettes[1].trim()});
-            detailPalettes.each(function(index) {
-                var self = $(this);
-                self.css({'background-color': samplePalettes[index].trim()});
-            });
-        
-            detailSpotLight.css({'background-image': "url('./wp-content/themes/psychoMunkee/assets/images/"+sampleImages[0].trim()+".png')"});
+
+            if (samplePalettes){
+            detailBg.css({'background-color': samplePalettes[1] == "#ffffff" ? '#000000' : samplePalettes[1]});
+            detailSpotLightBg.css({'background-color': samplePalettes[1]});
+                $('.services + h1').show();
+                detailPalettes.each(function(index) {
+                    var self = $(this);
+                    self.css({'background-color': samplePalettes[index]});
+                });
+            }else{
+                $('.services + h1').hide();
+            }
+            detailSpotLight.css({'background-image': "url('./wp-content/themes/psychoMunkee/assets/images/"+sampleImages[0]+".png')"});
+            detailThumbnails.parent().empty();
             detailThumbnails.each(function(index) {
                 var self = $(this);
-                self.css({'background-image': "url('./wp-content/themes/psychoMunkee/assets/images/"+sampleImages[index].trim()+".png')"});
+                var active = index == 0 ? 'active' : '';
+                return $('.exampleThumbnails').append('<li class="'+active+'" style="background-image: url(\'./wp-content/themes/psychoMunkee/assets/images/'+sampleImages[index]+'.png\')"></li>');
+                
             });
 
         $('#sampleDetail').prev().css({'visibility': 'hidden'});
@@ -98,6 +108,9 @@ jQuery(document).ready(function($) {
         var self = $(this);
         var bg = self.css('background-image');
         $('.exampleCanvas').css('background-image', bg);
+
+        $('.exampleThumbnails li').removeClass('active');
+        self.addClass('active');
 
      })
 

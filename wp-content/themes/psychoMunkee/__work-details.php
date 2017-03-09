@@ -53,7 +53,7 @@
             </div>
 
             <ul class="exampleThumbnails list-unstyled clearfix">
-                <li></li>
+                <li class="active"></li>
                 <li></li>
                 <li></li>
             </ul>
