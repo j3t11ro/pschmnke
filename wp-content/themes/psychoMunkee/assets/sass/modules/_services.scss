@@ -28,7 +28,8 @@
    &.pmServiceContainer{
 
 
-  .pmServiceWrapper{
+  .pmServiceWrapper,
+  .pmServiceOutro{
       
        @include transition(.5s, all, linear);
        @include media-breakpoint-down(xs){
@@ -93,7 +94,7 @@
                  font-size: .8em;
             }
           }
-          button{
+          a{
                 border: 1px solid $pmPink;
                 @include josefinBold();
                 background: transparent;
@@ -104,6 +105,8 @@
                 color: white;
                 text-transform: uppercase;
                 padding: 15px;
+                cursor: pointer;
+                
           }
          
           &:hover{

@@ -17,7 +17,7 @@ $main_nav_options = array(
                 <div class="progress">
                   <div class="progress-bar" role="progressbar" style="width: 0%" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
                 </div>
-               <a class="masthead-brand navbar-brand" href="<?php echo esc_url( home_url( '/' ) ); ?>"><?php bloginfo( 'name' ); ?></a>
+               <a class="masthead-brand navbar-brand" data-page-id="<?php echo url_to_postid( home_url( '/' ) );  ?>" href="<?php echo esc_url( home_url( '/' ) ); ?>"><?php bloginfo( 'name' ); ?></a>
                 <button class="navbar-toggler navbar-toggler-right hidden-xs-down" type="button" data-toggle="collapse" data-target="#pm-main-menu" aria-controls="pm-main-menu" aria-expanded="false" aria-label="Toggle navigation">
                   <span class="icon-air"><span>menu</span></span>
                   <span class="icon-cross"><span>close</span></span>

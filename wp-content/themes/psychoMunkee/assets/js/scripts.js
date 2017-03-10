@@ -5176,18 +5176,20 @@ if($.fn.detectIE()){
       firstLoad = false,
       frontPage = $("#front-page");
 
-	$(document).on( 'click', '.menu-item a.nav-link, .page-load', function( event ) {
+	$(document).on( 'click', '.menu-item a.nav-link, .page-load, .masthead-brand', function( event ) {
+        event.stopPropagation();
 		event.preventDefault();
         var self = $(this);
         var newPage = self.attr('href');
 		var page = self.parent().attr('data-page-id') ? parseInt(self.parent().attr('data-page-id')) : parseInt(self.attr('data-page-id'));
-
-
+        
         $('.nav-link').parent().removeClass('active');
         self.parent().addClass('active');
 
-        $( "button.mobile" ).trigger( "click" );
-		
+        var notMenuItem = '.page-load, .masthead-brand';
+        if (!self.is(notMenuItem)){
+         $( "button.mobile" ).trigger( "click" );
+        }
          if(self.text().toLowerCase() == "contact"){
              $('body').addClass('overflow-content');
          } else {
@@ -5196,7 +5198,6 @@ if($.fn.detectIE()){
 
          if( !isAnimating ) changePage(newPage, page, true);
          firstLoad = true;  
-
 
 	});
 

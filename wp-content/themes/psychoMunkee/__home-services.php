@@ -32,11 +32,11 @@
            </div>
         </div>
 
-     <div class="col-sm-6 text-center pmServiceWrapper hidden-md-up">
+     <div class="col-sm-6 text-center pmServiceOutro hidden-md-up">
           <div class="pmServiceType">
                 <i class="icon-chat"></i>
               <h3>have a project idea?</h3>
-                <button class="btn btn-default page-load" data-page-id="24">let's talk</button>
+                <a href="contact" class="btn btn-default page-load" data-page-id="24">let's talk</a>
            </div>
         </div>
         <br />
