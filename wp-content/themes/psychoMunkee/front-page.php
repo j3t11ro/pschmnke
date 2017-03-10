@@ -1,10 +1,13 @@
+<?php 
+$cookie_name = 'not_home_page_id';
+?>
+
 <?php get_header(); ?>
 
  <?php get_template_part('navigation', 'default' ); ?>
-<section id="front-page">
- <?php get_template_part('home', 'content' ); ?>
- 
-</section>
+    <section id="front-page">
+     <?php get_template_part('home', 'content' ); ?>
+    </section>
 <?php get_footer(); ?>
 
 

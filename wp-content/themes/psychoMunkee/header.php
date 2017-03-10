@@ -31,13 +31,13 @@
     <script type='text/javascript'>
 
     /* <![CDATA[ */
-    var sitedev = location.host + location.pathname;
-    var site = location.host;
-    var ajaxloadpage = {"ajaxurl":"http:\/\/"+sitedev+"wp-admin\/admin-ajax.php"};
-    var ajaxemailcontact =  {"ajaxemail":"http:\/\/"+sitedev+"wp-admin\/admin-ajax.php"};
+    var sitedev = 'localhost:8888/psychomunkee/';
+    var site = 'psychomunkee.com/';
+    var ajaxloadpage = {"ajaxurl":"http:\/\/"+site+"wp-admin\/admin-ajax.php"};
+    var ajaxemailcontact =  {"ajaxemail":"http:\/\/"+site+"wp-admin\/admin-ajax.php"};
     /* ]]> */
 
     </script>
     <?php wp_head(); ?>
 </head>
-<body <?php body_class(); ?>>
+<body  <?php body_class(); ?>>

@@ -8,7 +8,7 @@
         </div>
         <div class="pmVidBg">
           <video class="hidden-sm-down"  autoplay="" loop="" muted="" id="fpIntroBg">
-            <source src="wp-content/themes/psychoMunkee/assets/video/pmVidBg.mp4" type="video/mp4">
+            <source src="<?php echo get_template_directory_uri() ?>/assets/video/pmVidBg.mp4" type="video/mp4">
           </video>
         </div>
         <div class="cover-container">
@@ -77,7 +77,7 @@
             <div class="inner cover">
             <h1 class="cover-heading pmOutro">get in touch today!</h1>
             <p class="lead">we'd love to hear your ideas on current projects and how we can assist.</p>
-            <button class="btn btn-default page-load" data-page-id="24" >let's talk <span class="icon-chat"></span></button>
+            <a href="<?php echo get_permalink(24)?>" class="btn btn-default page-load" data-page-id="24" >let's talk <span class="icon-chat"></span></a>
           </div>
 
           

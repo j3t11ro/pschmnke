@@ -7,7 +7,7 @@
              height: 85vh;
              .cover{
                 @include vertical-center();
-                 button{
+                 a{
                     background-color: $pmPink;
                     @include josefinBold();
                     font-size: 1em;

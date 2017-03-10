@@ -119,10 +119,10 @@
             </div>
         </div>
 
-<div class="pmMiniContact page-load" data-page-id="24">
+<a href="<?php echo get_permalink(24)?>" class="pmMiniContact page-load" data-page-id="24">
     <span>let's talk</span>
     <i class="icon-chat"></i>
-</div>
+</a>
 
     </div>
 </div>

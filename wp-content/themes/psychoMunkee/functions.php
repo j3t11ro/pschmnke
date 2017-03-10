@@ -80,10 +80,37 @@ add_action('wp_enqueue_scripts', 'bootstrap_four_theme_styles');
 //
 //
 
+function home_index_redirect()
+{
+  if( $_SERVER['REQUEST_METHOD'] === 'GET'){
+    if( is_page( 'work' ) || is_page( 'beliefs' ) || is_page( 'contact' )  )
+    {
+      $title = get_the_title();
+      $page = get_page_by_title( $title ); //as an e.g.
+      $id = $page->ID;//This is page id or post id
+      
+      $file = get_post_meta( $id, '_wp_page_template', true );
+      $template = preg_replace('/\\.[^.\\s]{3,4}$/', '', $file); //remove ext.
+
+      get_header();
+      get_template_part('navigation', 'default' );
+      echo '<section data-page-id="'.$id.'" id="front-page">';
+      get_template_part( $template );
+      echo '</section>';
+      get_footer();
+      echo '<div class="cd-cover-layer"></div> <!-- this is the cover layer -->
+          <div class="cd-loading-bar"></div> <!-- this is the loading bar -->';
+
+        exit();
+    }
+  }
+}
+add_action( 'template_redirect', 'home_index_redirect' );
+
 // ** Add Default Scripts
 if ( ! function_exists( 'psychomunkee_scripts' ) ) :
   function psychomunkee_scripts() {
-    wp_enqueue_script( 'psychomunkee-default', get_template_directory_uri() . '/assets/js/scripts.js', array( 'jquery' ), null, true );
+    wp_enqueue_script( 'psychomunkee-default', get_template_directory_uri() . '/assets/js/scripts.min.js', array( 'jquery' ), null, true );
   }
 endif;
 add_action('wp_enqueue_scripts', 'psychomunkee_scripts');
@@ -114,28 +141,23 @@ function pm_load_page() {
     $cookie_value = $id;
 
 
-    $ch = curl_init('http://localhost:8888/psychomunkee/');
-    curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-    // get headers too with this line
-    curl_setopt($ch, CURLOPT_HEADER, 1);
-    $result = curl_exec($ch);
-    // get cookie
-    // multi-cookie variant contributed by @Combuster in comments
-    preg_match_all('/^Set-Cookie:\s*([^;]*)/mi', $result, $matches);
-    $cookies = array();
-    foreach($matches[1] as $item) {
-        parse_str($item, $cookie);
-        $cookies = array_merge($cookies, $cookie);
-    }
-     echo '<span style="display: none">'.$cookies.'</span>';
-
+    // $ch = curl_init('http://localhost:8888/psychomunkee/');
+    // curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+    // // get headers too with this line
+    // curl_setopt($ch, CURLOPT_HEADER, 1);
+    // $result = curl_exec($ch);
+    // // get cookie
+    // // multi-cookie variant contributed by @Combuster in comments
+    // preg_match_all('/^Set-Cookie:\s*([^;]*)/mi', $result, $matches);
+    // $cookies = array();
+    // foreach($matches[1] as $item) {
+    //     parse_str($item, $cookie);
+    //     $cookies = array_merge($cookies, $cookie);
+    // }
+    //  echo '<span style="display: none">'.$cookies.'</span>';
  
 
     setcookie($cookie_name, $cookie_value, time() + (86400 * 30), '/'); // 86400 = 1 day
-
-
-
-
 
   //   $content_post = get_post($id);
   //   $content = $content_post->post_content;

@@ -8,7 +8,7 @@ jQuery(document).ready(function($) {
         md = 768 - 1,
         lg = 992,
         xl = 1200;
-
+    var url = location.origin +'/'+location.pathname.split("/")[1];
     $.fn.resetTilt = function() {
         tilt.tilt.call(tilt);
     };
@@ -56,7 +56,7 @@ jQuery(document).ready(function($) {
             if(sampleWebsite == 'none'){ detailSite.hide() }else{  detailSite.attr('href', sampleWebsite)}
             detailTitle.text(sampleTitle);
             detailDesc.text(sampleDesc);
-            detailImg.css({'background-image': "url('./wp-content/themes/psychoMunkee/assets/images/"+sampleCover+".png')"});
+            detailImg.css({'background-image': "url('"+url+"/wp-content/themes/psychoMunkee/assets/images/"+sampleCover+".png')"});
 
             detailServices.empty();
             $.each(sampleServices, function( index, value ) {
@@ -75,12 +75,12 @@ jQuery(document).ready(function($) {
             }else{
                 $('.services + h1').hide();
             }
-            detailSpotLight.css({'background-image': "url('./wp-content/themes/psychoMunkee/assets/images/"+sampleImages[0]+".png')"});
+            detailSpotLight.css({'background-image': "url('"+url+"/wp-content/themes/psychoMunkee/assets/images/"+sampleImages[0]+".png')"});
             detailThumbnails.parent().empty();
             detailThumbnails.each(function(index) {
                 var self = $(this);
                 var active = index == 0 ? 'active' : '';
-                return $('.exampleThumbnails').append('<li class="'+active+'" style="background-image: url(\'./wp-content/themes/psychoMunkee/assets/images/'+sampleImages[index]+'.png\')"></li>');
+                return $('.exampleThumbnails').append('<li class="'+active+'" style="background-image: url(\''+url+'/wp-content/themes/psychoMunkee/assets/images/'+sampleImages[index]+'.png\')"></li>');
                 
             });
 

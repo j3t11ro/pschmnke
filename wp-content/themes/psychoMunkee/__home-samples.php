@@ -24,7 +24,7 @@ if ( $parent->have_posts() ) : ?>
         $samples = array('make', 'your', 'brand', 'timeless');
        
         ?>
-        <div class="col-sm-6 pmSample home" style="background-image: url(./wp-content/themes/psychoMunkee/assets/images/<?php foreach($covers as $cover) echo $cover ; ?>.png)">
+        <div class="col-sm-6 pmSample home" style="background-image: url(<?php echo get_template_directory_uri() ?>/assets/images/<?php foreach($covers as $cover) echo $cover ; ?>.png)">
                 <div class="sampleCover">
                     <h4><?php echo $samples[$i] ?></h4>
                 </div>
@@ -56,7 +56,7 @@ if ( $parent->have_posts() ) : ?>
 <?php endif; wp_reset_query(); ?>
 
     <div class="col-sm-12">
-        <a href="#" class="page-load" data-page-id="26">all projects</a>
+        <a href="<?php echo get_permalink(26)?>" class="page-load" data-page-id="26">all projects</a>
     </div>
 
 

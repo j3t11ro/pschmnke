@@ -23,7 +23,7 @@ if ( $parent->have_posts() ) : ?>
         $covers = get_post_meta($post->ID, "cover", false);
         $covers = $covers[0]=="" ?  : $covers;
         ?>
-        <div class="col-sm-3 pmSample work" style="background-image: url(./wp-content/themes/psychoMunkee/assets/images/<?php foreach($covers as $cover) echo $cover ; ?>.png)">
+        <div class="col-sm-3 pmSample work" style="background-image: url(<?php echo get_template_directory_uri() ?>/assets/images/<?php foreach($covers as $cover) echo $cover ; ?>.png)">
                 <div class="sampleCover">
                     <h4><?php the_title(); ?></h4>
                 </div>
