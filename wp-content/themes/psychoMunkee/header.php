@@ -33,8 +33,8 @@
     /* <![CDATA[ */
     var sitedev = 'localhost:8888/psychomunkee/';
     var site = 'psychomunkee.com/';
-    var ajaxloadpage = {"ajaxurl":"http:\/\/"+siteDev+"wp-admin\/admin-ajax.php"};
-    var ajaxemailcontact =  {"ajaxemail":"http:\/\/"+siteDev+"wp-admin\/admin-ajax.php"};
+    var ajaxloadpage = {"ajaxurl":"http:\/\/"+sitedev+"wp-admin\/admin-ajax.php"};
+    var ajaxemailcontact =  {"ajaxemail":"http:\/\/"+sitedev+"wp-admin\/admin-ajax.php"};
     /* ]]> */
 
     </script>

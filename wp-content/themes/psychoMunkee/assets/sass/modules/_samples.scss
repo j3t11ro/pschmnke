@@ -65,7 +65,11 @@
                 height: 20%;
                 font-size: 1.8rem;
                 }
+            @media only screen 
+                and (min-width: 1960px){ 
+                font-size: 3.5em;
             }
+        }
 
             & + [class^="col"] > a{
                 color: $pmDarkGray;
@@ -103,6 +107,10 @@
                 margin-left: 6%;
                 max-height: 200px;
             }
+              @media only screen 
+                and (min-width: 1960px){ 
+                min-height: 300px;
+            }
          
             
             $textStyles:  line-through, overline, underline, none, overline, underline, line-through, overline, underline, none, overline, underline;
@@ -130,6 +138,10 @@
            
                     @include media-breakpoint-up(xl){
                      margin-top: 15px;
+                    }
+                      @media only screen 
+                         and (min-width: 1960px){ 
+                         margin-top: 2vh;
                     }
               
                     @include media-breakpoint-only(md){
@@ -179,6 +191,10 @@
                    
                         @include media-breakpoint-up(xl){
                            font-size: 1.8em;
+                        }
+                              @media only screen 
+                         and (min-width: 1960px){ 
+                           font-size: 2.5em;
                         }
                      
                         @include media-breakpoint-only(md){

@@ -99,7 +99,7 @@
 <div class="contactInfo">
 <address>
 211 N. Ervay<br />
-Suite 700<br />
+Suite 400<br />
 Dallas, TX 75201<br />
 
 </address>

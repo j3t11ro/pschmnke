@@ -62,7 +62,16 @@
                 height: 329px;
                 top: 10em;
                 left: 3em;
-            }
+            }           
+            @media only screen 
+                and (min-width: 1960px){ 
+                    width: 1057px;
+                    height: 629px;
+                    top: 10em;
+                    left: 3em;
+                }
+            
+            
             .sampleImage{
                 // background-image: url('.../../assets/images/sampleVsgio-feat.png');
                  width: 80%;
@@ -86,6 +95,12 @@
                 top: 3em;
                 left: 9em;
                  }
+            @media only screen 
+                and (min-width: 1960px){ 
+                   height: 436px;
+                top: 6em;
+                left: 20em;
+                }
             }
 
             .bgDec{
@@ -126,6 +141,10 @@
                 color: white;
                 text-transform: uppercase;
                 padding: 15px;
+                @media only screen 
+                and (min-width: 1960px){ 
+                    font-size: 2em;
+                }
             }
         }
 
@@ -150,6 +169,10 @@
              @include josefinBold();
              letter-spacing: 5px;
              color: $black;
+           @media only screen 
+                and (min-width: 1960px){ 
+                font-size: 6em;
+                }
         }
         p{
             @include raleRegular();
@@ -165,6 +188,10 @@
                 }
             @include media-breakpoint-up(xl){
              font-size: 1.3em;
+                 }
+              @media only screen 
+                and (min-width: 1960px){ 
+             font-size: 2.3em;
                  }
         }
     }

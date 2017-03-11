@@ -19,6 +19,10 @@
                     padding: 15px;
                     position: relative;
                     top: 1em;
+                     @media only screen 
+                        and (min-width: 1960px){ 
+                        font-size: 2em;
+                        }
                  }
              }
          }
@@ -52,9 +56,12 @@
                     }
                     
                     @include media-breakpoint-up(xl){
-                          font-size:1em;
+                        font-size: 1em;
                         flex-basis: 0;
                     }
+                       @include media-breakpoint-up(1960px){
+                           font-size: 1.5em;
+                       }
                 }
 
                 &  .social{

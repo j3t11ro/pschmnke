@@ -70,12 +70,20 @@
           [class^="icon"]{
             color: lighten($pmPink, 5%);
             font-size: 3.5em;
+          @media only screen 
+                and (min-width: 1960px){ 
+                 font-size: 6.5em;
+            }
           }
           h3{
             color: lighten($pmGreen, 5%);
             text-transform: uppercase;
             font-size: 1.2em;
             margin: 10px 0;
+           @media only screen 
+                and (min-width: 1960px){ 
+                 font-size: 2.2em;
+            }
           }
           p{
             color: lighten(#828282, 5%);
@@ -91,8 +99,12 @@
             }
 
             @include media-breakpoint-up(xl){
-                 font-size: .8em;
+                 font-size: .85em;
             }
+             @media only screen 
+                and (min-width: 1960px){ 
+                font-size: 1.8em;
+             }
           }
           a{
                 border: 1px solid $pmPink;
@@ -179,6 +191,10 @@
                 @include media-breakpoint-up(xl){
                   font-size: 4em;
                 }
+                @media only screen 
+                and (min-width: 1960px){ 
+                     font-size: 6em;
+                }
                 .emphasis{
                     @include raleBlack();
                     text-decoration: underline;
@@ -186,7 +202,10 @@
                     font-size: 3rem;
                    
                     border-bottom: 3px solid $pmOffWhite;
-
+                    @media only screen 
+                and (min-width: 1960px){ 
+                        font-size: 4rem;
+                      }
                     .rotating{
                          text-align: center;
                          }
@@ -208,6 +227,10 @@
 
                         @include media-breakpoint-up(xl){
                            font-size: 1.5rem;
+                        }
+                          @media only screen 
+                and (min-width: 1960px){ 
+                           font-size: 2.5rem;
                         }
                         
                     }
