@@ -102,6 +102,15 @@
                     top: 0;
                     left: -26px;
                 }
+
+            $borderColors: $pmPink, $pmGreen, $pmDarkGray, $pmBlue;
+            @for $i from 1 through length($borderColors) {
+                 $c: nth($borderColors, $i);
+                &:nth-child(#{$i}){
+                    border: 3px solid $c;
+                   // @include transition(border-width, .3s, ease-in);
+                }
+            }
             }
 
             a{

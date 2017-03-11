@@ -4,7 +4,8 @@
       newLocation = '',
       firstLoad = false,
       frontPage = $("#front-page"),
-      prevPage =  frontPage.attr('data-page-id');
+      prevPage =  frontPage.attr('data-page-id'),
+      queuePage;
 
 	$(document).on( 'click', '.menu-item a.nav-link, .page-load, .masthead-brand', function( event ) {
         event.stopPropagation();
