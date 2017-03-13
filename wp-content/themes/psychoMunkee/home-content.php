@@ -105,14 +105,14 @@
                     </div>
                       <div class="col-sm-12 col-md-4 align-self-center">
                       <div class="email">
-                          hello@psychomunkee.com
+                          <a href="mailto:hello@psychomunkee.com">hello@psychomunkee.com</a>
                         </div>
                     </div>
                       <div class="col-sm-12 col-md-4 align-self-center ">
                       <div class="address">
                         <address>
                         211 N. Ervay<br />
-                        Suite 700<br />
+                        Suite 400<br />
                         Dallas, TX 75201
                         </address>
                         </div>
