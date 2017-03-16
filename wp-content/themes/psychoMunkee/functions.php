@@ -80,10 +80,37 @@ add_action('wp_enqueue_scripts', 'bootstrap_four_theme_styles');
 //
 //
 
+function home_index_redirect()
+{
+  if( $_SERVER['REQUEST_METHOD'] === 'GET'){
+    if( is_page( 'work' ) || is_page( 'beliefs' ) || is_page( 'contact' )  )
+    {
+      $title = get_the_title();
+      $page = get_page_by_title( $title ); //as an e.g.
+      $id = $page->ID;//This is page id or post id
+      
+      $file = get_post_meta( $id, '_wp_page_template', true );
+      $template = preg_replace('/\\.[^.\\s]{3,4}$/', '', $file); //remove ext.
+
+      get_header();
+      get_template_part('navigation', 'default' );
+      echo '<section data-page-id="'.$id.'" id="front-page">';
+      get_template_part( $template );
+      echo '</section>';
+      get_footer();
+      echo '<div class="cd-cover-layer"></div> <!-- this is the cover layer -->
+          <div class="cd-loading-bar"></div> <!-- this is the loading bar -->';
+
+        exit();
+    }
+  }
+}
+add_action( 'template_redirect', 'home_index_redirect' );
+
 // ** Add Default Scripts
 if ( ! function_exists( 'psychomunkee_scripts' ) ) :
   function psychomunkee_scripts() {
-    wp_enqueue_script( 'psychomunkee-default', get_template_directory_uri() . '/assets/js/scripts.js', array( 'jquery' ), null, true );
+    wp_enqueue_script( 'psychomunkee-default', get_template_directory_uri() . '/assets/js/scripts.min.js', array( 'jquery' ), null, true );
   }
 endif;
 add_action('wp_enqueue_scripts', 'psychomunkee_scripts');
@@ -98,7 +125,10 @@ if (in_array($_SERVER['REMOTE_ADDR'], array('127.0.0.1', '::1'))) {
 //global $wp_query;
 wp_localize_script( 'ajax-load-page', 'ajaxloadpage', array(
 	'ajaxurl' => admin_url( 'admin-ajax.php' )
-  //,'query_vars' => json_encode( $wp_query->query )
+));
+
+wp_localize_script( 'ajax-email-contact', 'ajaxemailcontact', array(
+  'ajaxemail' => admin_url( 'admin-ajax.php' )
 ));
 
 add_action( 'wp_ajax_nopriv_load_page', 'pm_load_page' );
@@ -111,28 +141,23 @@ function pm_load_page() {
     $cookie_value = $id;
 
 
-    $ch = curl_init('http://localhost:8888/psychomunkee/');
-    curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-    // get headers too with this line
-    curl_setopt($ch, CURLOPT_HEADER, 1);
-    $result = curl_exec($ch);
-    // get cookie
-    // multi-cookie variant contributed by @Combuster in comments
-    preg_match_all('/^Set-Cookie:\s*([^;]*)/mi', $result, $matches);
-    $cookies = array();
-    foreach($matches[1] as $item) {
-        parse_str($item, $cookie);
-        $cookies = array_merge($cookies, $cookie);
-    }
-     echo '<span style="display: none">'.$cookies.'</span>';
-
+    // $ch = curl_init('http://localhost:8888/psychomunkee/');
+    // curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+    // // get headers too with this line
+    // curl_setopt($ch, CURLOPT_HEADER, 1);
+    // $result = curl_exec($ch);
+    // // get cookie
+    // // multi-cookie variant contributed by @Combuster in comments
+    // preg_match_all('/^Set-Cookie:\s*([^;]*)/mi', $result, $matches);
+    // $cookies = array();
+    // foreach($matches[1] as $item) {
+    //     parse_str($item, $cookie);
+    //     $cookies = array_merge($cookies, $cookie);
+    // }
+    //  echo '<span style="display: none">'.$cookies.'</span>';
  
 
     setcookie($cookie_name, $cookie_value, time() + (86400 * 30), '/'); // 86400 = 1 day
-
-
-
-
 
   //   $content_post = get_post($id);
   //   $content = $content_post->post_content;
@@ -146,7 +171,48 @@ function pm_load_page() {
 }
 
 
+wp_localize_script( 'ajax-email-contact', 'ajaxemailcontact', array(
+  'ajaxemail' => admin_url( 'admin-ajax.php' )
+));
 
+add_action( 'wp_ajax_nopriv_contact_email', 'pm_contact_email' );
+add_action( 'wp_ajax_ajax_contact_email', 'pm_contact_email' );
+
+
+function pm_contact_email(){
+
+//Fetching Values from URL
+$name = strtolower($_POST["name"]);
+$email = strtolower($_POST["email"]);
+$message = strtolower($_POST["message"]);
+
+	
+	if (empty($name)|| empty($email) || empty($message)){ //For whatever reason if front end validation fails - checks if fields are empty.
+
+		echo "0";
+		
+	} else{
+		if (!filter_var($email, FILTER_VALIDATE_EMAIL)) { //Check email format and inform if invalid
+           			   echo 'something is wrong with your email address';
+           } else {	
+					
+ 					 echo "1";  
+					 	$to = 'jeff@psychomunkee.com';
+						$subject = '[New Contact] - PsychoMunkee';
+						$message = "a new message from ".$name." just arrived, here is what they had to say:\n \n" .$message. "\n \n and their e-mail is: ".$email;
+					    $from = "no-reply@psychomunkee.com";
+   						$headers = "From:" . $from;
+						
+			    		$send = wp_mail($to, $subject, $message, $headers);
+						  $send;
+							if(!$send){
+								echo '2';
+						}
+					}
+				}
+  die();
+
+}
 
 function bootstrap_four_nav_li_class( $classes, $item ) {
   $classes[] .= ' nav-item';

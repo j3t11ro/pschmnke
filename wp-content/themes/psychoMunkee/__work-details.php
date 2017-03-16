@@ -53,7 +53,7 @@
             </div>
 
             <ul class="exampleThumbnails list-unstyled clearfix">
-                <li></li>
+                <li class="active"></li>
                 <li></li>
                 <li></li>
             </ul>
@@ -66,7 +66,7 @@
             <h1>have a project idea?</h1>
             <h3>we’ll be happy to help!</h3>
 
-            <a href="" class="btn btn-default">
+            <a href="<?php echo get_permalink(24)?>" class="btn btn-default page-load" data-page-id="24">
                 let's talk <span class="icon-chat"></span>
             </a>
         </div>

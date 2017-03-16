@@ -74,21 +74,21 @@
     <div class="form col-sm-12">
         <div class="row contact">
         <div class="col-sm-6">
-<form>
+<form id="newContact">
    <div class="form-group">
 
-    <input type="text" class="form-control" id="exampleInputPassword1" placeholder="name/company">
+    <input type="text" class="form-control" id="pmName" name="name" placeholder="name/company">
   </div>
   <div class="form-group">
 
-    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="email">
+    <input type="email" class="form-control" id="pmEmail" name="email" aria-describedby="emailHelp" placeholder="email">
     <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
   </div>
 
 
   
   <div class="form-group">
-    <textarea class="form-control" id="exampleTextarea" rows="3" placeholder="message"></textarea>
+    <textarea class="form-control" id="pmMessage" name="message" rows="3" placeholder="message"></textarea>
   </div>
   <button type="submit" class="btn">Submit</button>
 </form>
@@ -99,7 +99,7 @@
 <div class="contactInfo">
 <address>
 211 N. Ervay<br />
-Suite 700<br />
+Suite 400<br />
 Dallas, TX 75201<br />
 
 </address>
@@ -108,9 +108,9 @@ Dallas, TX 75201<br />
 <br /><br />
 <a href="mailto:hello@psychomunkee.com">hello@psychomunkee.com</a>
 <ul class="list-inline">
-  <li class="list-inline-item"><a href="">github</a></li>
-  <li class="list-inline-item"><a href="">instagram</a></li>
-  <li class="list-inline-item"><a href="">facebook</a></li>
+  <li class="list-inline-item"><a href="https://github.com/j3t11ro" target="_blank">github</a></li>
+  <li class="list-inline-item"><a href="https://www.instagram.com/psycho.munkee/" target="_blank">instagram</a></li>
+  <li class="list-inline-item"><a href="http://fb.me/psychomunkee" target="_blank">facebook</a></li>
 </ul>
 </div>
         </div>

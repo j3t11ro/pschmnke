@@ -4839,7 +4839,7 @@ jQuery(document).ready(function($) {
         md = 768 - 1,
         lg = 992,
         xl = 1200;
-
+    var url = location.origin +'/'+location.pathname.split("/")[1];
     $.fn.resetTilt = function() {
         tilt.tilt.call(tilt);
     };
@@ -4881,28 +4881,38 @@ jQuery(document).ready(function($) {
             detailThumbnails = $('.exampleThumbnails li'),
             detailSpotLight = $('.exampleCanvas');
             detailSite = $('.sampleImage + a');
+            detailSpotLightBg = $('.sampleExamples');
 
 
             if(sampleWebsite == 'none'){ detailSite.hide() }else{  detailSite.attr('href', sampleWebsite)}
             detailTitle.text(sampleTitle);
             detailDesc.text(sampleDesc);
-            detailImg.css({'background-image': "url('./wp-content/themes/psychoMunkee/assets/images/"+sampleCover+".png')"});
+            detailImg.css({'background-image': "url('"+url+"/wp-content/themes/psychoMunkee/assets/images/"+sampleCover+".png')"});
 
             detailServices.empty();
             $.each(sampleServices, function( index, value ) {
-                detailServices.append("<li>"+value.trim()+"</li>");
+                detailServices.append("<li>"+value+"</li>");
             });
 
-            detailBg.css({'background-color': samplePalettes[1].trim()});
-            detailPalettes.each(function(index) {
-                var self = $(this);
-                self.css({'background-color': samplePalettes[index].trim()});
-            });
-        
-            detailSpotLight.css({'background-image': "url('./wp-content/themes/psychoMunkee/assets/images/"+sampleImages[0].trim()+".png')"});
+
+            if (samplePalettes){
+            detailBg.css({'background-color': samplePalettes[1] == "#ffffff" ? '#000000' : samplePalettes[1]});
+            detailSpotLightBg.css({'background-color': samplePalettes[1]});
+                $('.services + h1').show();
+                detailPalettes.each(function(index) {
+                    var self = $(this);
+                    self.css({'background-color': samplePalettes[index]});
+                });
+            }else{
+                $('.services + h1').hide();
+            }
+            detailSpotLight.css({'background-image': "url('"+url+"/wp-content/themes/psychoMunkee/assets/images/"+sampleImages[0]+".png')"});
+            detailThumbnails.parent().empty();
             detailThumbnails.each(function(index) {
                 var self = $(this);
-                self.css({'background-image': "url('./wp-content/themes/psychoMunkee/assets/images/"+sampleImages[index].trim()+".png')"});
+                var active = index == 0 ? 'active' : '';
+                return $('.exampleThumbnails').append('<li class="'+active+'" style="background-image: url(\''+url+'/wp-content/themes/psychoMunkee/assets/images/'+sampleImages[index]+'.png\')"></li>');
+                
             });
 
         $('#sampleDetail').prev().css({'visibility': 'hidden'});
@@ -4929,6 +4939,9 @@ jQuery(document).ready(function($) {
         var self = $(this);
         var bg = self.css('background-image');
         $('.exampleCanvas').css('background-image', bg);
+
+        $('.exampleThumbnails li').removeClass('active');
+        self.addClass('active');
 
      })
 
@@ -5056,6 +5069,46 @@ jQuery(document).ready(function($) {
 
     });
 
+
+
+
+    $("#front-page").on('submit', '#newContact', function(e) {
+
+        e.preventDefault();
+        $.ajax({
+            url     : ajaxemailcontact.ajaxemail,
+            type    : 'post',
+            data: {
+                action: 'contact_email',
+                name: $("#pmName").val(),
+                email: $("#pmEmail").val(),
+                message: $("#pmMessage").val()
+             },
+            success : function( data ) {
+                        
+                if (data == 0){
+                    alert('please fill out all fields');
+                }
+                if (data == 1){
+                    
+                    alert('Your message has been received, thanks!');
+                    $("#pmName").val('');
+                    $("#pmEmail").val('');
+                    $("#pmMessage").val('');
+
+                }
+                if (data == 2){
+                    
+                     alert('There was an error sending your form, please try again later.');
+                }
+            },
+            error   : function( xhr, err ) {
+                         alert('Error Processing Request');     
+            }
+        });    
+        return false;
+    });
+
   
 });
 
@@ -5121,20 +5174,33 @@ if($.fn.detectIE()){
   var isAnimating = false,
       newLocation = '',
       firstLoad = false,
-      frontPage = $("#front-page");
+      frontPage = $("#front-page"),
+      prevPage =  frontPage.attr('data-page-id'),
+      queuePage;
 
-	$(document).on( 'click', '.menu-item a.nav-link', function( event ) {
+	$(document).on( 'click', '.menu-item a.nav-link, .page-load, .masthead-brand', function( event ) {
+        event.stopPropagation();
 		event.preventDefault();
         var self = $(this);
         var newPage = self.attr('href');
-		var page = parseInt(self.parent().attr('data-page-id'));
+		var page = self.parent().attr('data-page-id') ? parseInt(self.parent().attr('data-page-id')) : parseInt(self.attr('data-page-id'));
 
+        if(prevPage){
+            queuePage = getCookie('page_id');
+            frontPage.attr('data-page-id', queuePage);
+        }else{
+            prevPage = 2;
+            frontPage.attr('data-page-id', queuePage);
+        }
 
         $('.nav-link').parent().removeClass('active');
-        self.parent().addClass('active');
-
-        $( "button.mobile" ).trigger( "click" );
-		
+       // self.parent().addClass('active');
+        $(".nav-item[data-page-id="+page+"]").addClass('active');
+      
+        var notMenuItem = '.page-load, .masthead-brand';
+        if (!self.is(notMenuItem)){
+         $( "button.mobile" ).trigger( "click" );
+        }
          if(self.text().toLowerCase() == "contact"){
              $('body').addClass('overflow-content');
          } else {
@@ -5144,28 +5210,56 @@ if($.fn.detectIE()){
          if( !isAnimating ) changePage(newPage, page, true);
          firstLoad = true;  
 
-
 	});
 
+      //detect the 'popstate' event - e.g. user clicking the back button
+        $(window).on('popstate', function() {
+            if( firstLoad ) {
+                
+            /*
+            Safari emits a popstate event on page load - check if firstLoad is true before animating
+            if it's false - the page has just been loaded 
+            */
+            prevPage = frontPage.attr('data-page-id');
+            queuePage = getCookie('page_id');
+            frontPage.attr('data-page-id', queuePage);
+      //      prevPage = prevPage ? 2 : prevPage;
+
+            $('.nav-item').removeClass('active');
+            $(".nav-item[data-page-id="+prevPage+"]").addClass('active');
+        
+            var newPageArray = location.pathname.split('/'),
+                //this is the url of the page to be loaded 
+                newPage = newPageArray[newPageArray.length - 1];
+
+            if( !isAnimating  &&  newLocation != newPage ) changePage(newPage, prevPage, false);
+            } else{
+
+                alert('false')
+
+            }
+            firstLoad = true;
+            });
 
 
-	function changePage(url, page, bool) {
+
+	function changePage(theUrl, page, bool) {
         isAnimating = true;
         // trigger page animation
         $('body').addClass('page-is-changing');
         $('.cd-loading-bar').one('webkitTransitionEnd otransitionend oTransitionEnd msTransitionEnd transitionend', function(){
-            loadNewContent(url, page, bool);
-             newLocation = url;
+            loadNewContent(theUrl, page, bool);
+             newLocation = theUrl;
             $('.cd-loading-bar').off('webkitTransitionEnd otransitionend oTransitionEnd msTransitionEnd transitionend');
         });
         //if browser doesn't support CSS transitions
         if( !transitionsSupported() ) {
-        loadNewContent(url, page, bool);
-        newLocation = url;
+        loadNewContent(theUrl, page, bool);
+        newLocation = theUrl;
         }
 	}
 
-	function loadNewContent(url, page, bool) {
+	function loadNewContent(theUrl, page, bool) {
         $.ajax({
             // xhr: function() {
             // var xhr = new window.XMLHttpRequest();
@@ -5200,10 +5294,10 @@ if($.fn.detectIE()){
 
             },
 			success: function( result ) {
+                theUrl = ('' == theUrl) ? '/' : theUrl;
                 //Populate replace html
               	frontPage.html(result);
-                //destroy any instances of PP lib
-                $.fn.pagepiling.destroy('all');
+              
 
 
                 var delay = ( transitionsSupported() ) ? 1200 : 0;
@@ -5212,8 +5306,11 @@ if($.fn.detectIE()){
                 var design = document.getElementById('design');
                 var contact = document.querySelector(".pmContact");
 
-          
-
+                //destroy any instances of PP lib
+                 if (typeof  $.fn.pagepiling.destroy === "function") { 
+                        // safe to use the function
+                        $.fn.pagepiling.destroy('all');
+                    }
                 //if browser doesn't support CSS transitions - dont wait for the end of transitions
                   setTimeout(function(){
                     //wait for the end of the transition on the loading bar before revealing the new content
@@ -5243,6 +5340,12 @@ if($.fn.detectIE()){
                     $('body').addClass('overflow-content');
                 }
 
+                 if(theUrl!=window.location && bool){
+                    //add the new page to the window.history
+                    //if the new page was triggered by a 'popstate' event, don't add it
+                    window.history.pushState({path: theUrl},'',theUrl);
+                }
+
 
 			},
            complete: function() {
@@ -5255,7 +5358,11 @@ if($.fn.detectIE()){
     return $('html').hasClass('csstransitions');
   }
 
-
+function getCookie(name) {
+  var value = "; " + document.cookie;
+  var parts = value.split("; " + name + "=");
+  if (parts.length == 2) return parts.pop().split(";").shift();
+}
 
 })(jQuery);
 (function($) {

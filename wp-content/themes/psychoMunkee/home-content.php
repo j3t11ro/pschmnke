@@ -8,7 +8,7 @@
         </div>
         <div class="pmVidBg">
           <video class="hidden-sm-down"  autoplay="" loop="" muted="" id="fpIntroBg">
-            <source src="wp-content/themes/psychoMunkee/assets/video/pmVidBg.mp4" type="video/mp4">
+            <source src="<?php echo get_template_directory_uri() ?>/assets/video/pmVidBg.mp4" type="video/mp4">
           </video>
         </div>
         <div class="cover-container">
@@ -30,7 +30,7 @@
             <h1 class="cover-heading pmWho">we are <span>...</span></h1>
             <p class="lead">a &nbsp;small digital development and design shop comprised of the most highly creative and intelligent people. 
               We are brave, curious, and compassionate thinkers and doers. We are diverse in faith, ethnicity, history and spirituality, 
-              but aligned in our desire to create and deliver extraordinary, kick-ass intertactive experiences.</p>
+              but aligned in our desire to create and deliver extraordinary, kick-ass intertactive experiences ... jump in as we help drive your brand to its pinnacle destination!</p>
         <div class="fullscreen-bg blue">
               </div>
           </div>
@@ -77,7 +77,7 @@
             <div class="inner cover">
             <h1 class="cover-heading pmOutro">get in touch today!</h1>
             <p class="lead">we'd love to hear your ideas on current projects and how we can assist.</p>
-            <button class="btn btn-default" >let's talk <span class="icon-chat"></span></button>
+            <a href="<?php echo get_permalink(24)?>" class="btn btn-default page-load" data-page-id="24" >let's talk <span class="icon-chat"></span></a>
           </div>
 
           
@@ -91,9 +91,9 @@
               <div class="col social"> 
 
                <ul class="list-unstyled clearfix">
-                     <li><span class="icon-facebook-with-circle"></span></li>
-                     <li><span class="icon-github-with-circle"></span></li>
-                     <li><span class="icon-instagram-with-circle"></span><li>
+                     <li><a href="http://fb.me/psychomunkee" target="_blank"><span class="icon-facebook-with-circle"></span></a></li>
+                     <li><a href="https://github.com/j3t11ro" target="_blank"><span class="icon-github-with-circle"></span></a></li>
+                     <li><a href="https://www.instagram.com/psycho.munkee/" target="_blank"><span class="icon-instagram-with-circle"></span></a><li>
                    </ul>
               </div>
                 <div class="col info">
@@ -105,14 +105,14 @@
                     </div>
                       <div class="col-sm-12 col-md-4 align-self-center">
                       <div class="email">
-                          hello@psychomunkee.com
+                          <a href="mailto:hello@psychomunkee.com">hello@psychomunkee.com</a>
                         </div>
                     </div>
                       <div class="col-sm-12 col-md-4 align-self-center ">
                       <div class="address">
                         <address>
                         211 N. Ervay<br />
-                        Suite 700<br />
+                        Suite 400<br />
                         Dallas, TX 75201
                         </address>
                         </div>
