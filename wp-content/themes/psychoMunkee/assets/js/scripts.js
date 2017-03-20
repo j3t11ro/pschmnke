@@ -5001,10 +5001,34 @@ $.fn.initialise = function() {
 
 
 
+
 jQuery(document).ready(function($) {
 
     var about =  $('#beliefNav li'); 
     var scrollTop = $('.toTop');
+    var isAnimating = false;
+
+
+
+        // setTimeout(function(){
+        //     //wait for the end of the transition on the loading bar before revealing the new content
+        //     $('body').removeClass('page-is-changing');
+
+        //     $('.cd-loading-bar').one('webkitTransitionEnd otransitionend oTransitionEnd msTransitionEnd transitionend', function(){
+        //        isAnimating = false;
+        //        $('.cd-loading-bar').off('webkitTransitionEnd otransitionend oTransitionEnd msTransitionEnd transitionend');
+        //     });
+
+        //     if( !transitionsSupported() ) isAnimating = false;
+        
+        //  }, 500);
+    
+        function transitionsSupported() {
+           return $('html').hasClass('csstransitions');
+        }
+
+
+
 
     // ===== Scroll to Top ==== 
     $.fn.scrollToTop();
