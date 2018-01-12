@@ -1,6 +1,6 @@
 <nav class="navbar fixed-bottom pmFooter">
     <span class="navbar-text text-sm-right">
-     &copy; Psycho Munkee, LLC 2005 &ndash; 2017.  All Rights Reserved.
+     &copy; Psycho Munkee, LLC 2005 &ndash; 2018.  All Rights Reserved.
     </span>
 
 </nav>

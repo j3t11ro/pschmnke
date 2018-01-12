@@ -4830,7 +4830,6 @@ var Popover = (function ($) {
 
 
 jQuery(document).ready(function($) {
-	
     // var cover = $('.sampleCover');
     // var details = $('#sampleDetail');
     // var closeDetails = $('#sampleClose');
@@ -5009,21 +5008,11 @@ jQuery(document).ready(function($) {
     var isAnimating = false;
 
 
+    //unveil homepage
+    $('body').removeClass('page-is-changing');
 
-        // setTimeout(function(){
-        //     //wait for the end of the transition on the loading bar before revealing the new content
-        //     $('body').removeClass('page-is-changing');
-
-        //     $('.cd-loading-bar').one('webkitTransitionEnd otransitionend oTransitionEnd msTransitionEnd transitionend', function(){
-        //        isAnimating = false;
-        //        $('.cd-loading-bar').off('webkitTransitionEnd otransitionend oTransitionEnd msTransitionEnd transitionend');
-        //     });
-
-        //     if( !transitionsSupported() ) isAnimating = false;
-        
-        //  }, 500);
-    
         function transitionsSupported() {
+       
            return $('html').hasClass('csstransitions');
         }
 
@@ -5203,6 +5192,7 @@ if($.fn.detectIE()){
       queuePage;
 
 	$(document).on( 'click', '.menu-item a.nav-link, .page-load, .masthead-brand', function( event ) {
+
         event.stopPropagation();
 		event.preventDefault();
         var self = $(this);
@@ -5258,9 +5248,7 @@ if($.fn.detectIE()){
 
             if( !isAnimating  &&  newLocation != newPage ) changePage(newPage, prevPage, false);
             } else{
-
-                alert('false')
-
+                console.log('popstate false, not loading new page')
             }
             firstLoad = true;
             });
@@ -5285,29 +5273,6 @@ if($.fn.detectIE()){
 
 	function loadNewContent(theUrl, page, bool) {
         $.ajax({
-            // xhr: function() {
-            // var xhr = new window.XMLHttpRequest();
-            //  alert(xhr.getResponseHeader('Set-Cookie'));
-            // // // Upload progress
-            // // xhr.upload.addEventListener("progress", function(evt){
-            // //     if (evt.lengthComputable) {
-            // //         var percentComplete = evt.loaded / evt.total;
-            // //         //Do something with upload progress
-            // //         console.log(percentComplete);
-            // //         }
-            // //     }, false);
-
-            // // // Download progress
-            // // xhr.addEventListener("progress", function(evt){
-            // //     if (evt.lengthComputable) {
-            // //     var percentComplete = evt.loaded / evt.total;
-            // //     // Do something with download progress
-            // //     console.log(percentComplete);
-            // //     }
-            // // }, false);
-
-            // return xhr;
-            // },
 			url: ajaxloadpage.ajaxurl,
 			type: 'post',
 			data: {
@@ -5315,7 +5280,7 @@ if($.fn.detectIE()){
                 page: page
 			},
             beforeSend: function() {
-
+                
             },
 			success: function( result ) {
                 theUrl = ('' == theUrl) ? '/' : theUrl;

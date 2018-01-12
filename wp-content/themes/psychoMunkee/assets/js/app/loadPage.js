@@ -8,6 +8,7 @@
       queuePage;
 
 	$(document).on( 'click', '.menu-item a.nav-link, .page-load, .masthead-brand', function( event ) {
+
         event.stopPropagation();
 		event.preventDefault();
         var self = $(this);
@@ -63,9 +64,7 @@
 
             if( !isAnimating  &&  newLocation != newPage ) changePage(newPage, prevPage, false);
             } else{
-
-                alert('false')
-
+                console.log('popstate false, not loading new page')
             }
             firstLoad = true;
             });
@@ -90,29 +89,6 @@
 
 	function loadNewContent(theUrl, page, bool) {
         $.ajax({
-            // xhr: function() {
-            // var xhr = new window.XMLHttpRequest();
-            //  alert(xhr.getResponseHeader('Set-Cookie'));
-            // // // Upload progress
-            // // xhr.upload.addEventListener("progress", function(evt){
-            // //     if (evt.lengthComputable) {
-            // //         var percentComplete = evt.loaded / evt.total;
-            // //         //Do something with upload progress
-            // //         console.log(percentComplete);
-            // //         }
-            // //     }, false);
-
-            // // // Download progress
-            // // xhr.addEventListener("progress", function(evt){
-            // //     if (evt.lengthComputable) {
-            // //     var percentComplete = evt.loaded / evt.total;
-            // //     // Do something with download progress
-            // //     console.log(percentComplete);
-            // //     }
-            // // }, false);
-
-            // return xhr;
-            // },
 			url: ajaxloadpage.ajaxurl,
 			type: 'post',
 			data: {
@@ -120,7 +96,7 @@
                 page: page
 			},
             beforeSend: function() {
-
+                
             },
 			success: function( result ) {
                 theUrl = ('' == theUrl) ? '/' : theUrl;
