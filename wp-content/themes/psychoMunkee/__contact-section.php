@@ -97,13 +97,6 @@
         </div>
         <div class="col-sm-6">
 <div class="contactInfo">
-<address>
-211 N. Ervay<br />
-Suite 400<br />
-Dallas, TX 75201<br />
-
-</address>
-<br />
 <a href="tel:9723798538">(972) 379-8538</a>
 <br /><br />
 <a href="mailto:hello@psychomunkee.com">hello@psychomunkee.com</a>
