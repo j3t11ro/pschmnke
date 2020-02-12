@@ -56,7 +56,8 @@ gulp.task('watch', function () {
 	      livereload.changed(file.path);
 	  });
 	gulp.watch('./assets/sass/**/*.scss', ['sass']);
-	gulp.watch('./assets/js/**/*.js', ['scripts']);
+	// don't listen to whole js folder, it'll create an infinite loop
+	gulp.watch( ['./assets/js/**/*.js', '!./assets/js/*.js'], ['scripts']);
 });
 
 gulp.task('default', [ 'sass', 'scripts', 'watch']);

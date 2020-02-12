@@ -1,5 +1,4 @@
 jQuery(document).ready(function($) {
-	
     // var cover = $('.sampleCover');
     // var details = $('#sampleDetail');
     // var closeDetails = $('#sampleClose');

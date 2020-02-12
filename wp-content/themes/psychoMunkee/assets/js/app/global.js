@@ -1,8 +1,22 @@
 
+
 jQuery(document).ready(function($) {
 
     var about =  $('#beliefNav li'); 
     var scrollTop = $('.toTop');
+    var isAnimating = false;
+
+
+    //unveil homepage
+    $('body').removeClass('page-is-changing');
+
+        function transitionsSupported() {
+       
+           return $('html').hasClass('csstransitions');
+        }
+
+
+
 
     // ===== Scroll to Top ==== 
     $.fn.scrollToTop();
