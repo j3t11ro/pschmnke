@@ -47,13 +47,14 @@
 }
 
 .site-wrapper-inner{
-    height: 100%;
+    height: calc(100vh - 99px);
     background-color: #dddddd;
     @include media-breakpoint-up(sm){
       height: calc(100vh - 99px);
     }
     &.overflow{
       overflow-y: scroll;
+      overflow-x: hidden;
     }
 
   .container-fluid{

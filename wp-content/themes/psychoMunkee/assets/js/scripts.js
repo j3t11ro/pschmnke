@@ -4569,7 +4569,34 @@ var Popover = (function ($) {
 !function(e){var t={animation:"dissolve",separator:",",speed:2e3};e.fx.step.textShadowBlur=function(t){e(t.elem).prop("textShadowBlur",t.now).css({textShadow:"0 0 "+Math.floor(t.now)+"px black"})};e.fn.textrotator=function(n){var r=e.extend({},t,n);return this.each(function(){var t=e(this);var n=[];e.each(t.text().split(r.separator),function(e,t){n.push(t)});t.text(n[0]);var i=function(){switch(r.animation){case"dissolve":t.animate({textShadowBlur:20,opacity:0},500,function(){s=e.inArray(t.text(),n);if(s+1==n.length)s=-1;t.text(n[s+1]).animate({textShadowBlur:0,opacity:1},500)});break;case"flip":if(t.find(".back").length>0){t.html(t.find(".back").html())}var i=t.text();var s=e.inArray(i,n);if(s+1==n.length)s=-1;t.html("");e("<span class='front'>"+i+"</span>").appendTo(t);e("<span class='back'>"+n[s+1]+"</span>").appendTo(t);t.wrapInner("<span class='rotating' />").find(".rotating").hide().addClass("flip").show().css({"-webkit-transform":" rotateY(-180deg)","-moz-transform":" rotateY(-180deg)","-o-transform":" rotateY(-180deg)",transform:" rotateY(-180deg)"});break;case"flipUp":if(t.find(".back").length>0){t.html(t.find(".back").html())}var i=t.text();var s=e.inArray(i,n);if(s+1==n.length)s=-1;t.html("");e("<span class='front'>"+i+"</span>").appendTo(t);e("<span class='back'>"+n[s+1]+"</span>").appendTo(t);t.wrapInner("<span class='rotating' />").find(".rotating").hide().addClass("flip up").show().css({"-webkit-transform":" rotateX(-180deg)","-moz-transform":" rotateX(-180deg)","-o-transform":" rotateX(-180deg)",transform:" rotateX(-180deg)"});break;case"flipCube":if(t.find(".back").length>0){t.html(t.find(".back").html())}var i=t.text();var s=e.inArray(i,n);if(s+1==n.length)s=-1;t.html("");e("<span class='front'>"+i+"</span>").appendTo(t);e("<span class='back'>"+n[s+1]+"</span>").appendTo(t);t.wrapInner("<span class='rotating' />").find(".rotating").hide().addClass("flip cube").show().css({"-webkit-transform":" rotateY(180deg)","-moz-transform":" rotateY(180deg)","-o-transform":" rotateY(180deg)",transform:" rotateY(180deg)"});break;case"flipCubeUp":if(t.find(".back").length>0){t.html(t.find(".back").html())}var i=t.text();var s=e.inArray(i,n);if(s+1==n.length)s=-1;t.html("");e("<span class='front'>"+i+"</span>").appendTo(t);e("<span class='back'>"+n[s+1]+"</span>").appendTo(t);t.wrapInner("<span class='rotating' />").find(".rotating").hide().addClass("flip cube up").show().css({"-webkit-transform":" rotateX(180deg)","-moz-transform":" rotateX(180deg)","-o-transform":" rotateX(180deg)",transform:" rotateX(180deg)"});break;case"spin":if(t.find(".rotating").length>0){t.html(t.find(".rotating").html())}s=e.inArray(t.text(),n);if(s+1==n.length)s=-1;t.wrapInner("<span class='rotating spin' />").find(".rotating").hide().text(n[s+1]).show().css({"-webkit-transform":" rotate(0) scale(1)","-moz-transform":"rotate(0) scale(1)","-o-transform":"rotate(0) scale(1)",transform:"rotate(0) scale(1)"});break;case"fade":t.fadeOut(r.speed,function(){s=e.inArray(t.text(),n);if(s+1==n.length)s=-1;t.text(n[s+1]).fadeIn(r.speed)});break}};setInterval(i,r.speed)})}}(window.jQuery)
 'use strict';
 
-(function ($) {
+var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
+
+(function (factory) {
+    if (typeof define === 'function' && define.amd) {
+        // AMD. Register as an anonymous module.
+        define(['jquery'], factory);
+    } else if ((typeof module === 'undefined' ? 'undefined' : _typeof(module)) === 'object' && module.exports) {
+        // Node/CommonJS
+        module.exports = function (root, jQuery) {
+            if (jQuery === undefined) {
+                // require('jQuery') returns a factory that requires window to
+                // build a jQuery instance, we normalize how we use modules
+                // that require this pattern but the window provided is a noop
+                // if it's defined (how jquery works)
+                if (typeof window !== 'undefined') {
+                    jQuery = require('jquery');
+                } else {
+                    jQuery = require('jquery')(root);
+                }
+            }
+            factory(jQuery);
+            return jQuery;
+        };
+    } else {
+        // Browser globals
+        factory(jQuery);
+    }
+})(function ($) {
     $.fn.tilt = function (options) {
 
         /**
@@ -4585,23 +4612,25 @@ var Popover = (function ($) {
          * Bind mouse movement evens on instance
          */
         var bindEvents = function bindEvents() {
+            var _this = this;
             $(this).on('mousemove', mouseMove);
             $(this).on('mouseenter', mouseEnter);
             if (this.settings.reset) $(this).on('mouseleave', mouseLeave);
+            if (this.settings.glare) $(window).on('resize', updateGlareSize.bind(_this));
         };
 
         /**
          * Set transition only on mouse leave and mouse enter so it doesn't influence mouse move transforms
          */
         var setTransition = function setTransition() {
-            var _this = this;
+            var _this2 = this;
 
             if (this.timeout !== undefined) clearTimeout(this.timeout);
             $(this).css({ 'transition': this.settings.speed + 'ms ' + this.settings.easing });
             if (this.settings.glare) this.glareElement.css({ 'transition': 'opacity ' + this.settings.speed + 'ms ' + this.settings.easing });
             this.timeout = setTimeout(function () {
-                $(_this).css({ 'transition': '' });
-                if (_this.settings.glare) _this.glareElement.css({ 'transition': '' });
+                $(_this2).css({ 'transition': '' });
+                if (_this2.settings.glare) _this2.glareElement.css({ 'transition': '' });
             }, this.settings.speed);
         };
 
@@ -4618,7 +4647,7 @@ var Popover = (function ($) {
         };
 
         /**
-         * Return the x,y position of the muose on the tilt element
+         * Return the x,y position of the mouse on the tilt element
          * @returns {{x: *, y: *}}
          */
         var getMousePositions = function getMousePositions(event) {
@@ -4657,8 +4686,8 @@ var Popover = (function ($) {
          * @returns {{x: tilt value, y: tilt value}}
          */
         var getValues = function getValues() {
-            var width = $(this).width();
-            var height = $(this).height();
+            var width = $(this).outerWidth();
+            var height = $(this).outerHeight();
             var left = $(this).offset().left;
             var top = $(this).offset().top;
             var percentageX = (this.mousePositions.x - left) / width;
@@ -4684,17 +4713,17 @@ var Popover = (function ($) {
 
                 // Rotate glare if enabled
                 if (this.settings.glare) {
-                    this.glareElement.css('transform', 'rotate(180deg) scale(1.75)');
-                    this.glareElement.css('opacity', '' + this.settings.maxGlare / 4);
+                    this.glareElement.css('transform', 'rotate(180deg) translate(-50%, -50%)');
+                    this.glareElement.css('opacity', '0');
                 }
 
                 return;
             } else {
-                $(this).css('transform', 'perspective(' + this.settings.perspective + 'px) rotateX(' + (this.settings.axis === 'x' ? 0 : this.transforms.tiltY) + 'deg) rotateY(' + (this.settings.axis === 'y' ? 0 : this.transforms.tiltX) + 'deg) scale3d(' + this.settings.scale + ',' + this.settings.scale + ',' + this.settings.scale + ')');
+                $(this).css('transform', 'perspective(' + this.settings.perspective + 'px) rotateX(' + (this.settings.disableAxis === 'x' ? 0 : this.transforms.tiltY) + 'deg) rotateY(' + (this.settings.disableAxis === 'y' ? 0 : this.transforms.tiltX) + 'deg) scale3d(' + this.settings.scale + ',' + this.settings.scale + ',' + this.settings.scale + ')');
 
                 // Rotate glare if enabled
                 if (this.settings.glare) {
-                    this.glareElement.css('transform', 'rotate(' + this.transforms.angle + 'deg) scale(1.75)');
+                    this.glareElement.css('transform', 'rotate(' + this.transforms.angle + 'deg) translate(-50%, -50%)');
                     this.glareElement.css('opacity', '' + this.transforms.percentageY * this.settings.maxGlare / 100);
                 }
             }
@@ -4734,14 +4763,31 @@ var Popover = (function ($) {
 
             // Style glare wrapper
             this.glareElementWrapper.css(stretch).css({
-                'overflow': 'hidden'
+                'overflow': 'hidden',
+                'pointer-events': 'none'
             });
 
             // Style glare element
-            this.glareElement.css(stretch).css({
+            this.glareElement.css({
+                'position': 'absolute',
+                'top': '50%',
+                'left': '50%',
                 'background-image': 'linear-gradient(0deg, rgba(255,255,255,0) 0%, rgba(255,255,255,1) 100%)',
-                'opacity': '' + this.settings.maxGlare / 2,
-                'transform': 'rotate(180deg) scale(1.75)'
+                'width': '' + $(this).outerWidth() * 2,
+                'height': '' + $(this).outerWidth() * 2,
+                'transform': 'rotate(180deg) translate(-50%, -50%)',
+                'transform-origin': '0% 0%',
+                'opacity': '0'
+            });
+        };
+
+        /**
+         * Update glare on resize
+         */
+        var updateGlareSize = function updateGlareSize() {
+            this.glareElement.css({
+                'width': '' + $(this).outerWidth() * 2,
+                'height': '' + $(this).outerWidth() * 2
             });
         };
 
@@ -4767,13 +4813,13 @@ var Popover = (function ($) {
 
         $.fn.tilt.reset = function () {
             $(this).each(function () {
-                var _this2 = this;
+                var _this3 = this;
 
                 this.mousePositions = getMousePositions.call(this);
                 this.settings = $(this).data('settings');
                 mouseLeave.call(this);
                 setTimeout(function () {
-                    _this2.reset = false;
+                    _this3.reset = false;
                 }, this.settings.transition);
             });
         };
@@ -4782,7 +4828,7 @@ var Popover = (function ($) {
          * Loop every instance
          */
         return this.each(function () {
-            var _this3 = this;
+            var _this4 = this;
 
             /**
              * Default settings merged with user settings
@@ -4796,21 +4842,28 @@ var Popover = (function ($) {
                 scale: $(this).is('[data-tilt-scale]') ? $(this).data('tilt-scale') : '1',
                 speed: $(this).is('[data-tilt-speed]') ? $(this).data('tilt-speed') : '400',
                 transition: $(this).is('[data-tilt-transition]') ? $(this).data('tilt-transition') : true,
+                disableAxis: $(this).is('[data-tilt-disable-axis]') ? $(this).data('tilt-disable-axis') : null,
                 axis: $(this).is('[data-tilt-axis]') ? $(this).data('tilt-axis') : null,
                 reset: $(this).is('[data-tilt-reset]') ? $(this).data('tilt-reset') : true,
                 glare: $(this).is('[data-tilt-glare]') ? $(this).data('tilt-glare') : false,
                 maxGlare: $(this).is('[data-tilt-maxglare]') ? $(this).data('tilt-maxglare') : 1
             }, options);
 
+            // Add deprecation warning & set disableAxis to deprecated axis setting
+            if (this.settings.axis !== null) {
+                console.warn('Tilt.js: the axis setting has been renamed to disableAxis. See https://github.com/gijsroge/tilt.js/pull/26 for more information');
+                this.settings.disableAxis = this.settings.axis;
+            }
+
             this.init = function () {
                 // Store settings
-                $(_this3).data('settings', _this3.settings);
+                $(_this4).data('settings', _this4.settings);
 
                 // Prepare element
-                if (_this3.settings.glare) prepareGlare.call(_this3);
+                if (_this4.settings.glare) prepareGlare.call(_this4);
 
                 // Bind events
-                bindEvents.call(_this3);
+                bindEvents.call(_this4);
             };
 
             // Init
@@ -4822,7 +4875,9 @@ var Popover = (function ($) {
      * Auto load
      */
     $('[data-tilt]').tilt();
-})(jQuery);
+
+    return true;
+});
 //# sourceMappingURL=tilt.jquery.js.map
 
 
@@ -4838,7 +4893,7 @@ jQuery(document).ready(function($) {
         md = 768 - 1,
         lg = 992,
         xl = 1200;
-    var url = location.origin +'/'+location.pathname.split("/")[1];
+    var url = location.origin;
     $.fn.resetTilt = function() {
         tilt.tilt.call(tilt);
     };
@@ -5212,7 +5267,7 @@ if($.fn.detectIE()){
         $(".nav-item[data-page-id="+page+"]").addClass('active');
       
         var notMenuItem = '.page-load, .masthead-brand';
-        if (!self.is(notMenuItem)){
+        if (!self.is(notMenuItem) && document.body.classList.contains('mobile')){
          $( "button.mobile" ).trigger( "click" );
         }
          if(self.text().toLowerCase() == "contact"){

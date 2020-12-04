@@ -31,8 +31,7 @@
                <p>measure key metrics to help understand the bigger picture of your brand or product. Discover the attributes of your audience to connect deeper.</p>
            </div>
         </div>
-
-     <div class="col-sm-6 text-center pmServiceOutro hidden-md-up">
+     <div class="col-sm-6 text-center pmServiceOutro d-md-none">
           <div class="pmServiceType">
                 <i class="icon-chat"></i>
               <h3>have a project idea?</h3>
@@ -42,13 +41,13 @@
         <br />
         </div>
 
-       <div class="mobileNav hidden-md-up">
+       <div class="mobileNav d-md-none">
         <button id="navPrev" class="btn btn-default"><span class="icon-chevron-left"></span>prev</button>
         <button id="navNext" class="btn btn-default">next<span class="icon-chevron-right"></span></button>
         </div>
 
     </div>
-    <div class="col pmServiceCanvas hidden-md-down">
+    <div class="col pmServiceCanvas d-none d-lg-block">
 
         <div class="canvas">
             <div class="canvasItem row" id="design">

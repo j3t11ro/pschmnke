@@ -28,7 +28,7 @@
         $(".nav-item[data-page-id="+page+"]").addClass('active');
       
         var notMenuItem = '.page-load, .masthead-brand';
-        if (!self.is(notMenuItem)){
+        if (!self.is(notMenuItem) && document.body.classList.contains('mobile')){
          $( "button.mobile" ).trigger( "click" );
         }
          if(self.text().toLowerCase() == "contact"){

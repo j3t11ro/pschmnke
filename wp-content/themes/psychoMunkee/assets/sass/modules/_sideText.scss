@@ -20,6 +20,18 @@
       transform-origin: 3.3vw 5.7vw;
     }
 
+   @media (min-width: 1700px){
+      transform-origin: 3.3vw 5.7vw;
+    }
+
+    @media (min-width: 1960px){
+      transform-origin: 2.3vw 3.7vw;
+    }
+
+    @media (min-width: 2200px){
+      transform-origin: 2vw 3.5vw;    
+    }
+
     p{
         font-size: .8em;
         letter-spacing: 2px;

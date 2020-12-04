@@ -127,6 +127,10 @@
        top: 5em;
        }
       }
+  
+  @include media-breakpoint-up(md){
+    display: none;
+  }
   & .nav{
     @include vertical-center();
     flex-direction: column-reverse;
@@ -155,6 +159,9 @@
        top: 5em;
        }
       }
+    @include media-breakpoint-down(xs){
+      display: none;
+    }
   & .nav{
     flex-direction: row-reverse;
   }
@@ -181,5 +188,9 @@
 .collapsing {
   @include transition(all .3s linear);
 }
-
+.collapse {
+  &.in{
+    display: block;
+    }
+  }
 }

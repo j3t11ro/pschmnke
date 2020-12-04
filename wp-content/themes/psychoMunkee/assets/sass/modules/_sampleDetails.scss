@@ -17,7 +17,7 @@
     }
     &.open{
     //   visibility: visible;
-       top: 0;
+       top: 50px;
        left: 0; 
     } 
     .close{
@@ -42,7 +42,7 @@
         height: auto;
         }
     }
-
+    
     .sampleCanvas{
         position: relative;
         @include media-breakpoint-only(md){

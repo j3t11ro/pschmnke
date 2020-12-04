@@ -7,7 +7,7 @@ jQuery(document).ready(function($) {
         md = 768 - 1,
         lg = 992,
         xl = 1200;
-    var url = location.origin +'/'+location.pathname.split("/")[1];
+    var url = location.origin;
     $.fn.resetTilt = function() {
         tilt.tilt.call(tilt);
     };

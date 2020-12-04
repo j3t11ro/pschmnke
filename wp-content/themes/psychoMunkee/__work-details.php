@@ -5,7 +5,7 @@
         close
         </span>
 <div class="detailWrapper row">
-	<div class="col-md-7 sampleCanvas hidden-sm-down">
+	<div class="col-md-7 sampleCanvas d-none d-md-block">
         <div class="sampleBg1" >
             <div class="sampleImage"></div>
             

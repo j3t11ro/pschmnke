@@ -7,7 +7,7 @@
             <p>creative digital and print services</p>
         </div>
         <div class="pmVidBg">
-          <video class="hidden-sm-down"  autoplay="" loop="" muted="" id="fpIntroBg">
+          <video class="d-none d-md-block"  autoplay="" loop="" muted="" id="fpIntroBg">
             <source src="<?php echo get_template_directory_uri() ?>/assets/video/pmVidBg.mp4" type="video/mp4">
           </video>
         </div>

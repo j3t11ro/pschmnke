@@ -8,7 +8,7 @@ Template Name: psychomunkee-work
 
 <div class="site-wrapper">
 
-      <div class="site-wrapper-inner">
+      <div class="site-wrapper-inner overflow">
    <div class="pmSideText">
             <p>selected projects</p>
           </div>
